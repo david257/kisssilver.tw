@@ -1,0 +1,136 @@
+﻿<style>
+    .title_name {
+        text-align: right;
+    }
+    .title td {
+        background: #C1C1C1;
+        text-align: left;
+    }
+    .table {
+        border-left: 1px solid #000;
+        border-top: 1px solid #000;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .table td {
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 10px;
+        font-weight: bold;
+    }
+</style>
+<div style="float:left;"><img src="/static/images/ftlogo.png" height="80" /></div>
+<div style="float:right">
+<div>Kiss Silver</div>
+<div>宅配專線：0966-598891</div>
+<div>地 址：</div>
+</div>
+<div style="clear:both;"></div>
+<h2>寄貨資料</h2>
+<table class="table" border="0" cellspacing="0">
+    <tr>
+        <td class="title_name">姓名:</td><td><?php echo $order['shipping_name']; ?></td>
+    </tr>
+    <tr>
+        <td class="title_name">性別:</td><td><?php echo $order['shipping_sex']; ?></td>
+    </tr>
+    <tr>
+        <td class="title_name">行動電話:</td><td><?php echo $order['shipping_mobile']; ?></td>
+    </tr>
+    <tr>
+        <td class="title_name">市話:</td><td><?php echo $order['shipping_tel1']; ?>-<?php echo $order['shipping_tel2']; ?></td>
+    </tr>
+    <tr>
+        <td class="title_name">物流編號:</td><td><?php echo $order['AllPayLogisticsID']; ?></td>
+    </tr>
+    <?php
+    if($order["LogisticsType"]=="HOME") {
+    ?>
+    <tr>
+        <td class="title_name">收貨地址:</td><td><?php echo $order['shipping_city']; ?>-<?php echo $order['shipping_area']; ?>-<?php echo $order['shipping_address']; ?></td>
+    </tr>
+    <?php } else { ?>
+    <tr>
+        <td class="title_name">收貨地址:</td><td><?php echo $order['CVSAddress']; ?>(<?php echo $order['CVSStoreName']; ?>)</td>
+    </tr>
+    <?php } ?>
+    <tr>
+        <td class="title_name">收貨時間:</td><td><?php echo $order['revice_time']; ?></td>
+    </tr>
+    <tr>
+        <td class="title_name">訂單備註:</td>
+        <td>
+            <?php echo $order['remark']; ?>
+        </td>
+    </tr>
+
+</table>
+<hr style="border: 1px dashed #ddd; margin: 20px 0 " />
+<h2>訂單明細</h2>
+<table class="table" cellspacing="0" border="0">
+        <tr class="title">
+            <td>編號</td>
+            <td>商品名稱</td>
+            <td>訂購數量</td>
+            <td>售價</td>
+            <td>總金額</td>
+        </tr>
+        <?php
+        $qty = $total_amount = $total_points = 0;
+        if (!empty($items)) {
+            foreach ($items as $k => $row) {
+                $qty += $row["qty"];
+                $total_amount += $row["total_amount"];
+                ?>
+                <tr>
+                    <td><?php echo $row['sku']; ?></td>
+                    <td>
+                        <?php echo $row['prodname']; ?>
+                        <?php 
+                        if(!empty($row["options"])) {
+                            $json_options = json_decode($row["options"], true);
+                            foreach($json_options as $vname => $options) {
+                                foreach($options as $voname => $vodata) {
+                        ?>
+                        <div style="font-size: 12px;font-weight: 100;"><?php echo $vname;?>: <em style="color:red;"><?php echo $voname;?></em></div>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td><?php echo $row['qty']; ?></td>
+                    <td><?php echo $row['prod_price']; ?></td>
+                    <td><?php echo $row['total_amount']; ?></td>
+                </tr>
+            <?php }
+        } ?> 
+
+        <tr>
+            <td colspan="4" class="title_name">付款方式:</td>
+            <td>
+                <?php
+                $pay_types = get_pay_types();
+                echo $pay_types[$order['pay_type']]["title"];
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="title_name">運費:</td><td><?php echo format_price($order['shipping_fee']); ?></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="title_name">優惠金額:</td><td><?php echo format_price($order['coupon_amount']); ?></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="title_name">促銷金額:</td><td><?php echo format_price($order['promotion_amount']); ?></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="title_name">購物金抵扣:</td><td><?php echo format_price($order['gwjin_amount']); ?></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="title_name">其他方式支付:</td><td><?php echo format_price($order['total_amount']-$order['gwjin_amount']); ?></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="title_name">總金額:</td><td><?php echo format_price($order['total_amount']); ?></td>
+        </tr>
+</table>

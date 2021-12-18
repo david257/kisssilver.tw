@@ -1,0 +1,89 @@
+﻿<form enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, ajaxDialog);" action="<?= url("Coupon/save") ?>" method="post">
+    <table  width="100%" layoutH="58">
+        <tr>
+            <td style="text-align: right;">
+                標題：
+            </td>
+            <td>
+                <select name="title">
+                    <?php 
+                      $titles =  get_email_titles();
+                      if(!empty($titles)) {
+                          foreach($titles as $k => $v) {
+                    ?>
+                    <option value="<?php echo $v;?>"><?php echo $v;?></option>
+                    <?php
+                          }
+                      }
+                    ?>
+                </select>
+                (請前往參數管理中設置)
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right">
+                訂購金額：
+            </td>
+            <td>
+                <input type="text" size="10" name="min_amount" class="required digits" value="0" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right">
+                折價金額：
+            </td>
+            <td>
+                <input type="text" size="10" name="amount" class="required digits" value="0" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right">
+                有效期：
+            </td>
+            <td>
+                <input type="text" size="10" name="start_date" class="required date" value="" />
+                至
+                <input type="text" size="10" name="end_date" class="required date" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">發放人群：</td>
+            <td>
+                <input type="radio" name="send_type" onclick="$('#user_ids').show();" value="by_user_ids"/> 特定用戶
+                <input type="radio" name="send_type" onclick="$('#user_ids').hide();" value="send_to_all"/> 全部用戶
+            </td>
+        </tr>
+        <tr id="user_ids" style="display: none;">
+            <td style="text-align: right;">用戶ID：</td>
+            <td>
+                <div style="height: 300px; overflow-y: scroll;background: #fff;">
+                    <?php
+                    if(!empty($users)) {
+                        foreach($users as $user) {
+                    ?>
+                    <p><input type="checkbox" name="user_ids[]" value="<?php echo $user["user_id"];?>" /><?php echo empty($user["fullname"])?"":$user["fullname"]."-";?><?php echo $user["username"];?></p>
+                    <?php } } ?>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="formBar">
+        <ul>
+            <li><div class="buttonActive"><div class="buttonContent"><button type="submit">執行發放</button></div></div></li>
+            <li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </li>
+        </ul>
+    </div>
+</form>
+<script>
+    function ajaxDialog(json) {
+        if (json.statusCode == 200) {
+            alertMsg.correct(json.message);
+            $.pdialog.closeCurrent();
+            navTab.reload(json.url);
+        } else {
+            alertMsg.error(json.message);
+        }
+    }
+</script>

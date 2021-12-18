@@ -1,0 +1,189 @@
+<?php
+
+namespace ecpay;
+use think\Request;
+
+//載入SDK(路徑可依系統規劃自行調整)
+include('ECPay.Payment.Integration.php');
+
+class ECPay {
+	
+    //const ServiceURL = "https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5";   //服務位置
+	//const ServiceURL = "https://payment.ecpay.com.tw/Cashier/AioCheckOut/V5";   //服務位置
+    //const HashKey = '5294y06JbISpM5x9';                                           //測試用Hashkey，請自行帶入ECPay提供的HashKey
+    //const HashIV = 'v77hoKGq4kWxNNIS';                                           //測試用HashIV，請自行帶入ECPay提供的HashIV
+    //const MerchantID = '2000132';                                                     //測試用MerchantID，請自行帶入ECPay提供的MerchantID
+    const EncryptType = '1';                                                           //CheckMacValue加密類型，請固定填入1，使用SHA256加密;           
+    
+    public function __construct() {
+        $config = get_setting();
+        $domain = request()->domain();
+        if(isset($config["setting"]["ecpay"]["isProd"]) && !empty($config["setting"]["ecpay"]["isProd"])) {
+            $isProd = 1;
+        } else {
+            $isProd = 0;
+        }
+        $this->obj = new \ECPay_AllInOne();
+        
+		if($isProd) {
+			$ServiceURL = "https://payment.ecpay.com.tw/Cashier/AioCheckOut/V5";   //服務位置
+		} else {
+			$ServiceURL = "https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5";   //服務位置
+		}
+
+        $this->obj->ServiceURL = $ServiceURL;   //服務位置
+        $this->obj->HashKey = $config["setting"]["pay"]["hashkey"];                                           //測試用Hashkey，請自行帶入ECPay提供的HashKey
+        $this->obj->HashIV = $config["setting"]["pay"]["hashiv"];                                           //測試用HashIV，請自行帶入ECPay提供的HashIV
+        $this->obj->MerchantID = $config["setting"]["pay"]["merchantid"];                                                     //測試用MerchantID，請自行帶入ECPay提供的MerchantID
+        $this->obj->EncryptType = self::EncryptType;                                                           //CheckMacValue加密類型，請固定填入1，使用SHA256加密
+        
+        //付款结果异步通知地址
+        $this->notice_url = $domain.front_link("Ecpay/sync_notice");
+        
+        //訂單付款结果前端跳回地址,会带付款结果信息
+        $this->order_result_url = $domain.front_link("Ecpay/pay_result");
+        
+        //訂單付款结果跳回网站某个页面, 不带任何信息
+        $this->client_url = $domain;
+    }
+
+    public function ALL($order) {
+
+        try {
+            //基本參數(請依系統規劃自行調整)
+            $MerchantTradeNo = $order["payoid"];
+            $amount = (int)($order["total_amount"]);
+            $this->obj->Send['ReturnURL'] = $this->notice_url;    //付款完成通知回傳的網址，异步通知
+            $this->obj->Send["ClientBackURL"] = $this->client_url;
+            $this->obj->Send["OrderResultURL"] = $this->order_result_url; //訂單付款结果通知
+            $this->obj->Send['MerchantTradeNo'] = $MerchantTradeNo;                          //訂單編號
+            $this->obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                       //交易時間
+            $this->obj->Send['TotalAmount'] = $amount;                                      //交易金額
+            $this->obj->Send['TradeDesc'] = "網絡付款";                          //交易描述
+            $this->obj->Send['ChoosePayment'] = \ECPay_PaymentMethod::ALL;                 //付款方式:ALL
+            $this->obj->Send['CustomField1'] = md5($this->obj->HashKey.$MerchantTradeNo.$amount.$this->obj->HashIV);
+            //訂單的商品資料
+            if(!empty($order["items"])) {
+                foreach($order["items"] as $item) {
+					if(!empty($item['opitons'])) {
+						$optionNames = [];
+						$options = json_decode($item['opitons'], true);
+						foreach($options as $k => $v) {
+							$optionNames[] = $v['valuename'];
+						}
+
+						$voptionStr = "(".implode(",", $optionNames).")";
+					} else {
+						$voptionStr = '';
+					}
+                    $product = array(
+                        'Name' => $item["prodname"].$voptionStr,
+                        'Price' => (int)$item["prod_price"],
+                        'Currency' => "元",
+                        'Quantity' => (int) $item["qty"],
+                        'URL' => front_link("Product/detail", ["prodid" => $item["prodid"]])
+                    );
+                    array_push($this->obj->Send['Items'], $product);
+                }
+            }
+
+            //ATM 延伸參數(可依系統需求選擇是否代入)
+            $this->obj->SendExtend['ExpireDate'] = 3;     //繳費期限 (預設3天，最長60天，最短1天)
+            $this->obj->SendExtend['PaymentInfoURL'] = ""; //伺服器端回傳付款相關資訊。
+            //產生訂單(auto submit至ECPay)
+            $html = $this->obj->CheckOut();
+            echo $html;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function ATM($order) {
+
+        try {
+            //基本參數(請依系統規劃自行調整)
+            $amount = (int)($order["total_amount"]);
+            $MerchantTradeNo = $order["payoid"];
+            $this->obj->Send['ReturnURL'] = $this->notice_url;    //付款完成通知回傳的網址，异步通知
+            $this->obj->Send["ClientBackURL"] = $this->client_url;
+            $this->obj->Send["OrderResultURL"] = $this->order_result_url; //訂單付款结果通知
+            $this->obj->Send['MerchantTradeNo'] = $MerchantTradeNo;                          //訂單編號
+            $this->obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                       //交易時間
+            $this->obj->Send['TotalAmount'] = $amount;                                      //交易金額
+            $this->obj->Send['TradeDesc'] = "ATM轉帳";                          //交易描述
+            $this->obj->Send['ChoosePayment'] = \ECPay_PaymentMethod::ATM;                 //付款方式:ATM
+            $this->obj->Send['CustomField1'] = md5($this->obj->HashKey.$MerchantTradeNo.$amount.$this->obj->HashIV);
+            //訂單的商品資料
+            if(!empty($order["items"])) {
+                foreach($order["items"] as $item) {
+                    $product = array(
+                        'Name' => $item["prodname"],
+                        'Price' => (int)$item["prod_price"],
+                        'Currency' => "元", 
+                        'Quantity' => (int) $item["qty"], 
+                        'URL' => front_link("Product/detail", ["prodid" => $item["prodid"]])
+                        );
+                    array_push($this->obj->Send['Items'], $product);
+                }
+            }
+
+            //ATM 延伸參數(可依系統需求選擇是否代入)
+            $this->obj->SendExtend['ExpireDate'] = 3;     //繳費期限 (預設3天，最長60天，最短1天)
+            $this->obj->SendExtend['PaymentInfoURL'] = ""; //伺服器端回傳付款相關資訊。
+            //產生訂單(auto submit至ECPay)
+            $html = $this->obj->CheckOut();
+            echo $html;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    //信用卡分期
+    public function credit($order, $fenqi=0) {
+
+        try {
+            //基本參數(請依系統規劃自行調整)
+            $amount = (int)($order["total_amount"]);
+            $MerchantTradeNo = $order["payoid"];
+            $this->obj->Send['ReturnURL'] = $this->notice_url;    //付款完成通知回傳的網址
+            $this->obj->Send["ClientBackURL"] = $this->client_url;
+            $this->obj->Send["OrderResultURL"] = $this->order_result_url; //訂單付款结果通知
+            $this->obj->Send['MerchantTradeNo'] = $MerchantTradeNo;                          //訂單編號
+            $this->obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                       //交易時間
+            $this->obj->Send['TotalAmount'] = $amount;                                      //交易金額
+            $this->obj->Send['TradeDesc'] = "信用卡支付";                          //交易描述
+            $this->obj->Send['ChoosePayment'] = \ECPay_PaymentMethod::Credit;              //付款方式:Credit
+            $this->obj->Send['CustomField1'] = md5($this->obj->HashKey.$MerchantTradeNo.$amount.$this->obj->HashIV);
+            
+            //訂單的商品資料
+            if(!empty($order["items"])) {
+                foreach($order["items"] as $item) {
+                    $product = array(
+                        'Name' => $item["prodname"],
+                        'Price' => (int)$item["prod_price"],
+                        'Currency' => "元", 
+                        'Quantity' => (int)$item["qty"], 
+                        'URL' => front_link("Product/detail", ["prodid" => $item["prodid"]])
+                        );
+                    array_push($this->obj->Send['Items'], $product);
+                }
+            }
+
+            //Credit信用卡分期付款延伸參數(可依系統需求選擇是否代入)
+            //以下參數不可以跟信用卡定期定額參數一起設定
+            $this->obj->SendExtend['CreditInstallment'] = $fenqi;    //分期期數，預設0(不分期)，信用卡分期可用參數為:3,6,12,18,24
+            $this->obj->SendExtend['InstallmentAmount'] = (int) ($fenqi?$order["total_amount"]:0);    //使用刷卡分期的付款金額，預設0(不分期)
+            $this->obj->SendExtend['Redeem'] = false;           //是否使用紅利折抵，預設false
+            $this->obj->SendExtend['UnionPay'] = false;          //是否為聯營卡，預設false;
+
+
+            //產生訂單(auto submit至ECPay)
+            $this->obj->CheckOut();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+}
+
+?>

@@ -1,0 +1,95 @@
+<form id="pagerForm" method="post" action="#rel#">
+    <input type="hidden" name="pageNum" value="1" />
+</form>
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<?php echo url('coupon/index'); ?>" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        <input type="text" alt="優惠券號碼, 用戶帳號" size="30" name="keyword" value="<?php echo $keyword;?>" />
+                    </td>
+                    <td>
+                        是否使用:
+                        <select name="has_used">
+                            <option value="All">全部</option>
+                            <?php
+                            $has_useds = [
+                                "0" => "未使用",
+                                "1" => "已使用"
+                            ];
+                            foreach($has_useds as $k => $v) {
+                                $selected = (is_numeric($has_used) && $k==$has_used)?"selected":"";
+                            ?>
+                            <option <?php echo $selected;?> value="<?php echo $k;?>"><?php echo $v;?></option>
+                            <?php } ?>
+                        </select>
+                    </td>
+                    <td>使用日期:<input type="text" size="10" name="start_date" class="date" value="<?php echo $start_date;?>"/>至<input type="text" size="10" name="end_date" class="date" value="<?php echo $end_date;?>"/></td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">檢索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <?php
+            echo make_node('<li><a class="add" href="%s" width="850" height="600" target="dialog"><span>設置自動發放規則</span></a></li>', 'admin/coupon/auto_send_rule');
+            echo make_node('<li><a class="edit" href="%s" width="850" height="600" target="dialog"><span>發放優惠券</span></a></li>', 'admin/coupon/add');
+            echo make_node('<li><a class="delete" href="%s" target="ajaxTodo" title="確定要刪除嗎?"><span>刪除</span></a></li>', 'admin/coupon/delete', "cpid={cpid}");
+            ?>
+        </ul>
+    </div>
+    <table class="list" width="100%" layoutH="118">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>用戶Email</th>
+                <th>優惠券號碼</th>
+                <th>標題</th>
+                <th>有效期</th>
+                <th>滿足金額</th>
+                <th>折扣金額</th>
+                <th>是否已使用</th>
+                <th>使用日期</th>
+                <th>創建日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (!empty($list)) {
+                foreach ($list as $v) {
+                    ?>
+                    <tr target="cpid" rel="<?= $v["cpid"] ?>">
+                        <td><?= $v["cpid"] ?></td>
+                        <td><?= $v["username"] ?></td>
+                        <td><?= $v["code"] ?></td>
+                        <td><?= $v["title"] ?></td>
+                        <td><?= date("Y-m-d", $v["start_time"])."/".date("Y-m-d", $v["end_time"]) ?></td>
+                        <td><?= $v["min_amount"] ?></td>
+                        <td><?= $v["amount"] ?></td>
+                        <td><?= $v["has_used"] ? "Y" : "N" ?></td>
+                        <td><?= !empty($v["used_date"]) ? date("Y-m-d H:i:s", $v["used_date"]) : "" ?></td>
+                        <td><?= !empty($v["create_time"]) ? date("Y-m-d H:i:s", $v["create_time"]) : "" ?></td>
+                    </tr>
+                <?php }
+            } ?>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共<?= $pages["total"] ?>條</span>
+        </div>
+
+        <div class="pagination" targetType="navTab" totalCount="<?= $pages["total"] ?>" numPerPage="<?= $pages["page_size"] ?>" pageNumShown="10" currentPage="<?= $pages["now_page"] ?>"></div>
+
+    </div>
+</div>
+
+</div>

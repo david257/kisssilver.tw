@@ -1,0 +1,35 @@
+{include file="common/header_meta" /}
+<div class="pageContent">
+    <table class="table table-bordered table-striped table-sm table-responsive-sm" >
+        <thead>
+            <tr>
+                <th>物流類型</th>
+                <th>物流廠商</th>
+                <th>快遞單號</th>
+                <th>狀態</th>
+                <th>更新日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if(!empty($list)) {
+            $express_types =  return_express_types(); 
+            $express_types_sub = [];
+            $express_types_sub = array_merge($express_types_sub, LogisticsCVSSubTypes());
+            $express_types_sub = array_merge($express_types_sub, LogisticsHomeSubTypes());
+            foreach ($list as $k => $row) {
+                ?>
+                <tr>
+                    <td><?php echo isset($express_types[$row['LogisticsType1']])?$express_types[$row['LogisticsType1']]:""; ?></td>
+                    <td><?php echo isset($express_types_sub[$row['LogisticsType2']])?$express_types_sub[$row['LogisticsType2']]:""; ?></td>
+                    <td><?php echo $row["ShipmentNo"];?></td>
+                    <td><?php echo express_status($row["LogisticsType1"], $row["LogisticsType2"], $row["LogisticsStatus"]); ?></td>
+                    <td><?php echo date('Y-m-d H:i:s', $row['TradeDate']); ?></td>
+   
+                </tr>
+            <?php } } ?>
+                          
+        </tbody>
+    </table>
+</div>
+{include file="common/footer_js" /}

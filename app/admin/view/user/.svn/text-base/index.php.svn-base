@@ -1,0 +1,88 @@
+<form id="pagerForm" method="post" action="<?= url("/admin/admin_user/index") ?>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="<?= $pages["page_size"]?>" />
+</form>
+<div class="pageHeader">
+	<form onsubmit="return navTabSearch(this);" action="<?= url("/admin/admin_user/index") ?>" method="post">
+	<div class="searchBar">
+		<table class="searchContent">
+			<tr>
+				<td>
+					用戶：<input type="text" size="50" name="keyword" value="<?= $keyword ?>" />
+				</td>
+				<td>
+					<select class="combox" name="roleid">
+						<option value="0">全部</option>
+                        <?php
+                        if(!empty($roles)) {
+                            foreach($roles as $k => $v) {
+                                if($k==$roleid) {
+                                    $selected = "selected";
+                                } else {
+                                    $selected = "";
+                                }
+                        ?>
+						<option <?= $selected ?> value="<?= $k ?>"><?= $v ?></option>
+                        <?php } } ?>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">檢索</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<?php
+             echo make_node('<li><a class="add" href="%s" width="500" height="500" target="dialog"><span>新增</span></a></li>', 'admin/admin_user/add');
+             echo make_node('<li><a class="edit" href="%s" width="500" height="500" target="dialog"><span>修改</span></a></li>', 'admin/admin_user/edit', "auid={auid}");
+             echo make_node('<li><a class="delete" href="%s" target="ajaxTodo" title="確定要刪除嗎?"><span>刪除</span></a></li>', 'admin/admin_user/delete', "auid={auid}");
+            ?>
+		</ul>
+	</div>
+	<table class="table" width="100%" layoutH="138">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>用戶名</th>
+				<th>姓名</th>
+				<th>手機號</th>
+				<th>角色</th>
+				<th>有效性</th>
+				<th>創建日期</th>
+			</tr>
+		</thead>
+		<tbody>
+            <?php
+            if(!empty($list)) {
+            foreach($list as $v) {
+            ?>
+			<tr target="auid" rel="<?= $v["auid"] ?>">
+				<td><?= $v["auid"] ?></td>
+				<td><?= $v["username"] ?></td>
+				<td><?= $v["fullname"] ?></td>
+				<td><?= $v["mobile"] ?></td>
+				<td><?= isset($roles[$v["roleid"]])?$roles[$v["roleid"]]:"" ?></td>
+				<td><?= $v["status"]?"Y":"N" ?></td>
+				<td><?= !empty($v["create_time"])?date("Y-m-d H:i:s", $v["create_time"]):"" ?></td>
+			</tr>
+            <?php } } ?>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>共<?= $pages["total"]?>條</span>
+		</div>
+
+		<div class="pagination" targetType="navTab" totalCount="<?= $pages["total"]?>" numPerPage="<?= $pages["page_size"]?>" pageNumShown="10" currentPage="<?= $pages["now_page"]?>"></div>
+
+	</div>
+</div>
+
+</div>

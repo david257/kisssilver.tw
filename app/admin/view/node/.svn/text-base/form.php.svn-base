@@ -1,0 +1,83 @@
+﻿<form onsubmit="return validateCallback(this, dialogAjaxDone);" action="<?= url("Node/save") ?>" method="post">
+	<div class="searchBar">
+		<table layoutH="38" width="100%">
+            <tr>
+				<td style="text-align: right">
+					名稱：
+				</td>
+                <td>
+                    <input type="text" size="50" name="title" value="<?= isset($node["title"])?$node["title"]:"" ?>" />
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					所屬上級：
+				</td>
+                <td>
+                    <select name="pid">
+                        <option value="0">無</option>
+                    <?php
+                    if(!empty($tree_nodes)) {
+                        foreach($tree_nodes as $item){
+                            if(isset($node["pid"]) && $item["id"]==$node["pid"]) {
+                                $selected = "selected";
+                            } else {
+                                $selected = "";
+                            }
+                            echo '<option '.$selected.' value="'.$item["id"].'">';
+                            //根據所在的層次縮進
+                            echo str_repeat('......',$item['level']);
+                            echo $item['name'];
+                            echo '</option>';
+                        }
+                    }
+                    ?>
+                    </select>
+                </td>
+            </tr>
+			<tr>
+				<td style="text-align: right">
+					URL：
+				</td>
+                <td>
+                    <input type="text" size="50" name="url" value="<?= isset($node["url"])?$node["url"]:"" ?>" />
+                    <br/>
+                    模組/控制器/方法
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					選單：
+				</td>
+                <td>
+                    <input type="checkbox"  name="is_menu" <?= (isset($node["is_menu"]) && $node["is_menu"])?"checked":"" ?> value="1" />
+                </td>
+			</tr>
+            <tr>
+				<td style="text-align: right">
+					排序：
+				</td>
+                <td>
+                    <input type="text" size="10" name="sortorder" value="<?= isset($node["sortorder"])?$node["sortorder"]:"999" ?>" />
+                </td>
+			</tr>
+            <tr>
+				<td style="text-align: right">
+					是否顯示：
+				</td>
+                <td>
+                    <input type="checkbox" name="status" <?= (isset($node["status"]) && $node["status"])?"checked":"" ?> value="1" />
+                </td>
+			</tr>
+		</table>
+        <input type="hidden" name="nodeid" value="<?= isset($node["nodeid"])?$node["nodeid"]:0 ?>" />
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">儲存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</form>

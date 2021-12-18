@@ -1,0 +1,44 @@
+
+<form id="pagerForm" method="post" action="<?= url("Node/index") ?>">
+</form>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<?php
+             echo make_node('<li><a class="add" href="%s" width="500" height="500" target="dialog"><span>新增</span></a></li>', 'admin/node/add');
+             echo make_node('<li><a class="edit" href="%s" width="500" height="500" target="dialog"><span>修改</span></a></li>', 'admin/node/edit', "nodeid={nodeid}");
+             echo make_node('<li><a class="delete" href="%s" target="ajaxTodo" title="確定要刪除嗎?"><span>刪除</span></a></li>', 'admin/node/delete', "nodeid={nodeid}");
+            ?>
+		</ul>
+	</div>
+    <div>
+        <ul class="tree treeFolder">
+        <?php
+        if(!empty($menus)) {
+            foreach($menus[0] as $k => $pmenus) { 
+        ?>
+        <li target="nodeid" rel="<?php echo $pmenus["nodeid"];?>"><a><?php echo $pmenus["title"];?></a>
+            <?php if(isset($menus[$pmenus["nodeid"]]) && !empty($menus[$pmenus["nodeid"]])) {?>
+            <ul>
+                <?php
+                    foreach($menus[$pmenus["nodeid"]] as $ck => $cmenus) {
+                ?>
+                <li target="nodeid" rel="<?php echo $cmenus["nodeid"];?>"><a><?php echo $cmenus["title"];?></a>
+                    <?php if(isset($menus[$cmenus["nodeid"]]) && !empty($menus[$cmenus["nodeid"]])) { ?>
+                    <ul>
+                        <?php
+                            foreach($menus[$cmenus["nodeid"]] as $ak => $amenus) {
+                        ?>
+                        <li target="nodeid" rel="<?php echo $amenus["nodeid"];?>"><a><?php echo $amenus["title"];?></a></li>
+                        <?php } ?>
+                    </ul>
+                    <?php } ?>
+                </li>
+                <?php } ?>
+            </ul>
+            <?php } ?>
+        </li>
+        <?php } } ?>
+        </ul>
+    </div>
+</div>

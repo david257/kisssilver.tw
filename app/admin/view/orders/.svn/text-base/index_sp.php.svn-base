@@ -1,0 +1,188 @@
+<style>
+    table.list .product_details {
+        display: block;
+        width: 345px;
+        margin:0;
+    }
+    table.list .product_details.title  li {
+        color: #0000FF;
+        border-top: 1px solid #ddd;
+    }
+    table.list .product_details li {
+        border-left: 0;
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+        background: lemonchiffon;
+        height: 21px;
+        overflow: hidden; 
+        float:left;
+    }
+    table.list .product_details li.sku {
+        width: 60px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+    table.list .product_details li.name {
+        width: 129px;
+        border-right: 1px solid #ddd;
+    }
+    table.list .product_details li.qty {
+        width: 39px;
+        border-right: 1px solid #ddd;
+    }
+    table.list .product_details li.price {
+        width: 70px;
+        border-right: 1px solid #ddd;
+    }
+    table.list .product_details .title td {
+        background: #f0c040;
+    }
+
+</style>
+<form id="pagerForm" method="post" action="#rel#">
+    <input type="hidden" name="pageNum" value="1" />
+</form>
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<?php echo url('orders/index_sp'); ?>" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        <input type="text" alt="訂單號, 姓名, 電話" size="50" name="keyword" value="<?php echo $keyword; ?>" />
+                    </td>
+                    <td>
+                        訂單日期: <input type="text" size="10" class="date" name="start_date" value="<?php echo $start_date; ?>" /> 至 
+                        <input type="text" size="10" class="date" name="end_date" value="<?php echo $end_date; ?>" />
+                    </td>
+                    <td>
+                        訂單金額: <input type="text" size="10" class="number" name="min_price" value="<?php echo $min_price; ?>" /> 至 
+                        <input type="text" size="10" class="number" name="max_price" value="<?php echo $max_price; ?>" />
+                    </td>
+                    <td>
+                        訂單狀態:
+                        <select name="order_status">
+                            <?php
+                            $order_statuses = get_order_states();
+                            foreach ($order_statuses as $k => $v) {
+                                if ($k == $order_status) {
+                                    $selected = 'selected';
+                                } else {
+                                    $selected = '';
+                                }
+                                ?>
+                                <option <?php echo $selected; ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+                            <?php } ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">檢索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <?php
+             echo make_node('<li><a class="edit" href="%s" width="1000" height="500" target="dialog"><span>修改</span></a></li>', 'admin/orders/edit', "oid={oid}");
+             //echo make_node('<li><a class="delete" href="%s" target="ajaxTodo" title="確定要刪除此訂單?"><span>刪除</span></a></li>', 'admin/orders/delete', "oid={oid}");
+             //echo make_node('<li><a class="edit" href="%s" width="1000" height="500" target="dialog"><span>出貨管理</span></a></li>', 'admin/orders/items', "oid={oid}");
+             //echo make_node('<li><a class="add" href="%s" target="ajaxTodo" title="確定要產生嗎"><span>產生物流單</span></a></li>', 'admin/orders/create_express_order', "oid={oid}");
+             //echo make_node('<li><a class="add" href="%s" target="ajaxTodo" title="確定要產生嗎"><span>產生逆物流單</span></a></li>', 'admin/orders/create_return_express_order', "oid={oid}");
+             echo make_node('<li><a class="add" href="%s" width="1000" height="500" target="dialog"><span>退換貨資訊</span></a></li>', 'admin/orders/return_detail', "oid={oid}");
+             echo make_node('<li><a class="icon" href="%s" target="_blank"><span>匯出</span></a></li>', 'admin/orders/export', "min_price=".$min_price."&max_price=".$max_price."&keyword=".$keyword."&start_date=".$start_date."&end_date=".$end_date."&order_status=".$order_status);
+            ?>
+        </ul>
+    </div>
+    <table class="list order_list" width="100%" layoutH="118">
+        <thead>
+            <tr>
+                <th>狀態</th>
+                <th>訂單號</th>
+                <th>客戶姓名</th>
+                <th>客戶電話</th>
+                <th>訂單金額</th>
+                <th>是否付款</th>
+                <th>收貨人姓名</th>
+                <th>收貨人手機</th>
+                <!--<th>收貨人地址</th>-->
+                <th>物流號</th>
+                <th>備註</th>
+                <th>更新日期</th>
+                <th>創建日期</th>
+                <th>來源網站</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $expresses = express_coms();
+            foreach ($list as $k => $row) {
+                ?>
+                <tr target="oid" rel="<?php echo $row['oid']; ?>">
+                    <td>
+                        <?php 
+                        $state = isset($order_statuses[$row['order_status']])?$order_statuses[$row['order_status']]:"";
+                        if($row["order_status"]>=0) {
+                            echo $state;
+                        } else {
+                            isset($order_statuses[$row['order_status']])?$order_statuses[$row['order_status']]:"";
+                            echo '<a target="_blank" href="'.url("orders/return_detail", "oid=".$row["oid"]).'">'.$state.'</a>';
+                        }
+                        ?>
+                    </td>
+                    <td><?php echo $row['oid']; ?></td>
+                    <td><?php echo $row['billing_name']; ?></td>
+                    <td><?php echo $row['billing_mobile']; ?></td>
+                    <td><?php echo $row['total_amount']; ?></td>
+                    <td><?php echo $row['pay_status']?"已付款":"N/A"; ?></td>
+                    <td><?php echo $row['shipping_name']; ?></td>
+                    <td><?php echo $row['shipping_mobile']; ?></td>
+                    <!--<td>
+                        <?php if($row["LogisticsType"]=="HOME") { ?>
+                        <?php echo $row['shipping_city']."-".$row['shipping_area']."-".$row['shipping_address']; ?>
+                        <?php } else {?>
+                        <?php echo $row['CVSAddress']."(".$row['CVSStoreName'].")";?>
+                        <?php } ?>
+                    </td>-->
+                    <td><?php echo $row['AllPayLogisticsID']; ?></td>
+                    <td><?php echo $row['remark']; ?></td>
+                    <td><?php echo empty($row['update_date']) ? '' : date('Y-m-d H:i:s', $row['update_date']); ?></td>
+                    <td><?php echo date('Y-m-d H:i:s', $row['create_date']); ?></td>
+                    <td><?php echo $row['domain']; ?></td>
+                    <td>
+                        <?php echo make_node('<a class="add" href="%s" target="_blank"><span>列印</span></a>', 'admin/orders/printer', "oid=".$row["oid"]);?>
+                        <?php
+                        if(!empty($row['AllPayLogisticsID'])) {
+                        ?>
+                         | <a target="_blank" href="<?php echo url('Orders/PrintTradeDoc', 'oid='.$row["oid"]);?>">列印托運單</a>
+                         | <a target="dialog" width="1000" height="500" href="<?php echo url('Orders/QueryLogisticsInfo', 'AllPayLogisticsID='.$row["AllPayLogisticsID"]);?>">查看物流</a>
+                        <?php } ?>
+                    </td>
+                </tr>
+            <?php } ?>            
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共<?php echo $pages["total"];?>條</span>
+        </div>
+
+        <div class="pagination" targetType="navTab" totalCount="<?php echo $pages["total"];?>" numPerPage="<?php echo $pages["page_size"];?>" pageNumShown="30" currentPage="<?php echo $pages["now_page"];?>"></div>
+
+    </div>
+</div>
+<script>
+    function ajaxDelete(json) {
+        if (json.statusCode == 200) {
+            alertMsg.correct(json.message);
+            $.pdialog.closeCurrent();
+        } else {
+            alertMsg.error(json.message);
+        }
+    }
+</script>

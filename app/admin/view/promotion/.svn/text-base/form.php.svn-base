@@ -1,0 +1,96 @@
+<form enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, ajaxDialog);" action="<?= url("Promotion/save") ?>" method="post">
+    <table  width="100%" layoutH="58">
+        <tr>
+            <td style="text-align: right;">
+                標題：
+            </td>
+            <td>
+                <input type="text" class="required" size="50" name="title" value="<?= isset($promotion["title"]) ? $promotion["title"] : "" ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                促銷方式：
+            </td>
+            <td>
+                <select name="ptype">
+                <?php
+                $ptypes = get_ptypes();
+                if(!empty($ptypes)) {
+                    foreach($ptypes as $k => $v) {
+                        if(isset($promotion["ptype"]) && $promotion["ptype"]==$k) {
+                            $selected = "selected";
+                        } else {
+                            $selected = "";
+                        }
+                ?>
+                    <option <?php echo $selected;?> value="<?php echo $k;?>"><?php echo $v;?></option>
+                <?php
+                    }
+                }
+                ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                達標數量或金額：
+            </td>
+            <td>
+                <input type="text" size="10" class="required digits" name="total" value="<?= isset($promotion["total"]) ? $promotion["total"] : "0" ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                減免金額：
+            </td>
+            <td>
+                <input type="text" size="10" class="digits" name="sub_total" value="<?= isset($promotion["sub_total"]) ? $promotion["sub_total"] : "0" ?>" />免運費方式不用設置
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                開始日期：
+            </td>
+            <td>
+                <input type="text" size="10" name="start_date" class="required date" value="<?= isset($promotion["start_date"]) ? date("Y-m-d", $promotion["start_date"]) : "" ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                結束日期：
+            </td>
+            <td>
+                <input type="text" size="10" name="end_date" class="required date" value="<?= isset($promotion["end_date"]) ? date("Y-m-d", $promotion["end_date"]) : "" ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right">
+                是否顯示：
+            </td>
+            <td>
+                <input type="checkbox" name="state" <?= (isset($promotion["state"]) && $promotion["state"]) ? "checked" : "" ?> value="1" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="ptid" value="<?= isset($promotion["ptid"]) ? $promotion["ptid"] : 0 ?>" />
+    <div class="formBar">
+        <ul>
+            <li><div class="buttonActive"><div class="buttonContent"><button type="submit">儲存</button></div></div></li>
+            <li>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+            </li>
+        </ul>
+    </div>
+</form>
+<script>
+    function ajaxDialog(json) {
+        if (json.statusCode == 200) {
+            alertMsg.correct(json.message);
+            $.pdialog.closeCurrent();
+            navTab.reload(json.url);
+        } else {
+            alertMsg.error(json.message);
+        }
+    }
+</script>

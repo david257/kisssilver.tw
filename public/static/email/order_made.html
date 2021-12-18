@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>訂單成立</title>
+<style type="text/css">
+.embg {
+    background-image: url({domain}/static/email/images/enbg.jpg);
+	width: 770px;
+	background-color: #E3E3E3;
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding-top: 130px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+}
+.embg .emkz {
+	background-color: #FFF;
+	padding: 10px;
+	background-image: url(wl.png);
+	background-position: 550px bottom;
+	background-repeat: no-repeat;
+	font-size: 16px;
+	-moz-border-radius: 8px;   /* 圓的半徑為邊長的一半，即300px */
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+.fs {
+	color: #993333;
+	font-family: "Microsoft JhengHei";
+}
+.embg .emkz .emlr {
+	height: 300px;
+	margin-bottom: 45px;
+}
+ a {
+	color: #000;
+	text-decoration:underline;
+}
+.lanse {
+	color: #333;
+}
+.rz-btn {height: 45px;
+}
+</style>
+</head>
+<body>
+<div class="embg">
+  <div class="emkz">
+    <div class="emlr">
+      <p>親愛的 <span class="fs">{fullname}</span> 您好：</p>
+      <p>感謝您訂購Kiss Silver的商品			
+</p>
+      <p>訂購日期：	<span class="fs">{order_date} </span></p>
+      <p>訂單編號：<span class="fs"> {orderid}</span></p>
+      <p>為了保護您個人資料的安全性			
+        Kiss Silver不會在e-mail中顯示您的訂購明細        </p>
+      <p>您可以至「 <span class="fs">訂單查詢」</span>查詢您的訂購明細及最新訂單處理進度 </p>
+    </div>
+    <div class="xxrs">
+      <p>Kiss Silver購物網： <a href="www.kisssilver.com.tw">www.kisssilver.com.tw </a></p>
+      <p>客服專線：<span class="fs"> (02)33652838 </span><span class="fs"></span></p>
+      <p>服務時間：	周一至周五 <span class="fs">9:30-12:30 </span>&amp;<span class="fs"> 13:30-17:00 </span></p>
+      <p>其餘時間請來信				
+        客服信箱： <span class="fs">services@kisssilver.com.tw </span></p>
+      <p>&nbsp;</p>
+      <p><span class="lanse">※此郵件為系統自動傳送，請勿直接回覆此郵件</span></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

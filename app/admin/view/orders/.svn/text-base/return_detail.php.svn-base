@@ -1,0 +1,155 @@
+<style>
+    .title_name {
+        text-align: right;
+    }
+    .title td {
+        background: #C1C1C1;
+        text-align: left;
+    }
+    .table {
+        border-left: 1px solid #000;
+        border-top: 1px solid #000;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .table td {
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 10px;
+        font-weight: bold;
+    }
+</style>
+<h2>退換貨</h2>
+<table class="table" border="0" cellspacing="0">
+    <tr>
+        <td>商品圖片</td>
+        <td>商品名稱</td>
+        <td>商品數量</td>
+        <td>商品金額</td>
+    </tr>
+    <?php
+    if (isset($order_products[$order["oid"]]) && !empty($order_products[$order["oid"]])) {
+        foreach ($order_products[$order["oid"]] as $product) {
+            ?>
+            <tr>
+                <td><a target="_blank" href="<?php echo url('index/product/detail', "prodid=" . $product["prodid"]); ?>"><img width="100" src="<?php echo thumb_image($product["thumb"]); ?>" alt=""/></a></td>
+                <td>
+                    <a target="_blank" href="<?php echo url('index/product/detail', "prodid=" . $product["prodid"]); ?>"><?php echo $product["prodname"]; ?></a>
+                    <?php
+                    $options = json_decode($product["options"]);
+                    if (!empty($options)) {
+                        foreach ($options as $vname => $voptions) {
+                            foreach ($voptions as $voname => $vodata) {
+                                ?>
+                                <div style="font-size: 12px;font-weight: 100;"><?php echo $vname; ?>: <em style="color:red;"><?php echo $voname; ?></em></div>
+                                <?php
+                            }
+                        }
+                    }
+                    ?>
+                </td>
+                <td><?php echo $product["qty"]; ?></td>
+                <td><?php echo format_price($product["prod_price"]); ?></td>
+            </tr>
+        <?php }
+    } ?>
+    <tr>
+        <td colspan="3" class="title_name">+運費</td><td><?php echo format_price($order["shipping_fee"]); ?></td>
+    </tr>
+    <?php
+    if (!empty($order["coupon_code"])) {
+        ?>
+        <tr>
+            <td  colspan="3" class="title_name">-折價券(<?php echo $order["coupon_code"]; ?>)</td>
+            <td><span class="price-color"><?php echo format_price($order["coupon_amount"]); ?></span></td>
+        </tr>
+    <?php } ?>    
+    <?php
+    $promotion_rules = json_decode($order["promotion_rules"], true);
+    if (!empty($promotion_rules)) {
+        foreach ($promotion_rules as $prules) {
+            ?>
+            <tr>
+                <td  colspan="3" class="title_name">-<?php echo $prules["title"]; ?></td>
+                <td  class="col-d2"><span class="price-color"><?php echo format_price($prules["amount"]); ?></span></td>
+            </tr>
+    <?php }
+} ?>
+    <tr>
+        <td  colspan="3" class="title_name">總金額</td>
+        <td  class="col-d2"><span class="price-zj"><?php echo format_price($order["total_amount"]); ?></span></td>
+    </tr>
+</table>
+
+<hr style="border: 1px dashed #ddd; margin: 50px 0 " />
+            <h2>退換貨資訊Ordering Information</h2>
+            <table class="table" border="0" cellspacing="0">
+                <tr>
+                    <td class="title_name">退貨編號</td>
+                    <td><?php echo $return_info["RtnOrderNo"]; ?></td>
+                </tr>
+                <tr>
+                    <td class="title_name">退換貨類型:</td>
+                    <td>
+<?php echo $return_info["return_type"]; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_name">退換貨原因:</td>
+                    <td>
+<?php echo $return_info["remark"]; ?>
+                    </td>
+                </tr>  
+                <tr>
+                    <td class="title_name">退回方式:</td>
+                    <td>
+<?php echo $return_info["ship_type"]; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_name">退貨人姓名:</td>
+                    <td>
+<?php echo $return_info["shipping_name"]; ?>
+<?php echo $return_info["shipping_sex"]; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_name">手機號碼:</td>
+                    <td>
+<?php echo $return_info["shipping_mobile"]; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_name">市內電話:</td>
+                    <td>
+<?php echo $return_info["shipping_tel1"]; ?>-<?php echo $return_info["shipping_tel2"]; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_name">E-mail信箱:</td>
+                    <td>
+<?php echo $return_info["shipping_email"]; ?></td>
+                </tr>
+                <tr>
+                    <td class="title_name">退款銀行名稱:</td>
+                    <td>
+<?php echo $return_info["bank_name"]; ?>
+                    </td></tr>
+                <tr>
+                    <td class="title_name">退款銀行帳號:</td>
+                    <td>
+<?php echo $return_info["bank_num"]; ?>
+                    </td></tr>
+                <tr>
+                    <td class="title_name">取貨地址:</td>
+                    <td>
+<?php echo $return_info["shipping_city"]; ?>-<?php echo $return_info["shipping_area"]; ?>-<?php echo $return_info["shipping_address"]; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_name">適合取貨時間:</td>
+                    <td>
+<?php echo $return_info["ship_time"]; ?>
+                    </td>
+                </tr>
+            </table>

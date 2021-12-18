@@ -1,0 +1,89 @@
+<form onsubmit="return validateCallback(this, dialogAjaxDone);" action="<?= url("Role/save") ?>" method="post">
+    <div class="searchBar">
+        <table layoutH="38" width="100%">
+            <tr>
+                <td style="text-align: right">
+                    角色名稱：
+                </td>
+                <td>
+                    <input type="text" size="30" name="title" value="<?= isset($role["title"]) ? $role["title"] : "" ?>" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">
+                    許可權：
+                </td>
+                <td>
+                    <div style=" float:left; display:block; overflow:auto; width:300px; height:300px; overflow:auto; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+                        <?php
+                        if (isset($role["limits"]) && !empty($role["limits"])) {
+                            $limits = json_decode($role["limits"], true);
+                        } else {
+                            $limits = [];
+                        }
+
+                        if (!empty($tree_nodes)) {
+                            foreach ($tree_nodes as $item) {
+                                if (in_array($item["id"], $limits)) {
+                                    $checked = "checked";
+                                } else {
+                                    $checked = "";
+                                }
+                                echo "<div>";
+                                echo str_repeat('————', $item['level']);
+                                echo '<input type="checkbox" ' . $checked . ' name="limits[]" value="' . $item["id"] . '"/>';
+                                echo $item['name'];
+
+                                echo "</div>";
+                            }
+                        }
+                        ?>
+                    </div>    
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">
+                    供應商訂單列表許可權：
+                </td>
+                <td>
+                    <div style=" float:left; display:block; overflow:auto; width:300px; height:300px; overflow:auto; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+                        <?php
+
+                        if (!empty($sps)) {
+                            foreach ($sps as $v) {
+                                if (!empty($role) && strpos(",".$role["spids"].",", ",".$v["spid"].",") !== false) {
+                                    $checked = "checked";
+                                } else {
+                                    $checked = "";
+                                }
+                                echo "<div>";
+                                echo '<input type="checkbox" ' . $checked . ' name="spids[]" value="' . $v["spid"] . '"/>';
+                                echo $v["title"];
+
+                                echo "</div>";
+                            }
+                        }
+                        ?>
+                    </div>    
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">
+                    是否顯示：
+                </td>
+                <td>
+                    <input type="checkbox" name="status" <?= (isset($role["status"]) && $role["status"]) ? "checked" : "" ?> value="1" />
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="roleid" value="<?= isset($role["roleid"]) ? $role["roleid"] : 0 ?>" />
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">儲存</button></div></div></li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</form>

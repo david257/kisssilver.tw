@@ -1,0 +1,48 @@
+<form id="pagerForm" method="post" action="<?= url("/admin/role/index") ?>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="<?= $pages["page_size"]?>" />
+</form>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<?php
+             echo make_node('<li><a class="add" href="%s" width="500" height="500" target="dialog"><span>新增</span></a></li>', 'admin/role/add');
+             echo make_node('<li><a class="edit" href="%s" width="500" height="500" target="dialog"><span>修改</span></a></li>', 'admin/role/edit', "roleid={roleid}");
+             echo make_node('<li><a class="delete" href="%s" target="ajaxTodo" title="確定要刪除嗎?"><span>刪除</span></a></li>', 'admin/role/delete', "roleid={roleid}");
+            ?>
+		</ul>
+	</div>
+	<table class="table" width="100%" layoutH="75">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>角色名稱</th>
+				<th>有效性</th>
+				<th>創建日期</th>
+			</tr>
+		</thead>
+		<tbody>
+            <?php
+            if(!empty($list)) {
+            foreach($list as $v) {
+            ?>
+			<tr target="roleid" rel="<?= $v["roleid"] ?>">
+				<td><?= $v["roleid"] ?></td>
+				<td><?= $v["title"] ?></td>
+				<td><?= $v["status"]?"Y":"N" ?></td>
+				<td><?= !empty($v["create_time"])?date("Y-m-d H:i:s", $v["create_time"]):"" ?></td>
+			</tr>
+            <?php } } ?>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>共<?= $pages["total"]?>條</span>
+		</div>
+
+		<div class="pagination" targetType="navTab" totalCount="<?= $pages["total"]?>" numPerPage="<?= $pages["page_size"]?>" pageNumShown="10" currentPage="<?= $pages["now_page"]?>"></div>
+
+	</div>
+</div>
+
+</div>

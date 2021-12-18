@@ -1,0 +1,250 @@
+<div class="tabs" currentIndex="0" eventType="click">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li><a href="javascript:;"><span>用戶註冊</span></a></li>
+                <li><a href="javascript:;"><span>用戶生日</span></a></li>
+                <li><a href="javascript:;"><span>單次消費贈送</span></a></li>
+                <li><a href="javascript:;"><span>季度訂購累計</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="tabsContent">
+        <div>
+            <form enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, ajaxDialog);" action="<?= url("Coupon/save_auto_rule") ?>" method="post">
+                <table  width="100%" layoutH="108">
+                    <tr>
+                        <td style="text-align: right;">
+                            標題：
+                        </td>
+                        <td>
+                            <input type="text" size="50" name="title" class="required" value="<?php echo isset($rules["register"])?$rules["register"]["title"]:"";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            消費金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="min_amount" class="required digits" value="<?php echo isset($rules["register"])?$rules["register"]["min_amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            折價金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="amount" class="required digits" value="<?php echo isset($rules["register"])?$rules["register"]["amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            有效期：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="expired_days" class="required" value="<?php echo isset($rules["register"])?$rules["register"]["expired_days"]:"0";?>" />天
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            是否啟用：
+                        </td>
+                        <td>
+                            <input type="checkbox" name="state" <?php echo (isset($rules["register"]) && $rules["register"]["state"])?"checked":"";?> value="1" />
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="auto_type" value="register" />
+                <div class="formBar">
+                    <ul>
+                        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">儲存</button></div></div></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, ajaxDialog);" action="<?= url("Coupon/save_auto_rule") ?>" method="post">
+                <table  width="100%" layoutH="108">
+                    <tr>
+                        <td style="text-align: right;">
+                            標題：
+                        </td>
+                        <td>
+                            <input type="text" size="50" name="title" class="required" value="<?php echo isset($rules["birthday"])?$rules["birthday"]["title"]:"";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            消費金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="min_amount" class="required digits" value="<?php echo isset($rules["birthday"])?$rules["birthday"]["min_amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            折價金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="amount" class="required digits" value="<?php echo isset($rules["birthday"])?$rules["birthday"]["amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            有效期：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="expired_days" class="required" value="<?php echo isset($rules["birthday"])?$rules["birthday"]["expired_days"]:"0";?>" />天
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            是否啟用：
+                        </td>
+                        <td>
+                            <input type="checkbox" name="state" <?php echo (isset($rules["birthday"]) && $rules["birthday"]["state"])?"checked":"";?> value="1" />
+                        </td>
+                    </tr>
+                </table>
+                生日是按當月計算的
+                <input type="hidden" name="auto_type" value="birthday" />
+                <div class="formBar">
+                    <ul>
+                        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">立即發送當月壽星券</button></div></div></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, ajaxDialog);" action="<?= url("Coupon/save_auto_rule") ?>" method="post">
+                <table  width="100%" layoutH="58">
+                    <tr>
+                        <td style="text-align: right;">
+                            標題：
+                        </td>
+                        <td>
+                            <input type="text" size="50" name="title" class="required" value="<?php echo isset($rules["buy"])?$rules["buy"]["title"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            訂單達標金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="order_amount" class="required digits" value="<?php echo isset($rules["buy"])?$rules["buy"]["order_amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            消費金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="min_amount" class="required digits" value="<?php echo isset($rules["buy"])?$rules["buy"]["min_amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            折價金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="amount" class="required digits" value="<?php echo isset($rules["buy"])?$rules["buy"]["amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            有效期：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="expired_days" class="required" value="<?php echo isset($rules["buy"])?$rules["buy"]["expired_days"]:"0";?>" />天
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            是否啟用：
+                        </td>
+                        <td>
+                            <input type="checkbox" <?php echo (isset($rules["buy"]) && $rules["buy"]["state"])?"checked":"";?> name="state" value="1" />
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="auto_type" value="buy" />
+                <div class="formBar">
+                    <ul>
+                        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">儲存</button></div></div></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, ajaxDialog);" action="<?= url("Coupon/save_auto_rule") ?>" method="post">
+                <table  width="100%" layoutH="58">
+                    <tr>
+                        <td style="text-align: right;">
+                            標題：
+                        </td>
+                        <td>
+                            <input type="text" size="50" name="title" class="required" value="<?php echo isset($rules["jidu_buy"])?$rules["jidu_buy"]["title"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            訂單達標金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="order_amount" class="required digits" value="<?php echo isset($rules["jidu_buy"])?$rules["jidu_buy"]["order_amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            消費金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="min_amount" class="required digits" value="<?php echo isset($rules["jidu_buy"])?$rules["jidu_buy"]["min_amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            折價金額：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="amount" class="required digits" value="<?php echo isset($rules["jidu_buy"])?$rules["jidu_buy"]["amount"]:"0";?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            有效期：
+                        </td>
+                        <td>
+                            <input type="text" size="10" name="expired_days" class="required" value="<?php echo isset($rules["jidu_buy"])?$rules["jidu_buy"]["expired_days"]:"0";?>" />天
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            是否啟用：
+                        </td>
+                        <td>
+                            <input type="checkbox" <?php echo (isset($rules["jidu_buy"]) && $rules["jidu_buy"]["state"])?"checked":"";?> name="state" value="1" />
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="auto_type" value="jidu_buy" />
+                <div class="formBar">
+                    <ul>
+                        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">立即執行</button></div></div></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function ajaxDialog(json) {
+        if (json.statusCode == 200) {
+            alertMsg.correct(json.message);
+            $.pdialog.closeCurrent();
+            navTab.reload(json.url);
+        } else {
+            alertMsg.error(json.message);
+        }
+    }
+</script>

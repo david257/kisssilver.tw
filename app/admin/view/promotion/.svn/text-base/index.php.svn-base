@@ -1,0 +1,56 @@
+<form id="pagerForm" method="post" action="#rel#">
+    <input type="hidden" name="pageNum" value="1" />
+</form>
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<?php echo url('promotion/index'); ?>" method="post">
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <?php
+            echo make_node('<li><a class="add" href="%s" width="850" height="500" target="dialog"><span>新增</span></a></li>', 'admin/promotion/add');
+            echo make_node('<li><a class="edit" href="%s" width="850" height="500" target="dialog"><span>修改</span></a></li>', 'admin/promotion/edit', "ptid={ptid}");
+            echo make_node('<li><a class="delete" href="%s" target="ajaxTodo" title="確定要刪除嗎?"><span>刪除</span></a></li>', 'admin/promotion/delete', "ptid={ptid}");
+            ?>
+        </ul>
+    </div>
+    <table class="list" width="100%" layoutH="118">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>促銷名稱</th>
+                <th>開始日期</th>
+                <th>截止日期</th>
+                <th>有效性</th>
+                <th>創建日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (!empty($list)) {
+                foreach ($list as $v) {
+                    ?>
+                    <tr target="ptid" rel="<?= $v["ptid"] ?>">
+                        <td><?= $v["ptid"] ?></td>
+                        <td><?= $v["title"] ?></td>
+                        <td><?= date("Y-m-d", $v["start_date"]) ?></td>
+                        <td><?= date("Y-m-d", $v["end_date"]) ?></td>
+                        <td><?= $v["state"] ? "Y" : "N" ?></td>
+                        <td><?= !empty($v["create_time"]) ? date("Y-m-d H:i:s", $v["create_time"]) : "" ?></td>
+                    </tr>
+                <?php }
+            } ?>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共<?= $pages["total"] ?>條</span>
+        </div>
+
+        <div class="pagination" targetType="navTab" totalCount="<?= $pages["total"] ?>" numPerPage="<?= $pages["page_size"] ?>" pageNumShown="10" currentPage="<?= $pages["now_page"] ?>"></div>
+
+    </div>
+</div>
+
+</div>

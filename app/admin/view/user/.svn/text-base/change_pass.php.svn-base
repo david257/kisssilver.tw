@@ -1,0 +1,38 @@
+<form onsubmit="return validateCallback(this, dialogAjaxDone);" action="<?= url("AdminUser/do_change_pass") ?>" method="post">
+	<div class="searchBar">
+		<table layoutH="38" width="100%">
+            <tr>
+				<td style="text-align: right">
+					舊密碼：
+				</td>
+                <td>
+                    <input type="password" name="old_pass" />
+                </td>
+            </tr>
+			<tr>
+				<td style="text-align: right">
+					新密碼：
+				</td>
+                <td>
+                    <input type="password" name="new_pass" />
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					確認密碼：
+				</td>
+                <td>
+                    <input type="password" name="renew_pass" />
+                </td>
+			</tr>
+		</table>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">儲存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</form>

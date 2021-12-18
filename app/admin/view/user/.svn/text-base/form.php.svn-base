@@ -1,0 +1,88 @@
+﻿<form onsubmit="return validateCallback(this, dialogAjaxDone);" action="<?= url("AdminUser/save") ?>" method="post">
+	<div class="searchBar">
+		<table layoutH="38" width="100%">
+            <tr>
+				<td style="text-align: right">
+					用戶名：
+				</td>
+                <td>
+                    <input type="text" size="50" name="username" value="<?= isset($user["username"])?$user["username"]:"" ?>" />
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					姓名：
+				</td>
+                <td>
+                    <input type="text" size="50" name="fullname" value="<?= isset($user["fullname"])?$user["fullname"]:"" ?>" />
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					手機：
+				</td>
+                <td>
+                    <input type="text" size="50" name="mobile" value="<?= isset($user["mobile"])?$user["mobile"]:"" ?>" />
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					登入密碼：
+				</td>
+                <td>
+                    <input type="text" size="50" name="userpass" value="" />
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					角色：
+				</td>
+                <td>
+                    <select name="roleid">
+                        <option value="0">選擇</option>
+                    <?php
+                    if(!empty($roles)) {
+                        foreach($roles as $role){
+                            if(isset($user["roleid"]) && $role["roleid"]==$user["roleid"]) {
+                                $selected = "selected";
+                            } else {
+                                $selected = "";
+                            }
+                            echo '<option '.$selected.' value="'.$role["roleid"].'">';
+                            //根據所在的層次縮進
+                            echo $role["title"];
+                            echo '</option>';
+                        }
+                    }
+                    ?>
+                    </select>
+                </td>
+            </tr>
+			<tr>
+				<td style="text-align: right">
+					備註：
+				</td>
+                <td>
+                    <textarea cols="50" rows="3" name="remark"><?= isset($user["remark"])?$user["remark"]:"" ?></textarea>
+                </td>
+            </tr>
+            <tr>
+				<td style="text-align: right">
+					是否顯示：
+				</td>
+                <td>
+                    <input type="checkbox" name="status" <?= (isset($user["status"]) && $user["status"])?"checked":"" ?> value="1" />
+                </td>
+			</tr>
+		</table>
+        <input type="hidden" name="auid" value="<?= isset($user["auid"])?$user["auid"]:0 ?>" />
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">儲存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</form>
