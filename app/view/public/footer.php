@@ -1,7 +1,7 @@
 <footer class="page-footer center-on-small-only mt-0">
-    <div class="container-fuild">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <?php
                 $pages = get_pages();
                 if(isset($pages[0]) && !empty($pages[0])) {
@@ -19,11 +19,7 @@
                 <?php } } ?>
                 <div style="clear:both"></div>
             </div>
-            <div class="col-md-4">
-                {:isset($setting['common']['fbfans'])?$setting['common']['fbfans']:''}
-                 <div style="clear:both"></div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-4" style="padding:0 30px;">
                 <form id="footer_subscribe" class="AjaxForm" action="{:front_link('Subscribe/send')}" method="post">
                 <dl class="pull-left">
                     <dt style="margin-bottom:5px;">Kiss-Silver最新消息</dt>
@@ -39,6 +35,10 @@
                     </dd>
                 </dl>
                 </form>
+                 <div style="clear:both"></div>
+            </div>
+            <div class="col-md-4 fb-container">
+                {:isset($setting['common']['fbfans'])?$setting['common']['fbfans']:''}
                  <div style="clear:both"></div>
             </div>
         </div>

@@ -12,9 +12,10 @@ if(!empty($topNews)) {
 				$url = front_link('News/detail', ['newsid' => $news['newsid']]);
 			}
 		?>
-        <div class="item"> <a href="{$url}" class="top-tips-a">{$news['title']}
-                <button type="button" class="btn btn-danger">Show Now !</button>
-            </a> </div>
+        <div class="item">
+        <a href="{$url}" class="top-tips-a">{$news['title']}
+            </a>
+            </div>
         <?php } ?>
     </div>
 </div>

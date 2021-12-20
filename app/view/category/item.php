@@ -12,7 +12,7 @@
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                    <video controls onmouseover="this.play()" onmouseout="this.pause()" poster="{:showfile($prod['video_image'])}"><source src="{:showfile($video)}" type="video/mp4"></video>
+                                    <video controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
                                 <?php } else { ?>
                                     <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                 <?php } ?>
@@ -27,8 +27,8 @@
                                 </svg>
                             </a> </div>
                         <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                <h3>{:$prod['prodname']}</h3>
-                                <h4>{:$prod['prod_features']}</h4>
+                        <div class="name">{:$prod['prodname']}</div>
+                                <!-- <h4>{:$prod['prod_features']}</h4> -->
                                 <div class="price">
                                     <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                         <span class="old-price">{:price_label_list($prod)}</span>

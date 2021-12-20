@@ -44,8 +44,8 @@
       </div>
     </div>
   </section>
-  <section class="sub ">
-    <div class="container-fuild">
+  <section class="sub">
+    <div class="container-fluid">
       <div class="products-key">
         <h1>{:$category['catname']}</h1>
         <i>{:$totalItems} 件商品</i></div>
@@ -133,9 +133,9 @@
       </div>
     </div>
   </section>
-  <section class="sale-product">
-    <div class="container-fluid no-padding">
-      <div id="LAY_demo1" class="row no-gutter">
+  <section class="hot-product">
+    <div class="container-fluid">
+      <div id="LAY_demo1" class="row mno-gutter">
         <?php
                 if(!empty($list)) {
                 foreach($list as $prod) {
@@ -153,7 +153,7 @@
 x5-video-player-fullscreen="true"
 x5-playsinline
 playsinline
-webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="{:showfile($prod['video_image'])}">
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()">
                 <source src="{:showfile($video)}" type="video/mp4">
               </video>
               <?php } else { ?><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
@@ -170,8 +170,8 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
               </svg>
               </a> </div>
             <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-              <h3>{:$prod['prodname']}</h3>
-              <h4>{:$prod['prod_features']}</h4>
+            <div class="name">{:$prod['prodname']}</div>
+              <!-- <h4>{:$prod['prod_features']}</h4> -->
               <div class="price">
                 <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                 <span class="old-price">{:price_label_list($prod)}</span>

@@ -191,8 +191,8 @@
                                         </svg>
                                     </a> </div>
                                 <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                        <h3>{:$prod['prodname']}</h3>
-                                        <h4>{:$prod['prod_features']}</h4>
+                                        <div class="name">{:$prod['prodname']}</div>
+                                        <!-- <h4>{:$prod['prod_features']}</h4> -->
                                         <div class="price">{:price_label($prod)}</div>
                                     </a> </div>
                             </div>
@@ -236,8 +236,8 @@
                                 </svg>
                             </a> </div>
                         <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                <h3>{:$prod['prodname']}</h3>
-                                <h4>{:$prod['prod_features']}</h4>
+                                <div class="name">{:$prod['prodname']}</div>
+                                <!-- <h4>{:$prod['prod_features']}</h4> -->
                                 <div class="price">{:price_label($prod)}</div>
                             </a> </div>
                     </div>

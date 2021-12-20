@@ -113,9 +113,7 @@
     <section class="news-product">
         <div class="container-fluid">
             <div class="i-title">
-                <h3>Kiss-Silver 新品推薦</h3>
-                <i></i>
-                <h5>{$newtip}</h5>
+                <h3>NEW ARRIVAL</h3>
             </div>
             <div class="row mno-gutter">
                 <?php
@@ -131,7 +129,7 @@
                                         <?php
                                         if(!empty($video)) {
                                             ?>
-                                            <video poster="{:showfile($prod['video_image'])}" controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
+                                            <video controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
                                         <?php } else { ?>
                                             <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                         <?php } ?>
@@ -146,8 +144,8 @@
                                         </svg>
                                     </a> </div>
                                 <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                        <h3>{:$prod['prodname']}</h3>
-                                        <h4>{:$prod['prod_features']}</h4>
+                                <div class="name">{:$prod['prodname']}</div>
+                                        <!-- <h4>{:$prod['prod_features']}</h4> -->
                                         <div class="price">
                                             <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                                 <span class="old-price">{:price_label_list($prod)}</span>
@@ -192,9 +190,7 @@
     <section class="hot-product">
         <div class="container-fluid">
             <div class="i-title">
-                <h3>Kiss-Silver 熱銷商品</h3>
-                <i></i>
-                <h5>{$hottip}</h5>
+                <h3>HOT SALES</h3>
             </div>
             <div class="row mno-gutter">
                 <?php
@@ -210,7 +206,7 @@
                                         <?php
                                         if(!empty($video)) {
                                             ?>
-                                            <video poster="{:showfile($prod['video_image'])}" controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
+                                            <video controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
                                         <?php } else { ?>
                                             <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                         <?php } ?>
@@ -225,8 +221,8 @@
                                         </svg>
                                     </a> </div>
                                 <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                        <h3>{:$prod['prodname']}</h3>
-                                        <h4>{:$prod['prod_features']}</h4>
+                                <div class="name">{:$prod['prodname']}</div>
+                                        <!-- <h4>{:$prod['prod_features']}</h4> -->
                                         <div class="price">
                                             <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                                 <span class="old-price">{:price_label_list($prod)}</span>
@@ -269,9 +265,7 @@
     <section class="sale-product">
         <div class="container-fluid ">
             <div class="i-title">
-                <h3>Kiss-Silver 促銷商品</h3>
-                <i></i>
-                <h5>{$saletip}</h5>
+                <h3>ON SALE</h3>
             </div>
             <div class="row mno-gutter">
                 <?php
@@ -287,7 +281,7 @@
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                    <video poster="{:showfile($prod['video_image'])}" controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
+                                    <video controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
                                 <?php } else { ?>
                                     <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                 <?php } ?>
@@ -302,8 +296,8 @@
                                 </svg>
                             </a> </div>
                         <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                <h3>{:$prod['prodname']}</h3>
-                                <h4>{:$prod['prod_features']}</h4>
+                                <div class="name">{:$prod['prodname']}</div>
+                                <!-- <h4>{:$prod['prod_features']}</h4> -->
                                 <div class="price">
                                     <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                         <span class="old-price">{:price_label_list($prod)}</span>
