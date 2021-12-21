@@ -10,15 +10,9 @@
 {include file="public/kefu" /}
 <div class="index-box">
     {include file="public/header" /}
-    <section class="sub ">
-        <div class="container-fuild">
-            <div class="products-key">
-                <i>{:$totalItems} 件商品</i></div>
-        </div>
-    </section>
     <section class="sale-product">
         <div class="container-fluid no-padding">
-            <div id="LAY_demo1" class="row no-gutter">
+            <div id="LAY_demo1" class="row mno-gutter">
 			<?php
                 if(!empty($list)) {
                 foreach($list as $prod) {
@@ -32,7 +26,7 @@
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                    <video controls poster="{:showfile($prod['video_image'])}" onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
+                                    <video controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
                                 <?php } else { ?>
                                     <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                 <?php } ?>
@@ -47,8 +41,8 @@
                                 </svg>
                             </a> </div>
                         <div class="list-content"> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                <h3>{:$prod['prodname']}</h3>
-                                <h4>{:$prod['prod_features']}</h4>
+                                <div class="name">{:$prod['prodname']}</div>
+                                <!-- <h4>{:$prod['prod_features']}</h4> -->
                                 <div class="price">
                                     <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                         <span class="old-price">{:price_label_list($prod)}</span>

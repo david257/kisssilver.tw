@@ -3,27 +3,18 @@ $(function(){
 	var bwidth=$('body').width();
 	var newsproducw=$(".news-product .list-one").width();
 $(".news-product .list-one .list-pic img").css({"width" : newsproducw});
-$(".news-product .list-one .list-pic img").css({"height" : newsproducw});
 $(".news-product .list-one .list-pic video").css({"width" : newsproducw});
 $(".news-product .list-one .list-pic video").css({"height" : newsproducw});
-$(".news-product .list-one .list-pic").css({"width" : newsproducw});
-$(".news-product .list-one .list-pic").css({"height" : newsproducw});
 
 var hotproductw=$(".hot-product .list-one").width();
 $(".hot-product .list-one .list-pic img").css({"width" : hotproductw});
-$(".hot-product .list-one .list-pic img").css({"height" : hotproductw});
 $(".hot-product .list-one .list-pic video").css({"width" : hotproductw});
 $(".hot-product .list-one .list-pic video").css({"height" : hotproductw});
-$(".hot-product .list-one .list-pic").css({"width" : hotproductw});
-$(".hot-product .list-one .list-pic").css({"height" : hotproductw});
 
 var saleproductw=$(".sale-product .list-one").width();
 $(".sale-product .list-one .list-pic img").css({"width" : saleproductw});
-$(".sale-product .list-one .list-pic img").css({"height" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"width" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"height" : saleproductw});
-$(".sale-product .list-one .list-pic").css({"width" : saleproductw});
-$(".sale-product .list-one .list-pic").css({"height" : saleproductw});
 		if(bodyw > 768){
 			var locationbg=$(".hide-xs .location-bg").width()*600 / 1920;
 		$(".hide-xs .location-bg").css({"height" : locationbg});
@@ -465,11 +456,8 @@ $(window).resize(function(){
 var bodyw=$("body").width();
 var saleproductw=$(".sale-product .list-one").width();
 $(".sale-product .list-one .list-pic img").css({"width" : saleproductw});
-$(".sale-product .list-one .list-pic img").css({"height" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"width" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"height" : saleproductw});
-$(".sale-product .list-one .list-pic").css({"width" : saleproductw});
-$(".sale-product .list-one .list-pic").css({"height" : saleproductw});
 if(bodyw > 600){
 	var detailtj1=$(".detail-tj .owl-carousel").width()/4 - 20;
 $(".detail-tj .owl-carousel .item img").css({"height" : detailtj1});
