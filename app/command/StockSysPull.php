@@ -52,7 +52,7 @@ class StockSysPull extends Command
 
             $bactNo = date('YmdH:i:s');
             //查詢沒有規格的商品
-            $products = Db::name(Products::$tablename)->field("prodid, void, prodcode")->select();
+            $products = Db::name(Products::$tablename)->select();
             if(!empty($products)) {
                 foreach($products as $product) {
                     try {
