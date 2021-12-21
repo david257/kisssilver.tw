@@ -64,14 +64,15 @@ class StockSysPull extends Command
                                     throw new Exception("庫存更新失敗");
                                 }
 
-                                $stock_change_log = [
-                                    "sku" => $product["prodcode"],
-                                    "sync_before_qty" => $product["stock"],
-                                    "sync_after_qty" => $ret["qty"],
-                                    "batch_no" => $bactNo,
-                                ];
-                                Db::name("stock_change_log")->insert($stock_change_log);
-
+                                if(!Db::name("stock_change_log")->where("sku", $product["prodcode"])->where("batch_no", $bactNo)->count()) {
+                                    $stock_change_log = [
+                                        "sku" => $product["prodcode"],
+                                        "sync_before_qty" => $product["stock"],
+                                        "sync_after_qty" => $ret["qty"],
+                                        "batch_no" => $bactNo,
+                                    ];
+                                    Db::name("stock_change_log")->insert($stock_change_log);
+                                }
                                 echo $product["prodcode"]."->庫存(".$ret["qty"].")同步成功\n";
                             } else {
                                 echo $product["prodcode"]."->".$ret["msg"] . "\n";
@@ -88,13 +89,15 @@ class StockSysPull extends Command
                                             if (false === Db::name("product_variation_combinations")->where("combinationid", $sproduct["combinationid"])->update(["vcstock" => $ret["qty"]])) {
                                                 throw new Exception("庫存更新失敗");
                                             }
-                                            $stock_change_log = [
-                                                "sku" => $sproduct["vcsku"],
-                                                "sync_before_qty" => $sproduct["vcstock"],
-                                                "sync_after_qty" => $ret["qty"],
-                                                "batch_no" => $bactNo,
-                                            ];
-                                            Db::name("stock_change_log")->insert($stock_change_log);
+                                            if(!Db::name("stock_change_log")->where("sku", $sproduct["vcsku"])->where("batch_no", $bactNo)->count()) {
+                                                $stock_change_log = [
+                                                    "sku" => $sproduct["vcsku"],
+                                                    "sync_before_qty" => $sproduct["vcstock"],
+                                                    "sync_after_qty" => $ret["qty"],
+                                                    "batch_no" => $bactNo,
+                                                ];
+                                                Db::name("stock_change_log")->insert($stock_change_log);
+                                            }
                                             echo $product["prodcode"] . ":" . $sproduct["vcsku"] . "->庫存(" . $ret["qty"] . ")同步成功\n";
                                         } else {
                                             echo $product["prodcode"] . ":" . $sproduct["vcsku"] . "->" . $ret["msg"] . "\n";
