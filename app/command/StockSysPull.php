@@ -12,6 +12,7 @@ use think\console\Input;
 use think\console\Output;
 use think\Exception;
 use think\facade\Db;
+use think\facade\View;
 
 
 class StockSysPull extends Command
@@ -49,8 +50,9 @@ class StockSysPull extends Command
                 throw new Exception("未設置庫存同步網址");
             }
 
+            $bactNo = date('YmdH:i:s');
             //查詢沒有規格的商品
-            $products = Db::name(Products::$tablename)->where("stock_sync_date", "<", time()-1200)->field("prodid, void, prodcode")->select();
+            $products = Db::name(Products::$tablename)->field("prodid, void, prodcode")->select();
             if(!empty($products)) {
                 foreach($products as $product) {
                     try {
@@ -61,6 +63,15 @@ class StockSysPull extends Command
                                 if(false === Db::name(Products::$tablename)->where("prodid", $product["prodid"])->update(["stock" => $ret["qty"]])) {
                                     throw new Exception("庫存更新失敗");
                                 }
+
+                                $stock_change_log = [
+                                    "sku" => $product["prodcode"],
+                                    "sync_before_qty" => $product["stock"],
+                                    "sync_after_qty" => $ret["qty"],
+                                    "batch_no" => $bactNo,
+                                ];
+                                Db::name("stock_change_log")->insert($stock_change_log);
+
                                 echo $product["prodcode"]."->庫存(".$ret["qty"].")同步成功\n";
                             } else {
                                 echo $product["prodcode"]."->".$ret["msg"] . "\n";
@@ -76,6 +87,13 @@ class StockSysPull extends Command
                                         if(false === Db::name("product_variation_combinations")->where("combinationid", $sproduct["combinationid"])->update(["vcstock" => $ret["qty"]])) {
                                             throw new Exception("庫存更新失敗");
                                         }
+                                        $stock_change_log = [
+                                            "sku" => $sproduct["vcsku"],
+                                            "sync_before_qty" => $sproduct["vcstock"],
+                                            "sync_after_qty" => $ret["qty"],
+                                            "batch_no" => $bactNo,
+                                        ];
+                                        Db::name("stock_change_log")->insert($stock_change_log);
                                         echo $product["prodcode"].":".$sproduct["vcsku"]."->庫存(".$ret["qty"].")同步成功\n";
                                     } else {
                                         echo $product["prodcode"].":".$sproduct["vcsku"]."->".$ret["msg"] . "\n";
@@ -94,6 +112,34 @@ class StockSysPull extends Command
             }
         } catch (Exception $ex) {
             echo $ex->getMessage()."\n";
+        }
+
+        $list = Db::name("stock_change_log")
+            ->where("batch_no", $bactNo)
+            ->where("notify_state", 0)
+            ->where("sync_before_qty", 0)
+            ->where("sync_after_qty", ">", 0)
+            ->select();
+        if(!empty($list)) {
+            $prodCodes = [];
+            $products = [];
+            foreach($list as $l) {
+                $prodCodes[] = $l["sku"];
+                $products[$l["sku"]] = $l;
+            }
+
+           $productlist = Db::name("view_product_stocks")->where("prodcode", "in", $prodCodes)->select();
+            if(!empty($productlist)) {
+                foreach($productlist as $prod) {
+                    $products[$l["sku"]]["name"] = $prod["prodname"];
+                }
+            }
+
+            $data['products'] = $products;
+            $data['bactNo'] = $bactNo;
+            View::assign($data);
+            $html = View::fetch("notify/stock_change");
+            send_stock_change_notify($html, $bactNo);
         }
     }
 

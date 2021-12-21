@@ -329,6 +329,10 @@ function order_state_actions() {
             "title" => "補貨通知-KissSilver.tw",
             "email_html"  => "/static/email/nostock.html",
         ],
+        "change_stock" => [
+            "title" => "庫存異動通知-KissSilver.tw",
+            "email_html"  => "/static/email/change_stock.html",
+        ],
 		"ordercreate" => [
             "title" => "新訂單成立-KissSilver.tw",
             "email_html"  => "/static/email/ordernotify.html",
@@ -582,6 +586,60 @@ function express_coms()
     return $express_coms = [
         '0' => '無',
     ];
+}
+
+//庫存從0變為非0通知
+function send_stock_change_notify($content, $bactNo) {
+
+    $order_action = order_state_actions();
+    if(isset($order_action["change_stock"])) {
+        $source = [
+            "{content}",
+        ];
+
+        $replace = [
+            $content,
+        ];
+
+        $html_template = dirname(__FILE__)."/../public".$order_action["change_stock"]["email_html"];
+        if(!is_file($html_template)) {
+            return false;
+        }
+
+        $html = file_get_contents($html_template);
+        $body = str_replace($source, $replace, $html);
+        $config = get_setting();
+        $emailStr = $config['setting']['notify']['change_stock'];
+        $emails = explode(",", $emailStr);
+        $_emails = [];
+        if(!empty($emails)) {
+            foreach($emails as $k => $email) {
+                $email = trim($email);
+                if(!empty($email)) {
+                    $_emails[] = $email;
+                }
+            }
+        }
+
+        $revEmail = isset($_emails[0])?$_emails[0]:'';
+
+        $revs = [
+            $revEmail,
+        ];
+
+        unset($_emails[0]);
+        $ccs = $_emails;
+
+        if(!empty($revEmail)) {
+           $ret = send_email($order_action["change_stock"]["title"], $body, "", $revs, $ccs);
+           if($ret["err_code"] === 0) {
+               Db::name("stock_change_log")->where("batch_no", $bactNo)->update([
+                   "notify_state" => 1,
+                   "update_date" => time()
+               ]);
+           }
+        }
+    }
 }
 
 function send_stock_notify($content) {
