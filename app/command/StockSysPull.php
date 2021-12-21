@@ -50,7 +50,7 @@ class StockSysPull extends Command
                 throw new Exception("未設置庫存同步網址");
             }
 
-            $bactNo = date('YmdH:i:s');
+            $bactNo = date('YmdHis');
             //查詢沒有規格的商品
             $products = Db::name(Products::$tablename)->select();
             if(!empty($products)) {
