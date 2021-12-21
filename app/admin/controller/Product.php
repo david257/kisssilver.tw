@@ -62,7 +62,9 @@ class Product extends Base
            $videos = Db::name(ProductVideo::$tablename)->where("prodid", "in", $prodIds)->select();
             if(!empty($videos)) {
                 foreach($videos as $video) {
-                    $product_videos[$video['prodid']] = 1;
+                    if(!empty($video["video_src"])) {
+                        $product_videos[$video['prodid']] = 1;
+                    }
                 }
             }
         }
