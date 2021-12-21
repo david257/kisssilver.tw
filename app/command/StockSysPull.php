@@ -138,7 +138,7 @@ class StockSysPull extends Command
            $productlist = Db::name("view_product_stocks")->where("prodcode|scode", "in", $prodCodes)->select();
             if(!empty($productlist)) {
                 foreach($productlist as $prod) {
-                    $products[$l["sku"]]["name"] = $prod["prodname"];
+                    $products[$prod["sku"]]["name"] = $prod["prodname"];
                 }
             }
 
