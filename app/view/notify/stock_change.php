@@ -1,5 +1,4 @@
 <h1>產品庫存變動通知</h1>
-<h3>批次號: {$bactNo}</h3>
 <table class="table" cellspacing="0" width="100%">
 	<tr>
 		<th>產品編號</th>

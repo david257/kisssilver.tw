@@ -330,7 +330,7 @@ function order_state_actions() {
             "email_html"  => "/static/email/nostock.html",
         ],
         "change_stock" => [
-            "title" => "庫存異動通知-KissSilver.tw",
+            "title" => "庫存變動通知-KissSilver.tw",
             "email_html"  => "/static/email/change_stock.html",
         ],
 		"ordercreate" => [
@@ -589,7 +589,7 @@ function express_coms()
 }
 
 //庫存從0變為非0通知
-function send_stock_change_notify($content, $bactNo) {
+function send_stock_change_notify($content) {
 
     $order_action = order_state_actions();
     if(isset($order_action["change_stock"])) {
@@ -609,7 +609,7 @@ function send_stock_change_notify($content, $bactNo) {
         $html = file_get_contents($html_template);
         $body = str_replace($source, $replace, $html);
         $config = get_setting();
-        $emailStr = $config['setting']['notify']['change_stock'];
+        $emailStr = $config['setting']['notify']['nostock'];
         $emails = explode(",", $emailStr);
         $_emails = [];
         if(!empty($emails)) {
@@ -633,7 +633,7 @@ function send_stock_change_notify($content, $bactNo) {
         if(!empty($revEmail)) {
            $ret = send_email($order_action["change_stock"]["title"], $body, "", $revs, $ccs);
            if($ret["err_code"] === 0) {
-               Db::name("stock_change_log")->where("batch_no", $bactNo)->update([
+               Db::name("stock_change_log")->where("notify_state", 0)->update([
                    "notify_state" => 1,
                    "update_date" => time()
                ]);

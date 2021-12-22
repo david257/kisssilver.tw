@@ -121,8 +121,12 @@ class StockSysPull extends Command
             echo $ex->getMessage()."\n";
         }
 
+        self::sendNotify();
+    }
+
+    private function sendNotify()
+    {
         $list = Db::name("stock_change_log")
-            ->where("batch_no", $bactNo)
             ->where("notify_state", 0)
             ->where("sync_before_qty", 0)
             ->where("sync_after_qty", ">", 0)
@@ -134,20 +138,25 @@ class StockSysPull extends Command
                 $prodCodes[] = $l["sku"];
                 $products[$l["sku"]] = $l;
             }
-
-           $productlist = Db::name("view_product_stocks")->where("prodcode|scode", "in", $prodCodes)->select();
-            if(!empty($productlist)) {
-                foreach($productlist as $prod) {
-                    $products[$prod["sku"]]["name"] = $prod["prodname"];
+            if(!empty($prodCodes)) {
+                $productlist = Db::name("view_product_stocks")->where("prodcode|scode", "in", $prodCodes)->select();
+                if (!empty($productlist)) {
+                    foreach ($productlist as $prod) {
+                        if (isset($products[$prod["prodcode"]])) {
+                            $products[$prod["prodcode"]]["name"] = $prod["prodname"];
+                        } elseif (isset($products[$prod["scode"]])) {
+                            $products[$prod["scode"]]["name"] = $prod["prodname"];
+                        }
+                    }
                 }
-            }
 
-            $data['products'] = $products;
-            $data['bactNo'] = $bactNo;
-            View::assign($data);
-            $html = View::fetch("notify/stock_change");
-            send_stock_change_notify($html, $bactNo);
+                $data['products'] = $products;
+                View::assign($data);
+                $html = View::fetch("notify/stock_change");
+                send_stock_change_notify($html);
+            }
         }
+        echo "stock change notify compelate\n";
     }
 
     private static function syncStock($url)
