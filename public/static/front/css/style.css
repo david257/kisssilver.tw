@@ -91,10 +91,15 @@ video {
     border-radius: 4px;
 }
 .container{ width:1360px;}
+.news-product>.container-fluid, .hot-product>.container-fluid, .sale-product>.container-fluid {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
 .row.mno-gutter {
-	padding:0 170px;
 	display:flex;
 	flex-wrap:wrap;
+	max-width:1280px
 }
 @media(max-width:1440px) {
 	.container{ width:1220px;}
