@@ -417,6 +417,7 @@ $(".m-search-k").click(function(){
 
 
 
+
 $(".add-loc").click(function(){$(".location-form").toggle()});
 $(".news-loc").click(function(){$(".news-loc-form").show();
 $(".location-list").hide();$(".news-loc").hide();
@@ -442,18 +443,6 @@ var saleproductw=$(".sale-product .list-one").width();
 $(".sale-product .list-one .list-pic img").css({"width" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"width" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"height" : saleproductw});
-if(bodyw > 600){
-	var detailtj1=$(".detail-tj .owl-carousel").width()/4 - 20;
-$(".detail-tj .owl-carousel .item img").css({"height" : detailtj1});
-$(".detail-tj .owl-carousel .item video").css({"height" : detailtj1});
-$(".detail-tj .owl-carousel .item video").css({"width" : detailtj1});
-	}
-	if(bodyw <= 600){
-var detailtj1=$(".detail-tj .owl-carousel").width()/2 - 20;
-$(".detail-tj .owl-carousel .item img").css({"height" : detailtj1});
-$(".detail-tj .owl-carousel .item video").css({"height" : detailtj1});
-$(".detail-tj .owl-carousel .item video").css({"width" : detailtj1});
-}
 if(bodyw > 600){
 	var newsowl1=$(".news-owl .owl-carousel").width()/4 - 20;
 $(".news-owl .owl-carousel .item img").css({"height" : newsowl1});
