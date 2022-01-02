@@ -690,14 +690,15 @@ body {
 .cart-number .spinner .decrease {
 	background: #000;
 	bottom: 0;
-	top: auto
+	left:0;
+	top: 0;
 }
 .cart-number .spinner div {
 	border: 0;
-	width: 20%;
-	height: 22.5px;
+	width: 25%;
+	height: 45px;
 	color: #fff;
-	line-height: 100%;
+	line-height: 45px;
 	padding: 0;
 	outline: 0;
 	position: absolute;
@@ -774,7 +775,7 @@ body {
 	background: #000
 }
 .cart-number .spinner .value {
-	width: 60%;
+	width: 100%;
 	height: 30px;
 	border: 0;
 	color: #000;
