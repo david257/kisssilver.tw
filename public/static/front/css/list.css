@@ -640,6 +640,7 @@ body {
 	left:0;
 	bottom: 0;
 	top: 0;
+	user-select:none;
 }
 .spinner .decrease[disabled] {
 	background: #ccc
@@ -649,6 +650,7 @@ body {
 	right:0;
 	bottom: 0;
 	top: 0;
+	user-select:none;
 }
 .spinner .value {
 	width: 58x;
