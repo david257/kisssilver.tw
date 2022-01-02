@@ -729,8 +729,14 @@ body {
 .cart-number .spinner .error, .spinner .invalid {
 	background: #a00
 }
+.cart-set{
+	margin-top:20px;
+}
 
 @media(max-width:768px) {
+.cart-list.row{
+	padding:0 10px;
+}
 .cart-number .spinner {
 	font-size: 1.2em;
 	height: 30px;
@@ -768,13 +774,17 @@ body {
 	top: auto;
 	right: auto;
 	left: 0;
-	margin: 0
+	margin: 0;
+	height:30px;
+	line-height:30px;
 }
 .cart-number .spinner .decrease[disabled] {
 	background: #ccc
 }
 .cart-number .spinner .increase {
-	background: #000
+	background: #000;
+	height:30px;
+	line-height:30px;
 }
 .cart-number .spinner .value {
 	width: 100%;
@@ -783,7 +793,6 @@ body {
 	color: #000;
 	padding: 0;
 	font-size: 1em;
-	margin-left: 20%
 }
 .cart-number .spinner .value.passive {
 	color: #919191
@@ -1031,6 +1040,9 @@ body {
 	padding: 5px 0
 }
 .detail-tj{padding: 10px 15px}
+.detail-tj>.container-fluid{
+	max-width:1200px;
+}
 .detail-tj .owl-prev {
 	position: absolute;
 	top: calc(50% - 12px);

@@ -29,7 +29,7 @@
                             if(!empty($carts)) {
                                 foreach($carts as $cartId => $prod) {
                             ?>
-                            <div class="cart-list">
+                            <div class="cart-list row">
                                 <div class="cart-pic col-xs-3 col-sm-3 col-md-2">
                                     <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}"><img src="{:showfile($prod['prodimage'])}" alt="{:$prod['prodname']}"/></a>
                                 </div>
@@ -68,7 +68,7 @@
                             <hr />
                             <?php } } ?>
 <div class="cart-send">
-                            <a href="javascript:void(0)" id="CheckoutBtn" class="btn btn-default no-margin pull-right col-xs-12 col-md-3" title="結帳">結帳 <i class="fa fa-long-arrow-right"></i></a>
+                            <a href="javascript:void(0)" id="CheckoutBtn" class="btn btn-default no-margin pull-right col-xs-12 col-md-3" title="下一步">下一步<i class="fa fa-long-arrow-right"></i></a>
                         </div>
                             <div class="modal fade" id="delete-shop" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
@@ -188,87 +188,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-xs-12  col-sm-12 col-md-3 ">
-                    <div class="cart-tj">
-                        <div class="cart-tjtitle">訂單摘要<i>共 {:$totalItems} 件</i></div>
-                        <div class="cart-tjbox ">
-                            <ul class="row">
-                                <li class="col-xs-5 col-md-6 text-left">商品金額</li>
-                                <li class="col-xs-7 col-md-6 text-right"><b>$ {$subTotal}</b></li>
-                            </ul>
-                            <ul class="row">
-                                <li class="col-xs-5 col-md-6 text-left">運費</li>
-                                <li class="col-xs-7 col-md-6 text-right"><b>$ {$total_shipping_fee}</b></li>
-                            </ul>
-                            <ul class="row">
-                                <li class="col-xs-5 col-md-6 text-left">優惠金額</li>
-                                <li class="col-xs-7 col-md-6 text-right"><b class="text-danger">
-                                        <?php
-                                        $totalsubamount = 0;
-                                        if(!empty($promotion_rules)) {
-                                            foreach ($promotion_rules as $k => $promotion) {
-                                                $totalsubamount += $promotion["amount"];
-                                            }
-                                        }
-                                        ?>
-                                        - $ {$totalsubamount}
-                                    </b></li>
-                                    
-                                    
-                            </ul>
-                            <?php if(!empty($promotion_rules)) {
-                                foreach($promotion_rules as $k => $promotion) {
-                             ?>
-                             <ul class="row">
-                                <li class="col-xs-5 col-md-6 text-left"> -- {$promotion['title']}</li>
-                                <li class="col-xs-7 col-md-6 text-right"><b class="text-danger" style="font-weight: 100"> -{:format_price($promotion['amount'])}</b></li>
-                            </ul>
-       
-                            <?php } } ?>
-                            <ul class="row">
-                                <li class="col-xs-5 col-md-6 text-left">商品總計</li>
-                                <li class="col-xs-7 col-md-6 text-right"><b>$ {:$subTotal-$totalsubamount+$total_shipping_fee}</b></li>
-                            </ul>
-
-                        </div>
-                        <div class="cart-tjtitle">配送方式</div>
-                        <div class="cart-tjbox ">
-                            <?php
-                            $express_types = express_types();
-                            if(!empty($express_types)) {
-                                foreach($express_types as $k => $v) {
-                                    if($k=="HOME") {
-                                        $checked = "checked";
-                                    } else {
-                                        $checked  ="";
-                                    }
-                                    ?>
-                                    <ul class="row">
-                                        <li class="col-xs-12 col-md-12">
-                                            <div class="radio">
-                                                <label class="diaplay-block">
-                                                    <input type="radio" <?php echo $checked;?> name="LogisticsType"  value="<?php echo $k;?>">
-                                                    <?php echo $v;?>
-                                                </label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                <?php } } ?>
-                        </div>
-
-                        
-                        <div class="cart-help">
-                        <p><b>付款及配送</b></p>
-                        <span class="clearfix">金流：<b>綠界</b></span>
-                        <span class="clearfix">物流：<b>黑貓</b></span>
-                        <span class="clearfix">倉儲：<b>綠界</b></span>
-                        <span class="clearfix">電子發票：<b>鯨躍</b></span>
-                    </div>
-                    </div>
-                 
-                    
-                </div>
             </div>
         </div>
     </section>
@@ -329,8 +248,6 @@
             success: function(json) {
                 if(json.code>0) {
                     layer.alert(json.msg, {icon: 1});
-                } else {
-                    location.reload();
                 }
             }
         })

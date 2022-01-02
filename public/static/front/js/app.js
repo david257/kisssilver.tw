@@ -4,17 +4,14 @@ $(function(){
 	var newsproducw=$(".news-product .list-one").width();
 $(".news-product .list-one .list-pic img").css({"width" : newsproducw});
 $(".news-product .list-one .list-pic video").css({"width" : newsproducw});
-$(".news-product .list-one .list-pic video").css({"height" : newsproducw});
 
 var hotproductw=$(".hot-product .list-one").width();
 $(".hot-product .list-one .list-pic img").css({"width" : hotproductw});
 $(".hot-product .list-one .list-pic video").css({"width" : hotproductw});
-$(".hot-product .list-one .list-pic video").css({"height" : hotproductw});
 
 var saleproductw=$(".sale-product .list-one").width();
 $(".sale-product .list-one .list-pic img").css({"width" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"width" : saleproductw});
-$(".sale-product .list-one .list-pic video").css({"height" : saleproductw});
 		if(bodyw > 768){
 			var locationbg=$(".hide-xs .location-bg").width()*600 / 1920;
 		$(".hide-xs .location-bg").css({"height" : locationbg});
