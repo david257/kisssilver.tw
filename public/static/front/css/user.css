@@ -238,7 +238,7 @@
 	display: inline-block
 }
 .user-key {
-	padding-bottom: 15px
+	padding:15px;
 }
 .user-key:after {
 	content: " ";
