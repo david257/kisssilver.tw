@@ -21,9 +21,9 @@
             <!-- Large modal -->
             <div id="panel_sel"></div>
             <div class="ps-select row">
-                <div class="col-xs-6 col-md-8">
+                <div class="col-xs-6 col-md-6">
                 </div>
-                <div class="col-xs-6 col-md-4">
+                <div class="col-xs-6 col-md-6">
                     <div class="detail-number">
                         <input type="text" class="spinnerExample" id="BuyQty" value="1"/>
                     </div>
