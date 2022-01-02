@@ -83,6 +83,14 @@ video {
     margin-top: .2rem;
     margin-bottom: 1rem;
 }
+.member>.container-fluid>.row{
+	display:flex;
+	justify-content: center;
+}
+.member>.container-fluid>.row>.cart-container{
+	max-width:1200px;
+	padding:0;
+}
 .breadcrumb {
     padding: 8px 15px;
     margin-bottom: 20px;
@@ -99,7 +107,7 @@ video {
 .row.mno-gutter {
 	display:flex;
 	flex-wrap:wrap;
-	max-width:1280px
+	max-width:1200px
 }
 @media(max-width:1440px) {
 	.container{ width:1220px;}

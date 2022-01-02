@@ -18,7 +18,7 @@
             </div>
             <div class="row">
 
-                <div class="col-xs-12  col-sm-12 col-md-9">
+                <div class="col-xs-12 col-sm-12 col-md-9 cart-container">
 
                     <div class="user-key"><h1 class="pull-left">您的購物車<i>共 {:$totalItems} 件</i></h1><a href="#" onclick="history.back(-1)" class="pull-right">繼續購物</a><div class="clearfix"></div></div>
                     <div class="cart-tab">
