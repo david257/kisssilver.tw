@@ -267,10 +267,6 @@
 <script>
 
     $("#CheckoutBtn").click(function() {
-        if(!$("input[name=LogisticsType]").is(":checked")) {
-            layer.msg("請選擇配送方式");
-            return false;
-        }
 
         //set shipping type
         $.ajax({
