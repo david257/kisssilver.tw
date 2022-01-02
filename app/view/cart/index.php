@@ -29,7 +29,7 @@
                             if(!empty($carts)) {
                                 foreach($carts as $cartId => $prod) {
                             ?>
-                            <div class="cart-list row">
+                            <div class="cart-list">
                                 <div class="cart-pic col-xs-3 col-sm-3 col-md-2">
                                     <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}"><img src="{:showfile($prod['prodimage'])}" alt="{:$prod['prodname']}"/></a>
                                 </div>
