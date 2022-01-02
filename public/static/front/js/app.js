@@ -417,12 +417,10 @@ $(".m-search-k").click(function(){
 
 		if(bodyw > 600){
 	var detailtj1=$(".detail-tj .owl-carousel").width()/5 - 20;
-$(".detail-tj .owl-carousel .item video").css({"height" : detailtj1});
 $(".detail-tj .owl-carousel .item video").css({"width" : detailtj1});
 	}
 	if(bodyw <= 600){
 	var detailtj1=$(".detail-tj .owl-carousel").width()/2 - 20;
-$(".detail-tj .owl-carousel .item video").css({"height" : detailtj1});
 $(".detail-tj .owl-carousel .item video").css({"width" : detailtj1});
 	}
 
