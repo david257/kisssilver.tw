@@ -1628,8 +1628,7 @@ function sendSms($phone, $content)
 {
     $config = get_setting();
     $setting = $config["setting"];
-    $content = urlencode($content);
-    $url = "https://api.kotsms.com.tw/kotsmsapi-1.php?username=".$setting['sms']['username']."&password=".$setting['sms']['passwd']."&dstaddr=".$phone."&smbody=".iconv("utf-8", "big5", $content);
+    $url = "https://api.kotsms.com.tw/kotsmsapi-1.php?username=".$setting['sms']['username']."&password=".$setting['sms']['passwd']."&dstaddr=".$phone."&smbody=".urlencode(iconv("utf-8", "big5", $content));
     \think\facade\Log::write($url);
     $content = file_get_contents($url);
     \think\facade\Log::write($content);
