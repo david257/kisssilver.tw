@@ -164,11 +164,10 @@ class Register extends BaseController
                 throw new Exception("手機號碼不能為空");
             }
 
-            /*
             $ok = sendSms($mobile, $content);
             if($ok<0) {
                 throw new Exception("驗證碼獲取失敗");
-            }*/
+            }
 
             Session::set("wait_secs", time());
 
