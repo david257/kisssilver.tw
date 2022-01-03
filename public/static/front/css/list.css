@@ -614,7 +614,7 @@ body {
 	height: 58px;
 	overflow: hidden;
 *zoom:1;
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	position: relative
 }
 .spinner button, .spinner .value {
@@ -638,17 +638,17 @@ body {
 	text-align:center
 }
 .spinner .decrease {
-	background: #000;
+	background: rgba(21, 21, 21, 0.5);
 	left:0;
 	bottom: 0;
 	top: 0;
 	user-select:none;
 }
 .spinner .decrease[disabled] {
-	background: #ccc
+	background: rgba(21, 21, 21, 0.5);
 }
 .spinner .increase {
-	background: #000;
+	background: rgba(21, 21, 21, 0.5);
 	right:0;
 	bottom: 0;
 	top: 0;
@@ -956,7 +956,7 @@ body {
 	width:100%;
 }
 .ps-btn .detail-cart-btn {
-	background: #000;
+	background: rgba(21, 21, 21, 0.5);
 	height: 58px;
 	text-align: left;
 	width: 100%;
