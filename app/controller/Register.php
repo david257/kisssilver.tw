@@ -8,6 +8,7 @@ use app\models\CouponAutoRule;
 use app\models\Customer;
 use think\facade\Db;
 use think\Exception;
+use think\facade\Session;
 use think\facade\View;
 
 class Register extends BaseController
@@ -21,6 +22,15 @@ class Register extends BaseController
                 $custconemail = input("custconemail");
                 $custpassword = input("custpassword");
                 $custpassword2 = input("custpassword2");
+                $code = input("code");
+
+                if(empty($code)) {
+                    throw new Exception("請輸入驗證碼");
+                }
+
+                if(Session::get("reg_code") != $code) {
+                    throw new Exception("驗證碼錯誤");
+                }
 
                 if(empty($fullname)) {
                     throw new Exception("請輸入姓名");
@@ -77,7 +87,7 @@ class Register extends BaseController
                 toJSON([
                     "code" => 0,
                     "msg" => "註冊提交成功,請前往郵箱完成開通",
-                    "url" => front_link("Login/index")
+                    "url" => front_link("Cart/index")
                 ]);
             } catch(Exception $ex) {
                 toJSON([
@@ -86,6 +96,10 @@ class Register extends BaseController
                 ]);
             }
         }
+
+        $wait_secs = (int) Session::get("wait_secs");
+        $data["wait_secs"] = max(10-(time()-$wait_secs), 0);
+        View::assign($data);
         return View::fetch("index");
     }
 
@@ -136,6 +150,38 @@ class Register extends BaseController
 
         View::assign($data);
         return View::fetch();
+    }
+
+    //發送驗證碼
+    public function send_sms_code()
+    {
+        $code = rand(1000, 9999);
+        Session::set("reg_code", $code);
+        $mobile = input("mobile");
+        $content = "您本次註冊驗證碼為: ".$code;
+        try {
+            if(empty($mobile)) {
+                throw new Exception("手機號碼不能為空");
+            }
+
+            /*
+            $ok = sendSms($mobile, $content);
+            if($ok<0) {
+                throw new Exception("驗證碼獲取失敗");
+            }*/
+
+            Session::set("wait_secs", time());
+
+            return json_encode([
+                "code" => 0,
+                "msg" => "驗證碼獲取成功"
+            ], JSON_UNESCAPED_UNICODE);
+        } catch (Exception $ex) {
+            return json_encode([
+                "code" => 1,
+                "msg" => $ex->getMessage()
+            ], JSON_UNESCAPED_UNICODE);
+        }
     }
 
 }

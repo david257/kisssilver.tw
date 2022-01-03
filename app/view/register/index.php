@@ -31,7 +31,19 @@
                                 <input type="email" maxlength="255" class="form-control" id="inputEmail3" name="custconemail" placeholder="請輸入帳號(Email )">
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <div class="col-sm-8">
+                                <input type="number" maxlength="255" class="form-control" id="inputEmail3" name="mobile" placeholder="手機號碼">
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="btn btn-success" id="get_mobile_code" href="">獲取手機驗證碼</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="number" maxlength="255" class="form-control" id="inputEmail3" name="code" placeholder="請輸入驗證碼">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <input type="text" maxlength="100" class="form-control" id="inputEmail3" name="fullname" placeholder="請輸入姓名">
@@ -93,6 +105,52 @@
             goto_url = now_url+"?date="+$("#datetime").val();
         }
         document.location.href=goto_url;
+    })
+
+    var wait_secs = {$wait_secs};
+
+    sms_btn();
+    var t;
+    function sms_btn() {
+        if(wait_secs>0) {
+            $("#get_mobile_code").addClass("disabled");
+           t = setInterval(function () {
+                if(wait_secs<=0) {
+                    $("#get_mobile_code").text("獲取手機驗證碼");
+                    clearInterval(t);
+                    $("#get_mobile_code").removeClass("disabled");
+                } else {
+                    $("#get_mobile_code").text("請在(" + (wait_secs) + ")秒後重新獲取");
+                    wait_secs--;
+                }
+            }, 1000);
+        }
+    }
+
+    $("#get_mobile_code").click(function() {
+        if($("input[name=mobile]").val() == "") {
+            layer.msg("請輸入手機號碼");
+            return false;
+        }
+        $.ajax({
+            url: '<?php echo url('send_sms_code');?>',
+            data: {mobile: $("input[name=mobile]").val()},
+            method: "post",
+            dataType: "json",
+            success: function(json) {
+                json = JSON.parse(json);
+                layer.msg(json.msg);
+                if(json.code===0) {
+                    wait_secs = 120;
+                    sms_btn();
+                    $("#get_mobile_code").addClass("disabled");
+                }
+            },
+            error: function() {
+                layer.msg("獲取手機驗證碼失敗");
+            }
+        })
+        return false;
     })
 </script>
 </body>

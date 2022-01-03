@@ -66,6 +66,7 @@
                     <table class="table table-bordered table-striped table-sm table-responsive-sm">
                         <tr>
                             <th>會員帳號</th>
+                            <th>客戶姓名</th>
                             <th>註冊郵箱</th>
                             <th>手機</th>
                             <th>開通狀態</th>
@@ -79,6 +80,7 @@
                                 ?>
                                 <tr>
                                     <td><?= $v["vipcode"] ?></td>
+                                    <td><?= $v["fullname"] ?></td>
                                     <td><?= $v["custconemail"] ?></td>
                                     <td><?= $v["mobile"] ?></td>
                                     <td><?= $v["state"]?'已開通':'未開通' ?></td>
@@ -97,7 +99,7 @@
                     </table>
                     <p class="text-center">
                     <div class="row">
-                        <div class="col-sm-12"><div class="dataTables_paginate paging_simple_numbers">{:$pages}</div></div>
+                        <div class="col-sm-4">會員總數: {$totals} </div> <div class="col-sm-8"><div class="dataTables_paginate paging_simple_numbers">{:$pages}</div></div>
                     </div>
                     </p>
                 </div>

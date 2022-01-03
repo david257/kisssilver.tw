@@ -56,6 +56,7 @@ class Customer extends Base {
         $data["list"] = $query->all();
 
         $data["pages"] = $query->render();
+        $data["totals"] = $query->total();
         $data["keyword"] = $keyword;
         $data["group_id"] = $group_id;
         $data["start_date"] = $start_date;

@@ -121,10 +121,10 @@ class StockSysPull extends Command
             echo $ex->getMessage()."\n";
         }
 
-        self::sendNotify();
+        static::sendNotify();
     }
 
-    private function sendNotify()
+    private static function sendNotify()
     {
         $list = Db::name("stock_change_log")
             ->where("notify_state", 0)
