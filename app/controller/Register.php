@@ -140,7 +140,7 @@ class Register extends BaseController
                     Db::name("coupons")->insert($data);
                 }
             }
-
+            Session::set("reg_code", null);
             send_register_email($customer);
 
             $data["msg"] = "帳號已開通成功，您的會員帳號已可以使用！";
