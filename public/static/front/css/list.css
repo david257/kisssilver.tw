@@ -675,7 +675,7 @@ body {
 	width: calc(100% - 2px);
 	overflow: hidden;
 *zoom:1;
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	position: relative
 }
 .cart-number .spinner button {
@@ -712,10 +712,10 @@ body {
 	text-align:center
 }
 .cart-number .spinner .decrease[disabled] {
-	background: #ccc
+	background: rgba(21, 21, 21, 0.5);
 }
 .cart-number .spinner .increase {
-	background: #000
+	background: rgba(21, 21, 21, 0.5);
 }
 .cart-number .spinner .value {
 	width: 45x;
@@ -745,7 +745,7 @@ body {
 	width: calc(100% - 2px);
 	overflow: hidden;
 *zoom:1;
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	position: relative
 }
 .cart-number .spinner button, .spinner .value {
@@ -771,7 +771,7 @@ body {
 	cursor: pointer
 }
 .cart-number .spinner .decrease {
-	background: #000;
+	background: rgba(21, 21, 21, 0.5);
 	bottom: 0;
 	top: auto;
 	right: auto;
@@ -781,10 +781,10 @@ body {
 	line-height:30px;
 }
 .cart-number .spinner .decrease[disabled] {
-	background: #ccc
+	background: rgba(21, 21, 21, 0.5);
 }
 .cart-number .spinner .increase {
-	background: #000;
+	background: rgba(21, 21, 21, 0.5);
 	height:30px;
 	line-height:30px;
 }
