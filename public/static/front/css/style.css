@@ -499,12 +499,12 @@ z-index: 1;
 	float: left;
 }
 .search input[type="text"] {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	margin: 0;
 }
 .search .btn {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	width: 20%;
 }
@@ -576,14 +576,14 @@ width:150px;
 	float: left;
 }
 .search input[type="text"] {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	margin: 0;
 	padding:0 3%;
 	width:100%;
 }
 .search .btn {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	padding: 6px 5px;
 	width: 20%;
@@ -642,14 +642,14 @@ width:130px;
 	float: left;
 }
 .search input[type="text"] {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	margin: 0;
 	padding:0 3%;
 	width:100%;
 }
 .search .btn {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	width: 20%;
 	padding: 6px 5px;
@@ -711,14 +711,14 @@ display:none;
 	float: left;
 }
 .search input[type="text"] {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	margin: 0;
 	padding:0 3%;
 	width:100%;
 }
 .search .btn {
-	border: 1px solid #000;
+	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	width: 20%;
 	padding: 6px 5px;
