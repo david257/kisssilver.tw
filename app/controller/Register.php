@@ -98,7 +98,7 @@ class Register extends BaseController
         }
 
         $wait_secs = (int) Session::get("wait_secs");
-        $data["wait_secs"] = max(10-(time()-$wait_secs), 0);
+        $data["wait_secs"] = max(120-(time()-$wait_secs), 0);
         View::assign($data);
         return View::fetch("index");
     }
