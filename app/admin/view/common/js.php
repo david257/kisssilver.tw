@@ -45,11 +45,13 @@
             $.getJSON(url, function(json) {
                 layer.close(index);
                 if (json.code === 0) { //無錯誤
-                    layer.alert(json.msg, {icon: 1, end: function() {
+                    layer.alert(json.msg, {icon: 1, title: '系統提示',
+                        btn: ['確定','取消'], end: function() {
                             document.location.reload();
                         } });
                 } else {
-                    layer.alert(json.msg, {icon: 2});
+                    layer.alert(json.msg, {icon: 2, title: '系統提示',
+                        btn: ['確定','取消']});
                 }
             })
         }, function(){
@@ -83,7 +85,8 @@
             var options = {
                 beforeSubmit: function () {
                     if (isLock) {
-                        layer.alert("請不要重複送出", {icon: 2});
+                        layer.alert("請不要重複送出", {icon: 2, title: '系統提示',
+                            btn: ['確定','取消']});
                         return false;
                     }
                     isLock = true;
@@ -104,7 +107,8 @@
                 success: function (data) {
                     var json = $.parseJSON(data);
                     if (json.code === 0) { //無錯誤
-                        layer.alert(json.msg, {icon: 1, time: 1000, end: function() {
+                        layer.alert(json.msg, {icon: 1, title: '系統提示',
+                            btn: ['確定','取消'], time: 1000, end: function() {
                             if(json.url !== undefined && json.url !== null && json.url !== '') {
                                 document.location.href = json.url;
                             } else {
@@ -114,11 +118,13 @@
                         } });
 
                     } else {
-                        layer.alert(json.msg, {icon: 2});
+                        layer.alert(json.msg, {icon: 2, title: '系統提示',
+                            btn: ['確定','取消']});
                     }
                 },
                 error: function (xhr, status, err) {
-                    layer.alert(err, {icon: 2});
+                    layer.alert(err, {icon: 2, title: '系統提示',
+                        btn: ['確定','取消']});
                 },
                 complete: function () {
                     layer.close(index);
