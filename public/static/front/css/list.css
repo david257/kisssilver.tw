@@ -692,7 +692,7 @@ body {
 	cursor: pointer
 }
 .cart-number .spinner .decrease {
-	background: #000;
+	background: rgba(21, 21, 21, 0.5);
 	bottom: 0;
 	left:0;
 	top: 0;
