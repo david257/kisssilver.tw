@@ -507,7 +507,6 @@ z-index: 1;
 	border: 1px solid rgba(21, 21, 21, 0.5);
 	border-radius: 0;
 	width: 20%;
-	border-left:none;
 }
 .top-nav {
 	text-align: center;
@@ -588,6 +587,7 @@ width:150px;
 	border-radius: 0;
 	padding: 6px 5px;
 	width: 20%;
+	border-left:none;
 }
 .search .btn svg{
 font-size:14px;
@@ -654,6 +654,7 @@ width:130px;
 	border-radius: 0;
 	width: 20%;
 	padding: 6px 5px;
+	border-left:none;
 }
 .search .btn svg{
 font-size:14px;
@@ -723,6 +724,7 @@ display:none;
 	border-radius: 0;
 	width: 20%;
 	padding: 6px 5px;
+	border-left:none;
 }
 .search .btn svg{
 font-size:14px;
