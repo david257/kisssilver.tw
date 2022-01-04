@@ -39,7 +39,7 @@
                             
                           </a> </div>
                   <?php } else { ?>
-                      <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="show-md" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                      <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                               </a> </div>
                   <?php } ?>
               </div>
@@ -52,11 +52,11 @@
                   if(strpos($banner['imagefile'], '.mp4') !== false) {
                       ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <video class="show-xs" controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
+                              <video controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img class="show-xs" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -65,17 +65,17 @@
     <?php } ?>
     <?php if(!empty($header_one_banners)) { ?>
         <section class="index-one-gg">
-            <div class="owl-carousel">
+            <div class="owl-carousel show-md">
                 <?php foreach ($header_one_banners as $banner) { ?>
                     <div class="item">
                         <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
                             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                                    <video class="show-md" controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
+                                    <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                                 </a> </div>
                         <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="show-md" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                                    </a> </div>
                         <?php } ?>
                     </div>
@@ -83,16 +83,16 @@
             </div>
             <div>
             <?php foreach ($header_one_banners as $banner) { ?>
-              <div class="item">
+              <div class="item show-xs">
                   <?php
                   if(strpos($banner['imagefile'], '.mp4') !== false) {
                       ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <video class="show-xs" controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
+                              <video controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img class="show-xs" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -101,17 +101,17 @@
     <?php } ?>
     <?php if(!empty($header_two_banners)) { ?>
         <section class="index-two-gg">
-            <div class="owl-carousel">
+            <div class="owl-carousel show-md">
                 <?php foreach ($header_two_banners as $banner) { ?>
                     <div class="item">
                         <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
                             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                                    <video class="show-md" controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
+                                    <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                                 </a> </div>
                         <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="show-md" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                                 </a> </div>
                         <?php } ?>
                     </div>
@@ -119,16 +119,16 @@
             </div>
             <div>
             <?php foreach ($header_two_banners as $banner) { ?>
-              <div class="item">
+              <div class="item show-xs">
                   <?php
                   if(strpos($banner['imagefile'], '.mp4') !== false) {
                       ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <video class="show-xs" controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
+                              <video controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img class="show-xs" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -137,33 +137,33 @@
     <?php } ?>
     <?php if(!empty($header_four_banners)) { ?>
     <section class="index-four-gg">
-      <div class="owl-carousel">
+      <div class="owl-carousel show-md">
           <?php foreach ($header_four_banners as $banner) { ?>
           <div class="item">
               <?php
               if(strpos($banner['imagefile'], '.mp4') !== false) {
                   ?>
                   <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                          <video class="show-md" controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
+                          <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                           </a> </div>
               <?php } else { ?>
-              <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="show-md" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+              <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/></a> </div>
               <?php } ?>
           </div> 
           <?php } ?>
       </div>
       <div>
       <?php foreach ($header_four_banners as $banner) { ?>
-              <div class="item">
+              <div class="item show-xs">
                   <?php
                   if(strpos($banner['imagefile'], '.mp4') !== false) {
                       ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <video class="show-xs" controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
+                              <video controls><source src="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img class="show-xs" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
