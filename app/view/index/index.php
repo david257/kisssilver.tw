@@ -28,14 +28,14 @@
     <?php } ?>
     <?php if(!empty($header_three_banners)) { ?>
     <section class="index-three-gg">
-          <div class="owl-carousel">
+          <div class="owl-carousel show-md">
               <?php foreach ($header_three_banners as $banner) { ?>
               <div class="item">
                   <?php
                   if(strpos($banner['imagefile'], '.mp4') !== false) {
                       ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <video class="show-md" controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
+                              <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                             
                           </a> </div>
                   <?php } else { ?>
@@ -47,7 +47,7 @@
           </div>
           <div>
           <?php foreach ($header_three_banners as $banner) { ?>
-              <div class="item">
+              <div class="item show-xs">
                   <?php
                   if(strpos($banner['imagefile'], '.mp4') !== false) {
                       ?>
