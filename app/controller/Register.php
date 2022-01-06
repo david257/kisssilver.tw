@@ -23,6 +23,7 @@ class Register extends BaseController
                 $custpassword = input("custpassword");
                 $custpassword2 = input("custpassword2");
                 $code = input("code");
+				$mobile = input("mobile");
 
                 if(empty($code)) {
                     throw new Exception("請輸入驗證碼");
@@ -31,6 +32,10 @@ class Register extends BaseController
                 if(Session::get("reg_code") != $code) {
                     throw new Exception("驗證碼錯誤");
                 }
+
+				if(empty($mobile)) {
+					throw new Exception("電話號碼不能為空");
+				}
 
                 if(empty($fullname)) {
                     throw new Exception("請輸入姓名");
@@ -71,6 +76,7 @@ class Register extends BaseController
                     "fullname" => $fullname,
                     "custconemail" => $custconemail,
                     "custpassword" => md5($custpassword),
+					"mobile" => $mobile,
                     "state" => 0,
                     "vipcode" => $vipcode,
                     "active_code" => $active_code,
