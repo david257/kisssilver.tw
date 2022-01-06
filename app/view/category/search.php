@@ -26,7 +26,13 @@
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                    <video controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
+                                    <video autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="{:showfile($prod['video_image'])}">
+                <source src="{:showfile($video)}" type="video/mp4">
+              </video>
                                 <?php } else { ?>
                                     <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                 <?php } ?>
