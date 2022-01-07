@@ -131,7 +131,7 @@ class Oauth extends BaseController
                 Session::set("customerId", $customerid);
             }
 
-            return redirect(front_link("Customer/profile"));
+            return redirect(front_link("Cart/index"));
         } catch (Exception $ex) {
             //echo $ex->getMessage().$ex->getLine();
             return redirect(front_link("Login/index"));
@@ -202,7 +202,7 @@ class Oauth extends BaseController
                 Session::set("customerId", $customerid);
             }
 
-            return redirect(front_link("Customer/profile"));
+            return redirect(front_link("Cart/index"));
         } catch (Exception $ex) {
             //echo $ex->getMessage().$ex->getLine();
             Log::write($ex->getMessage().$ex->getLine());
