@@ -883,9 +883,14 @@ font-size:14px;
 	}
 .sub>.container-fluid{
 	padding:0 40px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
 }
 .products-key {
 	padding: 1% 0;
+	text-align:center;
+	min-width:350px;
 }
 .products-key h1 {
 	display: inline-block;
