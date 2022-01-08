@@ -77,7 +77,7 @@ class Register extends BaseController
                     "custconemail" => $custconemail,
                     "custpassword" => md5($custpassword),
 					"mobile" => $mobile,
-                    "state" => 0,
+                    "state" => 1,
                     "vipcode" => $vipcode,
                     "active_code" => $active_code,
                     "create_at" => time(),
@@ -88,11 +88,11 @@ class Register extends BaseController
                     throw new Exception("註冊會員失敗");
                 }
 
-                send_active_email($fullname, $custconemail, $custpassword, $active_code);
+                //send_active_email($fullname, $custconemail, $custpassword, $active_code);
 
                 toJSON([
                     "code" => 0,
-                    "msg" => "註冊提交成功,請前往郵箱完成開通",
+                    "msg" => "註冊提交成功",
                     "url" => front_link("Cart/index")
                 ]);
             } catch(Exception $ex) {
