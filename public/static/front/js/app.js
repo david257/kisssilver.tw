@@ -525,6 +525,3 @@ const lazyImages = document.querySelectorAll('img.lazy')
 for (let image of lazyImages) {
 	watcher.observe(image) // 開始監視
 }
-window.fadeIn = function(obj) {
-	$(obj).fadeIn(1500);
-}
