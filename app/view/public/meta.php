@@ -31,5 +31,11 @@
 
         gtag('config', 'UA-180296843-1');
     </script>
+    <script>
+        // this function must be defined in the global scope
+        window.fadeIn = function(obj) {
+            $(obj).fadeIn(1000);
+        }
+    </script>
 </head>
 <body>
