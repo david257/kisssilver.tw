@@ -5,6 +5,16 @@ body {
 video {
 	max-width: 100%;
 }
+img[src=""],
+img:not([src]) {
+  visibility: hidden;
+  opacity: 0;
+}
+
+img:not([src=""]) {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
 .flex-center {
 	display: -webkit-box;
 	display: -webkit-flex;
