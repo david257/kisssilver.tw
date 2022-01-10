@@ -17,7 +17,7 @@
                         ?>
                             <video controls><source src="{:showfile($banner['imagefile'])}" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
                         <?php } else { ?>
-                    	<img loading="lazy" loading="lazy" alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
+                    	<img alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
                         <?php } ?>
                     </a>
                 </div>
@@ -39,7 +39,7 @@
                             
                           </a> </div>
                   <?php } else { ?>
-                      <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img loading="lazy" loading="lazy" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                      <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="img lazy" data-src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                               </a> </div>
                   <?php } ?>
               </div>
@@ -56,7 +56,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img loading="lazy" loading="lazy" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img class="img lazy" data-src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -75,7 +75,7 @@
                                     <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                                 </a> </div>
                         <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img loading="lazy" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="img lazy" data-src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                                    </a> </div>
                         <?php } ?>
                     </div>
@@ -92,7 +92,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img loading="lazy" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img class="img lazy" data-src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -111,7 +111,7 @@
                                     <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                                 </a> </div>
                         <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img loading="lazy" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="img lazy" data-src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                                 </a> </div>
                         <?php } ?>
                     </div>
@@ -128,7 +128,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img loading="lazy" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img class="img lazy" data-src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -147,7 +147,7 @@
                           <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                           </a> </div>
               <?php } else { ?>
-              <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img loading="lazy" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+              <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img class="img lazy" data-src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/></a> </div>
               <?php } ?>
           </div> 
           <?php } ?>
@@ -163,7 +163,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img loading="lazy" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img class="img lazy" data-src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -197,7 +197,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                 <source src="{:showfile($video)}" type="video/mp4">
               </video>
                                         <?php } else { ?>
-                                            <img loading="lazy" src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
+                                            <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                         <?php } ?>
                                     </a></div>
                                 <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}" class="AjaxTodo">
@@ -240,8 +240,8 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                 <video class="hidden show-xs" controls><source src="{:showfile($middle_one_banner[0]['min_imagefile'])}" type="video/mp4"></video>
                             </a> </div>
                     <?php } else { ?>
-                        <img loading="lazy" src="{:showfile($middle_one_banner[0]['imagefile'])}"  alt="" class="hidden-xs"/>
-                        <img loading="lazy" src="{:showfile($middle_one_banner[0]['min_imagefile'])}"  alt="" class="hidden show-xs"/>
+                        <img class="img lazy" data-src="{:showfile($middle_one_banner[0]['imagefile'])}"  alt="" class="hidden-xs"/>
+                        <img class="img lazy" data-src="{:showfile($middle_one_banner[0]['min_imagefile'])}"  alt="" class="hidden show-xs"/>
                     <?php } ?>
 
                 </a>
@@ -280,7 +280,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                 <source src="{:showfile($video)}" type="video/mp4">
               </video>
                                         <?php } else { ?>
-                                            <img loading="lazy" src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
+                                            <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                         <?php } ?>
                                     </a></div>
                                 <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}" class="AjaxTodo">
@@ -322,8 +322,8 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                     <video class="hidden show-xs" controls><source src="{:showfile($middle_two_banner[0]['min_imagefile'])}" type="video/mp4"></video>
                                 </a> </div>
                         <?php } else { ?>
-                            <img loading="lazy" src="{:showfile($middle_two_banner[0]['imagefile'])}"  alt="" class="hidden-xs"/>
-                            <img loading="lazy" src="{:showfile($middle_two_banner[0]['min_imagefile'])}"  alt="" class="hidden show-xs"/>
+                            <img class="img lazy" data-src="{:showfile($middle_two_banner[0]['imagefile'])}"  alt="" class="hidden-xs"/>
+                            <img class="img lazy" data-src="{:showfile($middle_two_banner[0]['min_imagefile'])}"  alt="" class="hidden show-xs"/>
                         <?php } ?>
                     </a>
                 </div>
@@ -361,7 +361,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                 <source src="{:showfile($video)}" type="video/mp4">
               </video>
                                 <?php } else { ?>
-                                    <img loading="lazy" src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
+                                    <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                 <?php } ?>
                             </a></div>
                         <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}" class="AjaxTodo">
