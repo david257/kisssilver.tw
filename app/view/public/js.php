@@ -1,5 +1,4 @@
 
-<script type="text/javascript" src="/static/front/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/static/front/js/popper.min.js"></script>
 <script type="text/javascript" src="/static/front/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/front/js/mdb.min.js"></script>

@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="/static/front/font/iconfont.css">
     <link rel="stylesheet" type="text/css" href="/static/front/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/front/dist/assets/owl.carousel.css">
+    <script type="text/javascript" src="/static/front/js/jquery-3.2.1.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180296843-1"></script>
     <script>
