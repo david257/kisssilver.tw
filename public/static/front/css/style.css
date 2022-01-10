@@ -5,16 +5,12 @@ body {
 video {
 	max-width: 100%;
 }
-img[data-src] {
-  	opacity: 0;
-}
-
-img.lazy {
-	-webkit-transition: opacity .5s linear 0.2s;
-	-moz-transition: opacity .5s linear 0.2s;
-	transition: opacity .5s linear 0.2s;
-	/* we set the opacity to 1 to do the magic */
+img {
 	opacity: 1;
+	transition: opacity 0.3s;
+}
+img[data-src] {
+	opacity: 0;
 }
 .flex-center {
 	display: -webkit-box;
