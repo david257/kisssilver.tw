@@ -17,7 +17,7 @@
                         ?>
                             <video controls><source src="{:showfile($banner['imagefile'])}" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
                         <?php } else { ?>
-                    	<img onload="fadeIn(this)" alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
+                    	<img onload="fadeIn(this)" style="display:none;" alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
                         <?php } ?>
                     </a>
                 </div>
@@ -39,7 +39,7 @@
                             
                           </a> </div>
                   <?php } else { ?>
-                      <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                      <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                               </a> </div>
                   <?php } ?>
               </div>
@@ -56,7 +56,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img onload="fadeIn(this)" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -75,7 +75,7 @@
                                     <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                                 </a> </div>
                         <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                                    </a> </div>
                         <?php } ?>
                     </div>
@@ -92,7 +92,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img onload="fadeIn(this)" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -111,7 +111,7 @@
                                     <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                                 </a> </div>
                         <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
                                 </a> </div>
                         <?php } ?>
                     </div>
@@ -128,7 +128,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img onload="fadeIn(this)" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
@@ -147,7 +147,7 @@
                           <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
                           </a> </div>
               <?php } else { ?>
-              <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+              <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/></a> </div>
               <?php } ?>
           </div> 
           <?php } ?>
@@ -163,7 +163,7 @@
                           </a> </div>
                   <?php } else { ?>
                       <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                              <img onload="fadeIn(this)" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
+                              <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}" alt="{:$banner['title']}"/></a> </div>
                   <?php } ?>
               </div>
               <?php } ?>
