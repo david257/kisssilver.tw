@@ -34,7 +34,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                 <source src="{:showfile($video)}" type="video/mp4">
               </video>
                                 <?php } else { ?>
-                                    <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
+                                    <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
                                 <?php } ?>
                             </a></div>
                         <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}" class="AjaxTodo">

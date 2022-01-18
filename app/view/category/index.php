@@ -157,7 +157,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()">
                 <source src="{:showfile($video)}" type="video/mp4">
               </video>
               <?php } else { ?><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-              <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/></a>
+              <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/></a>
               <?php } ?>
               </div>
             <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}" class="AjaxTodo">
