@@ -254,9 +254,9 @@ class Customer extends Base {
                 foreach($list as $l) {
                     $oids[] = $l["oid"];
                 }
-                $maps[] = "o.oid IN(".implode(",", $oids).")";
+                $where[] = "o.oid IN(".implode(",", $oids).")";
             } else {
-                $maps[] = "o.oid IN(-1)";
+                $where[] = "o.oid IN(-1)";
             }
         }
 
