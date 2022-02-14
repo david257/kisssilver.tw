@@ -99,7 +99,7 @@
                 <tr>
                     <td><?php echo $row['prodcode']; ?></td>
                     <td><?php echo $row['prodname']; ?></td>
-                    <td><a class="DialogForm" href="{:admin_link('Orders/index', ['dialog' => 1, 'start_date' => $start_date, 'end_date' => $end_date])}"><?php echo $row['totalOrderNums']; ?></a></td>
+                    <td><a class="DialogForm" href="{:admin_link('Orders/index', ['dialog' => 1, 'prodid' => $row['prodid'], 'start_date' => $start_date, 'end_date' => $end_date])}"><?php echo $row['totalOrderNums']; ?></a></td>
                     <td><a class="DialogForm" href="{:admin_link('Product/saleDetail', ['prodid' => $row['prodid'], 'start_date' => $start_date, 'end_date' => $end_date])}"><?php echo $row['totalQty']; ?></a></td>
                     <td><a class="DialogForm" href="{:admin_link('Customer/orders', ['prodid' => $row['prodid'], 'start_date' => $start_date, 'end_date' => $end_date])}"><?php echo $row['totalCustomers']; ?></a></td>
                 </tr>
