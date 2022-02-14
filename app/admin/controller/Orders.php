@@ -780,8 +780,8 @@ class Orders extends Base {
 
         //统计总额
         $data["total"] = Db::table(Order::$tablename)->alias("o")
-            ->join(OrderProduct::$tablename." op", "op.oid=o.oid")
-            ->join(ProdModel::$tablename." p", "p.prodid=op.prodid")
+            //->join(OrderProduct::$tablename." op", "op.oid=o.oid")
+            //->join(ProdModel::$tablename." p", "p.prodid=op.prodid")
             ->where($where)
             ->field("count(distinct o.oid) as totalOrderNums, sum(o.total_amount) as totalAmount, sum(op.qty) as totalQty, count(distinct o.customerid) as totalCustomers")
             ->find();
