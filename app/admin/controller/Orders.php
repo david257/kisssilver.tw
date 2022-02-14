@@ -801,7 +801,7 @@ class Orders extends Base {
             ->join(OrderProduct::$tablename." op", "op.oid=o.oid")
             ->join(ProdModel::$tablename." p", "p.prodid=op.prodid")
             ->where($where)
-            ->field("p.prodid, p.prodname, p.prodcode, count(distinct o.oid) as totalOrderNums, sum(o.total_amount) as totalAmount, sum(op.qty) as totalQty, count(distinct o.customerid) as totalCustomers")
+            ->field("p.prodid, p.prodname, p.prodcode, count(distinct o.oid) as totalOrderNums, sum(op.qty) as totalQty, count(distinct o.customerid) as totalCustomers")
             ->order("totalAmount DESC")
             ->group("op.prodid")
             ->paginate($params);
