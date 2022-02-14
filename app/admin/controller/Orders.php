@@ -783,7 +783,7 @@ class Orders extends Base {
             //->join(OrderProduct::$tablename." op", "op.oid=o.oid")
             //->join(ProdModel::$tablename." p", "p.prodid=op.prodid")
             ->where($where)
-            ->field("count(distinct o.oid) as totalOrderNums, sum(o.total_amount) as totalAmount, sum(op.qty) as totalQty, count(distinct o.customerid) as totalCustomers")
+            ->field("count(distinct o.oid) as totalOrderNums, sum(o.total_amount) as totalAmount, count(distinct o.customerid) as totalCustomers")
             ->find();
 
         $data["totalQty"] = Db::table(Order::$tablename)->alias("o")
