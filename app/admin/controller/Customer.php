@@ -254,9 +254,9 @@ class Customer extends Base {
                 foreach($list as $l) {
                     $oids[] = $l["oid"];
                 }
-                $where[] = "o.oid IN(".implode(",", $oids).")";
+                $where[] = ["o.oid", "IN", $oids];
             } else {
-                $where[] = "o.oid IN(-1)";
+                $where[] = ["o.oid", "IN", [-1]];
             }
         }
 
@@ -266,7 +266,7 @@ class Customer extends Base {
         if(!empty($end_date)) {
             $where[] = ["o.create_date", "<=", strtotime($end_date." 23:59:59")];
         }
-print_r($where);
+
         $params["list_rows"] = 1000;
         $params["query"] = [
             "start_date" => $start_date,
