@@ -249,7 +249,15 @@ class Customer extends Base {
         }
 
         if(!empty($prodid)) {
-            $where[] = ["op.prodid", "=", $prodid];
+            $list = Db::name(OrderProduct::$tablename)->where("prodid", $prodid)->field("DISTINCT oid")->select();
+            if(!empty($list)) {
+                foreach($list as $l) {
+                    $oids[] = $l["oid"];
+                }
+                $maps[] = "o.oid IN(".implode(",", $oids).")";
+            } else {
+                $maps[] = "o.oid IN(-1)";
+            }
         }
 
         if(!empty($start_date)) {
