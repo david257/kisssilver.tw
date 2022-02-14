@@ -786,6 +786,12 @@ class Orders extends Base {
             ->field("count(distinct o.oid) as totalOrderNums, sum(o.total_amount) as totalAmount, sum(op.qty) as totalQty, count(distinct o.customerid) as totalCustomers")
             ->find();
 
+        $data["totalQty"] = Db::table(Order::$tablename)->alias("o")
+            ->join(OrderProduct::$tablename." op", "op.oid=o.oid")
+            ->where($where)
+            ->field("sum(op.qty) as totalQty")
+            ->find();
+
         $params["list_rows"] = 1000;
         $params["query"] = [
             "start_date" => $start_date,

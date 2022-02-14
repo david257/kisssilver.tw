@@ -79,7 +79,7 @@
 </div>
 <div class="pageContent">
     <div class="alert alert-info">匯總數據：<br/>
-        訂單總金額：<b>{$total['totalAmount']}</b>, 訂購總筆數: <b>{$total['totalOrderNums']}</b>， 商品售出總件數: <b>{$total['totalQty']}</b>， 訂購會員總人數：<b>{$total['totalCustomers']}</b>
+        訂單總金額：<b>{$total['totalAmount']}</b>, 訂購總筆數: <b>{$total['totalOrderNums']}</b>， 商品售出總件數: <b>{$totalQty['totalQty']}</b>， 訂購會員總人數：<b>{$total['totalCustomers']}</b>
     </div>
     <table class="list order_list table table-bordered table-striped table-sm table-responsive-sm">
         <thead>
