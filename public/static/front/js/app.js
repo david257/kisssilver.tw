@@ -1,4 +1,5 @@
 $(function(){
+	$(".list-pic video")[0].play();
 	var bodyw=$('body').width();
 	var bwidth=$('body').width();
 	var newsproducw=$(".news-product .list-one").width();
@@ -507,21 +508,3 @@ $(".hot-owl .owl-carousel .item video").css({"width" : hotowl1});
 		$(".show-xs .location-bg").css({"height" : locationbg1});
 			}
 	});
-
-function onEnterView(entries, observer) {
-	for (let entry of entries) {
-		if (entry.isIntersecting) {
-			// 監視目標進入畫面
-			const img = entry.target
-			img.setAttribute('src', img.dataset.src) // 把值塞回 src
-			img.removeAttribute('data-src')
-			observer.unobserve(img) // 取消監視
-		}
-	}
-}
-
-const watcher = new IntersectionObserver(onEnterView)
-const lazyImages = document.querySelectorAll('img.lazy')
-for (let image of lazyImages) {
-	watcher.observe(image) // 開始監視
-}
