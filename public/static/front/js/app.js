@@ -5,20 +5,14 @@ $(function(){
 	var newsproducw=$(".news-product .list-one").width();
 $(".news-product .list-one .list-pic img").css({"width" : newsproducw});
 $(".news-product .list-one .list-pic video").css({"width" : newsproducw});
-$(".news-product .list-one .list-pic img").css({"height" : newsproducw*9/7});
-$(".news-product .list-one .list-pic video").css({"height" : newsproducw*9/7});
 
 var hotproductw=$(".hot-product .list-one").width();
 $(".hot-product .list-one .list-pic img").css({"width" : hotproductw});
 $(".hot-product .list-one .list-pic video").css({"width" : hotproductw});
-$(".hot-product .list-one .list-pic img").css({"height" : hotproductw*9/7});
-$(".hot-product .list-one .list-pic video").css({"height" : hotproductw*9/7});
 
 var saleproductw=$(".sale-product .list-one").width();
 $(".sale-product .list-one .list-pic img").css({"width" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"width" : saleproductw});
-$(".sale-product .list-one .list-pic img").css({"height" : saleproductw*9/7});
-$(".sale-product .list-one .list-pic video").css({"height" : saleproductw*9/7});
 		if(bodyw > 768){
 			var locationbg=$(".hide-xs .location-bg").width()*600 / 1920;
 		$(".hide-xs .location-bg").css({"height" : locationbg});
