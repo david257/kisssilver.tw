@@ -5,14 +5,20 @@ $(function(){
 	var newsproducw=$(".news-product .list-one").width();
 $(".news-product .list-one .list-pic img").css({"width" : newsproducw});
 $(".news-product .list-one .list-pic video").css({"width" : newsproducw});
+$(".news-product .list-one .list-pic img").css({"height" : newsproducw*7/9});
+$(".news-product .list-one .list-pic video").css({"height" : newsproducw*7/9});
 
 var hotproductw=$(".hot-product .list-one").width();
 $(".hot-product .list-one .list-pic img").css({"width" : hotproductw});
 $(".hot-product .list-one .list-pic video").css({"width" : hotproductw});
+$(".hot-product .list-one .list-pic img").css({"height" : hotproductw*7/9});
+$(".hot-product .list-one .list-pic video").css({"height" : hotproductw*7/9});
 
 var saleproductw=$(".sale-product .list-one").width();
 $(".sale-product .list-one .list-pic img").css({"width" : saleproductw});
 $(".sale-product .list-one .list-pic video").css({"width" : saleproductw});
+$(".sale-product .list-one .list-pic img").css({"height" : saleproductw*7/9});
+$(".sale-product .list-one .list-pic video").css({"height" : saleproductw*7/9});
 		if(bodyw > 768){
 			var locationbg=$(".hide-xs .location-bg").width()*600 / 1920;
 		$(".hide-xs .location-bg").css({"height" : locationbg});
@@ -508,21 +514,3 @@ $(".hot-owl .owl-carousel .item video").css({"width" : hotowl1});
 		$(".show-xs .location-bg").css({"height" : locationbg1});
 			}
 	});
-
-function onEnterView(entries, observer) {
-	for (let entry of entries) {
-		if (entry.isIntersecting) {
-			// 監視目標進入畫面
-			const img = entry.target
-			img.setAttribute('src', img.dataset.src) // 把值塞回 src
-			img.removeAttribute('data-src')
-			observer.unobserve(img) // 取消監視
-		}
-	}
-}
-
-const watcher = new IntersectionObserver(onEnterView)
-const lazyImages = document.querySelectorAll('img.lazy')
-for (let image of lazyImages) {
-	watcher.observe(image) // 開始監視
-}
