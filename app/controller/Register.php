@@ -88,7 +88,29 @@ class Register extends BaseController
                     throw new Exception("註冊會員失敗");
                 }
 
-                //send_active_email($fullname, $custconemail, $custpassword, $active_code);
+				//贈送新人券
+				$autoCouponRule = Db::name(CouponAutoRule::$tablename)->where("auto_type", "register")->where("state", 1)->find();
+				if(!empty($autoCouponRule)) {
+					$customer = Db::name(Customer::$tablename)->where("active_code", $active_code)->find();
+					$coupon = Db::name(Coupon::$tablename)->where("customerid", $customer["customerid"])->where("coupon_type", "reg")->count();
+					if(empty($coupon)) {
+						$code_dao = new CouponCode();
+						$data = [
+							"title" => $autoCouponRule["title"],
+							"customerid" => $customer["customerid"],
+							"coupon_type" => "reg",
+							"code" => $code_dao->encodeID(rand(1000000, 9999999)),
+							"min_amount" => $autoCouponRule["min_amount"],
+							"amount" => $autoCouponRule["amount"],
+							"start_time" => time(),
+							"end_time" => strtotime("+".$autoCouponRule['expired_days']." day"),
+							"create_time" => time(),
+						];
+						Db::name("coupons")->insert($data);
+					}
+					send_register_email($customer);
+				}
+				
 
                 toJSON([
                     "code" => 0,
