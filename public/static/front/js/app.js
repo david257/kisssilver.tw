@@ -1,4 +1,5 @@
 $(function(){
+	$(".list-pic video")[0].play();
 	var bodyw=$('body').width();
 	var bwidth=$('body').width();
 	var newsproducw=$(".news-product .list-one").width();
