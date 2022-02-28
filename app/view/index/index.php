@@ -7,18 +7,23 @@
     {include file="public/header" /}
     <?php if(!empty($header_banners)) { ?>
     <section class="banner">
-    <?php foreach ($header_banners as $banner) { ?>
-        <a target="_blank" href="{:$banner['url']}">
+        <div id="index-slider" class="slider-pro index-banner">
+            <div class="sp-slides">
+                <?php foreach ($header_banners as $banner) { ?>
+                <div class="sp-slide">
+                    <a target="_blank" href="{:$banner['url']}">
                         <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                         ?>
                             <video controls><source src="{:showfile($banner['imagefile'])}" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
                         <?php } else { ?>
-                    	<img alt="{:$banner['title']}" class="sp-image" src="{:showfile($banner['imagefile'])}" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
+                    	<img alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
                         <?php } ?>
                     </a>
-        <?php } ?>
-
+                </div>
+                <?php } ?>
+            </div>
+        </div>
     </section>
     <?php } ?>
     <?php if(!empty($header_three_banners)) { ?>
