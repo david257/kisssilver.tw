@@ -431,6 +431,7 @@ $(".detail-tj .owl-carousel .item video").css({"width" : detailtj1});
 
 $(".add-loc").click(function(){$(".location-form").toggle()});
 $(".news-loc").click(function(){$(".news-loc-form").show();
+console.log(123, $(".news-loc-form"))
 $(".location-list").hide();$(".news-loc").hide();
 $(".old-loc").show()});
 $(".old-loc").click(function(){$(".news-loc-form").hide();
