@@ -10,7 +10,7 @@ img {
 	transition: opacity 1.5s;
 }
 img[data-src] {
-	opacity: 0;
+	opacity: 0.1;
 }
 .banner{
 	position: relative;
