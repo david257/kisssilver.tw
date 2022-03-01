@@ -1,5 +1,5 @@
 {include file="public/meta" /}
-<link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/>
+<!-- <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/> -->
 <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/>
 
 {include file="public/kefu" /}
