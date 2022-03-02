@@ -129,7 +129,7 @@ img[data-src] {
     transition: opacity 0.5s ease-in-out 0s;
 }
 .banner>.banner-container {
-	position: relative;
+	/* position: relative; */
     /* transform: scale(1.1); */
     /* transition: all 4s ease-out 0s; */
     width: 100%;
