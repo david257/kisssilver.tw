@@ -1,5 +1,5 @@
 {include file="public/meta" /}
-<link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/>
+<!-- <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/> -->
 <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/>
 
 {include file="public/kefu" /}
@@ -7,24 +7,22 @@
     {include file="public/header" /}
     <?php if(!empty($header_banners)) { ?>
     <section class="banner">
-        <div class="banner-container">
-            <?php foreach ($header_banners as $banner) { ?>
+        <div id="index-slider" class="slider-pro index-banner">
+            <div class="sp-slides">
+                <?php foreach ($header_banners as $banner) { ?>
+                <div class="sp-slide">
                     <a target="_blank" href="{:$banner['url']}">
-                        <?php
-                            if(strpos($banner['imagefile'], '.mp4') !== false) {
-                            ?>
-                                <video controls><source src="{:showfile($banner['imagefile'])}" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}" type="video/mp4"></video>
-                            <?php } else { ?>
-                            <img onload="fadeIn(this)" style="display:none;" alt="{:$banner['title']}" class="banner-img" src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
-                        <?php } ?>
+                    	<img alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
                     </a>
-            <?php } ?>
+                </div>
+                <?php } ?>
+            </div>
         </div>
     </section>
     <?php } ?>
     <?php if(!empty($header_three_banners)) { ?>
     <section class="index-three-gg">
-          <div class="owl-carousel">
+          <div class="owl-carousel show-xs">
               <?php foreach ($header_three_banners as $banner) { ?>
               <div class="item">
                   <?php
