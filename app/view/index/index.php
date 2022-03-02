@@ -24,7 +24,7 @@
     <?php } ?>
     <?php if(!empty($header_three_banners)) { ?>
     <section class="index-three-gg">
-          <div class="owl-carousel show-md">
+          <div class="owl-carousel show-xs">
               <?php foreach ($header_three_banners as $banner) { ?>
               <div class="item">
                   <?php
