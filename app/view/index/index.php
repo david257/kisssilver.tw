@@ -22,7 +22,8 @@
     <?php } ?>
     <?php if(!empty($header_three_banners)) { ?>
     <section class="index-three-gg">
-          <div class="owl-carousel show-md">
+        <?php if (is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
+          <div class="owl-carousel">
               <?php foreach ($header_three_banners as $banner) { ?>
               <div class="item">
                   <?php
@@ -39,9 +40,9 @@
               </div>
               <?php } ?>
           </div>
-          <div>
-          <?php foreach ($header_three_banners as $banner) { ?>
-              <div class="item show-xs">
+          <?php } else { ?>
+            <?php foreach ($header_three_banners as $banner) { ?>
+              <div class="item">
                   <?php
                   if(strpos($banner['imagefile'], '.mp4') !== false) {
                       ?>
@@ -54,7 +55,7 @@
                   <?php } ?>
               </div>
               <?php } ?>
-          </div>
+          <?php } ?>
     </section>
     <?php } ?>
     <?php if(!empty($header_one_banners)) { ?>
