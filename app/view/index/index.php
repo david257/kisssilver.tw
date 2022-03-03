@@ -12,7 +12,11 @@
                 <?php foreach ($header_banners as $banner) { ?>
                 <div class="sp-slide">
                     <a target="_blank" href="{:$banner['url']}">
-                    	<img alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
+                        <picture>
+                            <source media="(min-width: 768px)" srcset="{:showfile($banner['imagefile'])}">
+                            <img alt="{:$banner['title']}" class="sp-image" src="{:showfile($banner['min_imagefile'])}">
+                        </picture>
+                    	<!-- <img alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/> -->
                     </a>
                 </div>
                 <?php } ?>
