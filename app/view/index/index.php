@@ -8,13 +8,17 @@
     <?php if(!empty($header_banners)) { ?>
     <section class="banner">
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-            <a target="_blank" href="{:$banner['url']}">
-                <img alt="{:$banner['title']}" src="{:showfile($banner['imagefile'])}" />
-            </a>
-            <?php } else { ?>
-            <a target="_blank" href="{:$banner['url']}">
-                <img alt="{:$banner['title']}" src="{:showfile($banner['min_imagefile'])}" />
-            </a>
+            <?php foreach ($header_three_banners as $banner) { ?>
+                <a target="_blank" href="{:$banner['url']}">
+                    <img alt="{:$banner['title']}" src="{:showfile($banner['imagefile'])}" />
+                </a>
+            <?php } ?>
+                <?php } else { ?>
+            <?php foreach ($header_three_banners as $banner) { ?>
+                <a target="_blank" href="{:$banner['url']}">
+                    <img alt="{:$banner['title']}" src="{:showfile($banner['min_imagefile'])}" />
+                </a>
+            <?php } ?>
         <?php } ?>
     </section>
     <?php } ?>
