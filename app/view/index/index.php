@@ -238,8 +238,12 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                 <video class="hidden show-xs" controls><source src="{:showfile($middle_one_banner[0]['min_imagefile'])}" type="video/mp4"></video>
                             </a> </div>
                     <?php } else { ?>
-                        <img data-src="{:showfile($middle_one_banner[0]['imagefile'])}"  alt="" class="img lazy hidden-xs"/>
-                        <img data-src="{:showfile($middle_one_banner[0]['min_imagefile'])}"  alt="" class="img lazy hidden show-xs"/>
+                        <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
+                                <img data-src="{:showfile($middle_one_banner[0]['imagefile'])}"  alt="" class="img lazy hidden-xs"/>
+                            <?php } else { ?>
+                                <img data-src="{:showfile($middle_one_banner[0]['min_imagefile'])}"  alt="" class="img lazy hidden show-xs"/>
+                            <?php } ?>
+                        <?php } ?>
                     <?php } ?>
 
                 </a>
