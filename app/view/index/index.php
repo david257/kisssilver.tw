@@ -1,5 +1,5 @@
 {include file="public/meta" /}
-<link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/>
+<!-- <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/> -->
 <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/>
 
 {include file="public/kefu" /}
@@ -7,17 +7,15 @@
     {include file="public/header" /}
     <?php if(!empty($header_banners)) { ?>
     <section class="banner">
-        <div id="index-slider" class="slider-pro index-banner">
-            <div class="sp-slides">
-                <?php foreach ($header_banners as $banner) { ?>
-                <div class="sp-slide">
-                    <a target="_blank" href="{:$banner['url']}">
-                    	<img alt="{:$banner['title']}" class="sp-image" src="/static/front/images/logo.png" data-src="{:showfile($banner['imagefile'])}" data-small="{:showfile($banner['min_imagefile'])}"  data-medium="{:showfile($banner['min_imagefile'])}" data-large="{:showfile($banner['min_imagefile'])}"/>
-                    </a>
-                </div>
-                <?php } ?>
-            </div>
-        </div>
+        <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
+            <a target="_blank" href="{:$banner['url']}">
+                <img alt="{:$banner['title']}" src="{:showfile($banner['imagefile'])}" />
+            </a>
+            <?php } else { ?>
+            <a target="_blank" href="{:$banner['url']}">
+                <img alt="{:$banner['title']}" src="{:showfile($banner['min_imagefile'])}" />
+            </a>
+        <?php } ?>
     </section>
     <?php } ?>
     <?php if(!empty($header_three_banners)) { ?>
