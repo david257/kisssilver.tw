@@ -20,7 +20,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/static/front/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/front/font/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.0.0">
     <link rel="stylesheet" type="text/css" href="/static/front/dist/assets/owl.carousel.css">
     <script type="text/javascript" src="/static/front/js/jquery-3.2.1.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
