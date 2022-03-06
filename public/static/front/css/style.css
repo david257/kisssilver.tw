@@ -1709,3 +1709,38 @@ font-weight: bold;
 
 .index-four-gg .owl-dots , .index-three-gg .owl-dots ,.index-two-gg .owl-dots ,.index-one-gg .owl-dots{ display:none !important}
 .four-ggpic video{width:100%;}
+
+.index-one-gg, .index-two-gg, .index-three-gg, .index-four-gg {
+	display:flex;
+	justify-content: center;
+}
+
+.index-three-gg img {
+	min-width:400px;
+	width:400px;
+}
+
+.index-two-gg img {
+	min-width:600px;
+	width:600px;
+}
+
+.index-four-gg img {
+	min-width:300px;
+	width:300px;
+}
+
+.index-one-gg img {
+	min-width:1200px;
+	width:1200px;
+}
+
+.banner {
+	width:100%;
+	display:flex;
+	justify-content: center;
+}
+.banner img {
+	width:100%;
+	object-fit:cover;
+}

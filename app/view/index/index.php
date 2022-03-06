@@ -1,6 +1,6 @@
 {include file="public/meta" /}
 <!-- <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/> -->
-<link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/>
+<!-- <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/> -->
 
 {include file="public/kefu" /}
 <div class="index-box">
@@ -61,22 +61,20 @@
     <?php if(!empty($header_one_banners)) { ?>
         <section class="index-one-gg">
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-            <div class="owl-carousel">
-                <?php foreach ($header_one_banners as $banner) { ?>
-                    <div class="item">
-                        <?php
-                        if(strpos($banner['imagefile'], '.mp4') !== false) {
-                            ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                                    <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
-                                </a> </div>
-                        <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
-                                   </a> </div>
-                        <?php } ?>
-                    </div>
+            <?php foreach ($header_one_banners as $banner) { ?>
+                <div class="item">
+                    <?php
+                    if(strpos($banner['imagefile'], '.mp4') !== false) {
+                        ?>
+                        <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                                <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
+                            </a> </div>
+                    <?php } else { ?>
+                        <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                               </a> </div>
+                    <?php } ?>
+                </div>
                 <?php } ?>
-            </div>
             <?php } else { ?>
                 <?php foreach ($header_one_banners as $banner) { ?>
                 <div class="item">
@@ -98,22 +96,20 @@
     <?php if(!empty($header_two_banners)) { ?>
         <section class="index-two-gg">
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-            <div class="owl-carousel">
-                <?php foreach ($header_two_banners as $banner) { ?>
-                    <div class="item">
-                        <?php
-                        if(strpos($banner['imagefile'], '.mp4') !== false) {
-                            ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                                    <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
-                                </a> </div>
+            <?php foreach ($header_two_banners as $banner) { ?>
+                <div class="item">
+                    <?php
+                    if(strpos($banner['imagefile'], '.mp4') !== false) {
+                        ?>
+                        <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                                <video controls><source src="{:showfile($banner['imagefile'])}"  type="video/mp4"></video>
+                            </a> </div>
                         <?php } else { ?>
-                            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
-                                </a> </div>
-                        <?php } ?>
-                    </div>
-                <?php } ?>
-            </div>
+                        <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/>
+                            </a> </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
             <?php } else { ?>            
                 <?php foreach ($header_two_banners as $banner) { ?>
                 <div class="item">
@@ -135,10 +131,9 @@
     <?php if(!empty($header_four_banners)) { ?>
     <section class="index-four-gg">
     <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-      <div class="owl-carousel">
-          <?php foreach ($header_four_banners as $banner) { ?>
-          <div class="item">
-              <?php
+        <?php foreach ($header_four_banners as $banner) { ?>
+       <div class="item">
+          <?php
               if(strpos($banner['imagefile'], '.mp4') !== false) {
                   ?>
                   <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
@@ -147,9 +142,8 @@
               <?php } else { ?>
               <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}"/></a> </div>
               <?php } ?>
-          </div> 
-          <?php } ?>
-      </div>
+        </div> 
+      <?php } ?>
       <?php } else { ?>  
                 <?php foreach ($header_four_banners as $banner) { ?>
                 <div class="item">
