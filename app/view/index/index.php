@@ -5,7 +5,7 @@
 {include file="public/kefu" /}
 <div class="index-box">
     {include file="public/header" /}
-    <?php if(!empty($header_banners)) { ?>
+    <?php if(sizeof($header_banners) > 0) { ?>
     <section class="banner">
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
             <?php foreach ($header_banners as $banner) { ?>
@@ -22,7 +22,7 @@
         <?php } ?>
     </section>
     <?php } ?>
-    <?php if(!empty($header_three_banners)) { ?>
+    <?php if(sizeof($header_three_banners) > 0) { ?>
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
             <section class="index-three-gg">
                 <?php foreach ($header_three_banners as $banner) { ?>
@@ -97,7 +97,7 @@
             </section>
           <?php } ?>
     <?php } ?>
-    <?php if(!empty($header_two_banners)) { ?>
+    <?php if(sizeof($header_two_banners) > 0) { ?>
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
             <section class="index-two-gg">
                 <?php foreach ($header_two_banners as $banner) { ?>
@@ -134,7 +134,7 @@
             </section>
         <?php } ?>
     <?php } ?>
-    <?php if(!empty($header_four_banners)) { ?>
+    <?php if(sizeof($header_four_banners) > 0) { ?>
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
             <section class="index-four-gg">
                 <?php foreach ($header_four_banners as $banner) { ?>
