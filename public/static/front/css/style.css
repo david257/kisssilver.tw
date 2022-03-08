@@ -1710,7 +1710,13 @@ font-weight: bold;
 .index-four-gg .owl-dots , .index-three-gg .owl-dots ,.index-two-gg .owl-dots ,.index-one-gg .owl-dots{ display:none !important}
 .four-ggpic video{width:100%;}
 
+@media(max-width:768px) {
+	.index-one-gg, .index-two-gg, .index-three-gg, .index-four-gg {
+		padding:0;
+	}
+}
 .index-one-gg, .index-two-gg, .index-three-gg, .index-four-gg {
+	padding-top:180px;
 	display:flex;
 	justify-content: center;
 }
@@ -1736,11 +1742,14 @@ font-weight: bold;
 }
 
 .banner {
+	min-height:500px;
+	max-height:590px;
 	width:100%;
 	display:flex;
 	justify-content: center;
 }
 .banner img {
+	height:100%;
 	width:100%;
 	object-fit:cover;
 }
