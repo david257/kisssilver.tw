@@ -60,7 +60,7 @@
             </section>
         <?php } ?>
     <?php } ?>
-    <?php if(!empty($header_one_banners)) { ?>
+    <?php if(sizeof($header_one_banners) > 0) { ?>
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
             <section class="index-one-gg">
                 <?php foreach ($header_one_banners as $banner) { ?>
