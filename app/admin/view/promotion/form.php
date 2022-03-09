@@ -132,7 +132,7 @@
         }*/
         check: {
             enable: true,
-            chkboxType: {"Y" : "ps", "N" : "ps"}
+            chkboxType: {"Y" : "s", "N" : "ps"}
         },
         data: {
             simpleData: {
