@@ -818,17 +818,17 @@ font-size:14px;
 /*.hot-product .list-one .list-content { color:#333; text-align:left; padding-bottom:15px;}*/
 @media(max-width:768px) {
 	.i-title{padding:5px 0; text-align:center;}
-.i-title h3{ font-weight:normal; font-size:18px;}
-.i-title i{height:2px; width:80%; margin:8px auto; display:block; background:#000;}
-.i-title h5{ font-weight:normal; color:#777; font-size:14px;}
+	.i-title h3{ font-weight:normal; font-size:18px;}
+	.i-title i{height:2px; width:80%; margin:8px auto; display:block; background:#000;}
+	.i-title h5{ font-weight:normal; color:#777; font-size:14px;}
 
-.sale-product  .list-one{ border:1px solid #fff;}
+	.sale-product  .list-one{ border:1px solid #fff;}
 	.list-one .list-content h3{ font-weight:normal; font-size:13px; padding-top:0;}
-.list-one .list-content h4{ font-weight:normal; font-size:13px;}
-.list-one .list-content h5{ font-weight:normal; font-size:12px; color:#666;}
-.list-one .list-content .price{ font-weight:normal; font-size:14px; color:#333; font-weight:bold; padding:5px;}
-	}
-.list-one .list-content .price .price-tag { display:flex; flex-direction: column;}
+	.list-one .list-content h4{ font-weight:normal; font-size:13px;}
+	.list-one .list-content h5{ font-weight:normal; font-size:12px; color:#666;}
+	.list-one .list-content .price{ font-weight:normal; font-size:14px; color:#333; font-weight:bold; padding:5px;}
+	.list-one .list-content .price .price-tag { display:flex; flex-direction: column;}
+}
 .owl-nav i{ font-size:36px;}
 .news-product .owl-prev, .hot-product .owl-prev{ position:absolute; left:-40px; top:250px;}
 .news-product .owl-next, .hot-product .owl-next{ position:absolute; right:-40px; top:250px;}
