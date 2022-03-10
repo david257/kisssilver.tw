@@ -296,11 +296,10 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                     </a></div>
                                 <div class="list-content">
                                     <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                    <div class="name">{:$prod['prodname']}</div>
-
+                                        <div class="name">{:$prod['prodname']}</div>
                                         <!-- <h4>{:$prod['prod_features']}</h4> -->
                                         <div class="price">
-                                            </div>
+                                            <div>
                                                 <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                                     <span class="old-price">{:price_label_list($prod)}</span>
                                                 <?php } ?>
@@ -309,7 +308,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                             <div class="list-icon">
                                                 <a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}" class="AjaxTodo">
                                                     <svg class="icon" aria-hidden="true">
-                                                    <use xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}"></use>
+                                                        <use xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}"></use>
                                                     </svg>
                                                 </a>
                                                 <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
@@ -325,8 +324,8 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                         </div>
                     <?php } } ?>
             </div>
-            </div>
-            <div class="text-center"> <a href="{:front_link('Category/search', ['tag' => 'is_hot'])}" class="btn btn-white">瀏覽全部商品</a> </div>
+        </div>
+        <div class="text-center"> <a href="{:front_link('Category/search', ['tag' => 'is_hot'])}" class="btn btn-white">瀏覽全部商品</a> </div>
 
     </section>
     <?php if(!empty($middle_two_banner)) { ?>

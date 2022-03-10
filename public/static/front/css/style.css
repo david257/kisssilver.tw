@@ -144,7 +144,7 @@ a {
     color: #000;
 }
 a:focus, a:hover {
-	text-decoration:underline
+	text-decoration: none;
 }
 .row.no-gutter {
 	margin-left: 0;
@@ -798,7 +798,7 @@ font-size:14px;
 /*.hot-product  .list-one , */.sale-product  .list-one{ background:#fff; position:relative; text-align:center; margin: 5px 0;}
 .sale-product  [class*='col-']:nth-child(9){ /*display:none;*/}
 .list-pic img{max-width:100%;}
-.list-one .list-icon{ position:absolute; top:0; right:0; padding:10px; font-size:24px; color:#333;}
+.list-one .list-icon{ font-size:24px; color:#333;}
 .list-one .list-icon a{color:#999; text-decoration:none; padding:5px;}
 .list-one .list-icon a:hover , .list-one .list-icon a.active , .list-one .list-icon a svg.active , .list-one .list-icon a svg.active:last-of-type { fill: red; color: #c80a28; }
 .list-one .list-content { color:#333; text-align:center; padding-bottom:15px;}
@@ -806,7 +806,7 @@ font-size:14px;
 .list-one .list-content .name{line-height:25px;padding:10px 20px;height:100px}
 .list-one .list-content h4{ font-weight:normal; font-size:14px;}
 .list-one .list-content h5{ font-weight:normal; font-size:12px; color:#666;}
-.list-one .list-content .price{ display:flex; justify-content:space-between; align-items:center; font-weight:normal; font-size:16px; color:rgb(221, 165, 146); font-weight:bold; padding:5px;}
+.list-one .list-content .price{ display:flex; justify-content:space-around; align-items:center; font-weight:normal; font-size:16px; color:rgb(221, 165, 146); font-weight:bold; padding:5px;}
 .hot-product [class*='col-'], .news-product [class*='col-'], .sale-product [class*='col-']{
 	padding:0 5px;
 }
