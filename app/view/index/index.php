@@ -206,7 +206,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                         <div class="name">{:$prod['prodname']}</div>
                                         <!-- <h4>{:$prod['prod_features']}</h4> -->
                                         <div class="price">
-                                            <div>
+                                            <div class="price-tag">
                                                 <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                                     <span class="old-price">{:price_label_list($prod)}</span>
                                                 <?php } ?>
@@ -299,7 +299,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                         <div class="name">{:$prod['prodname']}</div>
                                         <!-- <h4>{:$prod['prod_features']}</h4> -->
                                         <div class="price">
-                                            <div>
+                                            <div class="price-tag">
                                                 <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                                     <span class="old-price">{:price_label_list($prod)}</span>
                                                 <?php } ?>
@@ -388,7 +388,7 @@ webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" poster="
                                 <div class="name">{:$prod['prodname']}</div>
                                 <!-- <h4>{:$prod['prod_features']}</h4> -->
                                 <div class="price">
-                                    <div>
+                                    <div class="price-tag">
                                         <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                             <span class="old-price">{:price_label_list($prod)}</span>
                                         <?php } ?>
