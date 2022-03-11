@@ -794,7 +794,8 @@ font-size:14px;
 
 .news-owl{ padding:20px 80px; }
 .hot-owl{ padding:20px 40px;}
-.list-one{ background:#fff; box-shadow: 0 0 5px #ccc; margin:5px; position:relative;}
+.list-one{ background:#fff; box-shadow: 0 0 5px #ccc; margin:5px; position:relative;transition:all 1s ease-in;}
+.list-one:hover{ transform: scale(1.02); box-shadow: 0 1px 6px 0 rgb(0 0 0 / 20%);}
 /*.hot-product  .list-one , */.sale-product  .list-one{ background:#fff; position:relative; text-align:center; margin: 5px 0;}
 .sale-product  [class*='col-']:nth-child(9){ /*display:none;*/}
 .list-pic img{max-width:100%;}
