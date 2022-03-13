@@ -10,7 +10,7 @@ $setting = $config_setting["setting"];
                 <div class="nav-top">
                     <div class="nav-top-x">
                         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-                        <ul class="nav navbar-nav  navbar-left">
+                        <ul class="nav navbar-nav  navbar-left hidden-xs">
                             <li><a href="{:front_link('StoreNetwork/index')}">
                                     <svg class="icon" aria-hidden="true">
                                         <use xlink:href="#icon-dizhi"></use>
@@ -38,7 +38,7 @@ $setting = $config_setting["setting"];
                                 </svg>
                             </button>
                         </form>
-                        <ul class="nav navbar-nav  navbar-right">
+                        <ul class="nav navbar-nav  navbar-right hidden-xs">
                             <li><a href="{:front_link('Customer/profile')}">
                                     <svg class="icon" aria-hidden="true">
                                         <use xlink:href="#icon-user"></use>
@@ -62,9 +62,9 @@ $setting = $config_setting["setting"];
                                 data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span
                                     class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
                                     class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                            <a class="navbar-brand" href="{:front_link('Index/index')}"><img
+                            <a class="navbar-brand hide show-xs" href="{:front_link('Index/index')}"><img
                                     src="/static/front/images/logo.png" width="180" height="140" alt="" /></a>
-                            <div class="navbar-icon">
+                            <div class="navbar-icon hide show-xs">
                                 <!-- <a href="{:front_link('Lives/index')}">
                                     <svg class="icon" aria-hidden="true">
                                         <use xlink:href="#icon-tubiaozhizuomoban-"></use>
@@ -91,7 +91,7 @@ $setting = $config_setting["setting"];
                         <?php } ?>
                     </div>
                     <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-                    <div class="web-logo">
+                    <div class="web-logo hidden-xs">
                         <a href="{:front_link('Index/index')}">
                             <img src="/static/front/images/logo.png" alt="Kiss-Silver" />
                         </a>
@@ -149,15 +149,15 @@ $setting = $config_setting["setting"];
                     <?php } } ?>
                 </ul>
                 <?php if (is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-                <div class="navbar-header">
+                <div class="navbar-header hidden show-xs">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle
                             navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
                             class="icon-bar"></span> </button>
-                    <a class="navbar-brand hide" href="#"><img src="/static/front/images/logo.png" width="180"
+                    <a class="navbar-brand hide show-xs" href="#"><img src="/static/front/images/logo.png" width="180"
                             height="140" alt="" /></a>
                 </div>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav hidden show-xs">
                     <li><a href="{:front_link('StoreNetwork/index')}">
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-dizhi"></use>
@@ -182,12 +182,12 @@ $setting = $config_setting["setting"];
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-aixin"></use>
                             </svg>
-                            <span>我的收藏({:wishlist_qtys()})</span></a></li>
+                            <span class="hidden show-xs">我的收藏({:wishlist_qtys()})</span></a></li>
                     <li><a href="{:front_link('Cart/index')}">
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-gongzuoquyu-5"></use>
                             </svg>
-                            <span>購物車({:cart_qtys()})</span></a></li>
+                            <span class="hidden show-xs">購物車({:cart_qtys()})</span></a></li>
                 </ul>
                 <?php } ?>
             </div>
