@@ -109,38 +109,6 @@ $setting = $config_setting["setting"];
                     <a class="navbar-brand" href="#"><img src="/static/front/images/logo.png" width="180" height="140"
                             alt="" /></a>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li><a href="{:front_link('StoreNetwork/index')}">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-dizhi"></use>
-                            </svg>
-                            銷售據點</a></li>
-                    <li><a href="{:isset($setting['common']['line'])?$setting['common']['line']:''}">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-line"></use>
-                            </svg>
-                            Line@客服</a></li>
-                    <li><a href="{:front_link('Lives/index')}">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-tubiaozhizuomoban-"></use>
-                            </svg>
-                            直 播</a></li>
-                    <li><a href="{:front_link('Customer/profile')}">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-user"></use>
-                            </svg>
-                            會員中心</a></li>
-                    <li><a href="{:front_link('Wishlist/index')}">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-aixin"></use>
-                            </svg>
-                            <span>我的收藏({:wishlist_qtys()})</span></a></li>
-                    <li><a href="{:front_link('Cart/index')}">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-gongzuoquyu-5"></use>
-                            </svg>
-                            <span>購物車({:cart_qtys()})</span></a></li>
-                </ul>
                 <?php } ?>
                 <ul class="top-nav text-center center-block" id="navss">
                     <?php
@@ -190,6 +158,40 @@ $setting = $config_setting["setting"];
                     </li>
                     <?php } } ?>
                 </ul>
+                <?php if (is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
+                <ul class="nav navbar-nav">
+                    <li><a href="{:front_link('StoreNetwork/index')}">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-dizhi"></use>
+                            </svg>
+                            銷售據點</a></li>
+                    <li><a href="{:isset($setting['common']['line'])?$setting['common']['line']:''}">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-line"></use>
+                            </svg>
+                            Line@客服</a></li>
+                    <li><a href="{:front_link('Lives/index')}">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-tubiaozhizuomoban-"></use>
+                            </svg>
+                            直 播</a></li>
+                    <li><a href="{:front_link('Customer/profile')}">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-user"></use>
+                            </svg>
+                            會員中心</a></li>
+                    <li><a href="{:front_link('Wishlist/index')}">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-aixin"></use>
+                            </svg>
+                            <span>我的收藏({:wishlist_qtys()})</span></a></li>
+                    <li><a href="{:front_link('Cart/index')}">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-gongzuoquyu-5"></use>
+                            </svg>
+                            <span>購物車({:cart_qtys()})</span></a></li>
+                </ul>
+                <?php } ?>
             </div>
     </nav>
 </header>
