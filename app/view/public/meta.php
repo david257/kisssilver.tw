@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,26 +18,30 @@
     }
     ?>
     <meta property="og:image" content="{$ogimage}" />
-    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" type="text/css" href="/static/front/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/front/font/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.1.7">
+    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.1.8">
     <link rel="stylesheet" type="text/css" href="/static/front/dist/assets/owl.carousel.css">
     <script type="text/javascript" src="/static/front/js/jquery-3.2.1.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180296843-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-        gtag('config', 'UA-180296843-1');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180296843-1');
     </script>
     <script>
-        // this function must be defined in the global scope
-        window.fadeIn = function(obj) {
-            $(obj).fadeIn(1000);
-        }
+    // this function must be defined in the global scope
+    window.fadeIn = function(obj) {
+        $(obj).fadeIn(1000);
+    }
     </script>
 </head>
+
 <body>
