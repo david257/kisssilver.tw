@@ -117,7 +117,7 @@ img[data-src] {
 	display:flex;
 	flex-wrap:wrap;
 	max-width:1200px;
-	width:100%;
+	width:1200px;
 }
 .banner .sp-image-container {
 	min-height:500px;
@@ -155,6 +155,7 @@ a:focus, a:hover {
 	margin-left: 0;
 	margin-right: 0;
 	padding:0;
+	width:100%;
 }
 .row.mno-gutter>[class*='col-'], .row.no-gutter>[class*='col-'] {
 	padding-right: 0;
@@ -794,11 +795,12 @@ font-size:14px;
 
 .news-owl{ padding:20px 80px; }
 .hot-owl{ padding:20px 40px;}
-.list-one{ background:#fff; box-shadow: 0 0 5px #ccc; margin:5px; position:relative;transition:all .1s ease-in;}
+.list-one{ width:280px; background:#fff; box-shadow: 0 0 5px #ccc; margin:5px; position:relative;transition:all .1s ease-in;}
 .list-one:hover{ transform: scale(1.02); box-shadow: 0 1px 6px 0 rgb(0 0 0 / 20%);}
 /*.hot-product  .list-one , */.sale-product  .list-one{ background:#fff; position:relative; text-align:center; margin: 5px 0;}
 .sale-product  [class*='col-']:nth-child(9){ /*display:none;*/}
-.list-pic img{max-width:100%;}
+.list-one .list-pic{ width:100%; height:280px; }
+.list-one .list-pic img{max-width:100%; height:100%; object-fit:cover;}
 .list-one .list-icon{ display:flex; font-size:24px; color:#333;}
 .list-one .list-icon a{color:#999; text-decoration:none; padding:5px;}
 .list-one .list-icon a:hover , .list-one .list-icon a.active , .list-one .list-icon a svg.active , .list-one .list-icon a svg.active:last-of-type { fill: red; color: #c80a28; }
@@ -1722,7 +1724,7 @@ font-weight: bold;
 	}
 }
 .index-one-gg, .index-two-gg, .index-three-gg, .index-four-gg {
-	padding-top:180px;
+	padding-top:7.5px;
 	display:flex;
 	justify-content: center;
 }
