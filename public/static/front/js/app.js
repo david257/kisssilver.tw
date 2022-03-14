@@ -566,7 +566,7 @@ function videoOnEnterView(entries, observer) {
 }
 
 const videoWatcher = new IntersectionObserver(videoOnEnterView);
-const lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+const lazyVideos = document.querySelectorAll("video.lazy");
 for (let video of lazyVideos) {
   videoWatcher.observe(video); // 開始監視
 }
