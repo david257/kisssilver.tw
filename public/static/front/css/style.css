@@ -826,8 +826,8 @@ font-size:14px;
 .list-one .list-content .name{ font-size:13px; line-height:20px; height:60px; margin-bottom:5px; overflow:hidden; text-overflow: ellipsis; white-space:normal; text-align:left;}
 .list-one .list-content h4{ font-weight:normal; font-size:14px;}
 .list-one .list-content h5{ font-weight:normal; font-size:12px; color:#666;}
-.list-one .list-content .price{ display:flex; justify-content:space-between; align-items:center; font-weight:normal; font-size:16px; color:#701010; font-weight:bold;}
-.list-one .list-content .price .price-tag{ color:#701010;}
+.list-one .list-content .price{ display:flex; justify-content:space-between; align-items:center; font-weight:normal; font-size:16px; font-weight:bold;}
+.list-one .list-content .current-price { color:#701010; }
 .hot-product [class*='col-'], .news-product [class*='col-'], .sale-product [class*='col-']{
 	padding:0 5px;
 }
