@@ -214,10 +214,10 @@
                                 <?php
                                         if(!empty($video)) {
                                             ?>
-                                <video autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline playsinline
-                                    webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
+                                <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
+                                    playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
                                     poster="{:showfile($prod['video_image'])}">
-                                    <source src="{:showfile($video)}" type="video/mp4">
+                                    <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
                                 <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
@@ -317,10 +317,10 @@
                                 <?php
                                         if(!empty($video)) {
                                             ?>
-                                <video autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline playsinline
-                                    webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
+                                <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
+                                    playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
                                     poster="{:showfile($prod['video_image'])}">
-                                    <source src="{:showfile($video)}" type="video/mp4">
+                                    <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
                                 <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
@@ -415,10 +415,10 @@
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                <video autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline playsinline
-                                    webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
+                                <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
+                                    playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
                                     poster="{:showfile($prod['video_image'])}">
-                                    <source src="{:showfile($video)}" type="video/mp4">
+                                    <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
                                 <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
