@@ -31,8 +31,8 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
 
                 </a> </div>
@@ -52,8 +52,8 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
@@ -75,8 +75,8 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
@@ -95,8 +95,8 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
@@ -118,8 +118,8 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
@@ -138,8 +138,8 @@
                     if(strpos($banner['imagefile'], '.mp4') !== false) {
                         ?>
             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
@@ -160,8 +160,8 @@
             <?php if(strpos($banner['imagefile'], '.mp4') !== false) {?>
             <div class="four-ggpic">
                 <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a>
             </div>
@@ -181,8 +181,8 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video controls>
-                        <source src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
+                    <video class="lazy" controls>
+                        <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
@@ -273,11 +273,11 @@
                     if(strpos($middle_one_banner[0]['imagefile'], '.mp4') !== false) {
                         ?>
                     <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                            <video class="hidden-xs" controls>
-                                <source src="{:showfile($middle_one_banner[0]['imagefile'])}" type="video/mp4">
+                            <video class="hidden-xs lazy" controls>
+                                <source data-src="{:showfile($middle_one_banner[0]['imagefile'])}" type="video/mp4">
                             </video>
-                            <video class="hidden show-xs" controls>
-                                <source src="{:showfile($middle_one_banner[0]['min_imagefile'])}" type="video/mp4">
+                            <video class="hidden show-xs lazy" controls>
+                                <source data-src="{:showfile($middle_one_banner[0]['min_imagefile'])}" type="video/mp4">
                             </video>
                         </a> </div>
                     <?php } else { ?>
@@ -374,11 +374,11 @@
                         if(strpos($middle_two_banner[0]['imagefile'], '.mp4') !== false) {
                             ?>
                     <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                            <video class="hidden-xs" controls>
-                                <source src="{:showfile($middle_two_banner[0]['imagefile'])}" type="video/mp4">
+                            <video class="hidden-xs lazy" controls>
+                                <source data-src="{:showfile($middle_two_banner[0]['imagefile'])}" type="video/mp4">
                             </video>
-                            <video class="hidden show-xs" controls>
-                                <source src="{:showfile($middle_two_banner[0]['min_imagefile'])}" type="video/mp4">
+                            <video class="hidden show-xs lazy" controls>
+                                <source data-src="{:showfile($middle_two_banner[0]['min_imagefile'])}" type="video/mp4">
                             </video>
                         </a> </div>
                     <?php } else { ?>

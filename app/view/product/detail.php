@@ -41,9 +41,9 @@
                             if(!empty($product["video"])) {
                             ?>
                             <div class="sp-slide">
-                                <video controls onmouseover="this.play()" poster="{:showfile($product['video_image'])}"
-                                    onmouseout="this.pause()">
-                                    <source src="{:showfile($product[" video"])}" type="video/mp4">
+                                <video class="lazy" controls onmouseover="this.play()"
+                                    poster="{:showfile($product['video_image'])}" onmouseout="this.pause()">
+                                    <source data-src="{:showfile($product[" video"])}" type="video/mp4">
                                 </video>
                             </div>
                             <?php } ?>
@@ -193,12 +193,12 @@
                                 <?php
                                         if(!empty($video)) {
                                             ?>
-                                <video controls onmouseover="this.play()" poster="{:showfile($prod['video_image'])}"
-                                    onmouseout="this.pause()">
-                                    <source src="{:showfile($video)}" type="video/mp4">
+                                <video class="lazy" controls onmouseover="this.play()"
+                                    poster="{:showfile($prod['video_image'])}" onmouseout="this.pause()">
+                                    <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
-                                <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                 <?php } ?>
                             </a></div>
@@ -249,12 +249,12 @@
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                <video poster="{:showfile($prod['video_image'])}" controls onmouseover="this.play()"
-                                    onmouseout="this.pause()">
-                                    <source src="{:showfile($video)}" type="video/mp4">
+                                <video class="lazy" poster="{:showfile($prod['video_image'])}" controls
+                                    onmouseover="this.play()" onmouseout="this.pause()">
+                                    <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
-                                <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                 <?php } ?>
                             </a></div>

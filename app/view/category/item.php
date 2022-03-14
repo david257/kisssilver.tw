@@ -11,11 +11,11 @@
                 <?php
                                 if(!empty($video)) {
                                     ?>
-                <video controls onmouseover="this.play()" onmouseout="this.pause()">
-                    <source src="{:showfile($video)}" type="video/mp4">
+                <video class="lazy" controls onmouseover="this.play()" onmouseout="this.pause()">
+                    <source data-src="{:showfile($video)}" type="video/mp4">
                 </video>
                 <?php } else { ?>
-                <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                 <?php } ?>
             </a></div>
