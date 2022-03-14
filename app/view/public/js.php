@@ -8,7 +8,7 @@
 <script type="text/javascript" src="/static/front/js/jquery.sliderPro.min.js"></script>
 <script src="/static/js/jquery.form.js"></script>
 <script src="/static/js/layer/layer.js"></script>
-<script src="/static/front/js/app.js?v=1.0.0"></script>
+<script src="/static/front/js/app.js?v=1.0.1"></script>
 <script>
 var coverbox;
 $(".DialogForm").on("click", function() {

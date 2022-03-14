@@ -578,32 +578,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// function videoOnEnterView(entries, observer) {
-//   entries.forEach(function (video) {
-//     if (video.isIntersecting) {
-//       for (var source in video.target.children) {
-//         var videoSource = video.target.children[source];
-//         if (
-//           typeof videoSource.tagName === "string" &&
-//           videoSource.tagName === "SOURCE"
-//         ) {
-//           videoSource.src = videoSource.dataset.src;
-//         }
-//       }
-
-//       video.target.load();
-//       video.target.classList.remove("lazy");
-//       observer.unobserve(video.target);
-//     }
-//   });
-// }
-
-// const videoWatcher = new IntersectionObserver(videoOnEnterView);
-// const lazyVideos = document.querySelectorAll("video.lazy");
-// for (let video of lazyVideos) {
-//   videoWatcher.observe(video); // 開始監視
-// }
-
 function onEnterView(entries, observer) {
   for (let entry of entries) {
     if (entry.isIntersecting) {
