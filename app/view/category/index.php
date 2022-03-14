@@ -199,21 +199,22 @@
                                         <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                                         <span class="old-price">{:price_label_list($prod)}</span>
                                         <?php } ?>
-                                        {:price_label($prod)}
-                                    </div>
-                                    <div class="list-icon"><a
-                                            href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
-                                            class="AjaxTodo">
-                                            <svg class="icon" aria-hidden="true">
-                                                <use
-                                                    xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
-                                                </use>
-                                            </svg>
-                                        </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                            <svg class="icon" aria-hidden="true">
-                                                <use xlink:href="#icon-gouwu1"></use>
-                                            </svg>
-                                        </a>
+                                        <span class="current-price">{:price_label($prod)}</span>
+                                        <div class="list-icon"><a
+                                                href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
+                                                class="AjaxTodo">
+                                                <svg class="icon" aria-hidden="true">
+                                                    <use
+                                                        xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
+                                                    </use>
+                                                </svg>
+                                            </a> <a
+                                                href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                                                <svg class="icon" aria-hidden="true">
+                                                    <use xlink:href="#icon-gouwu1"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </a>

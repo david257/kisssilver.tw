@@ -26,7 +26,7 @@
                     <?php if($prod['prod_list_price']>$prod['prod_price']) { ?>
                     <span class="old-price">{:price_label_list($prod)}</span>
                     <?php } ?>
-                    {:price_label($prod)}
+                    <span class="current-price">{:price_label($prod)}</span>
                     <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
                             class="AjaxTodo">
                             <svg class="icon" aria-hidden="true">

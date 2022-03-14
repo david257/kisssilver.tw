@@ -256,27 +256,29 @@
                         $image2 = isset($prod['image2'])?$prod['image2']:$image;
                         ?>
                 <div class="item">
-                    <div class="list-one">
+                    <div class="list-one detail">
                         <div class="list-pic"><a
                                 href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}"><img
                                     src="{$image}" onMouseOver="javascript:this.src='{$image2}'"
                                     onMouseOut="javascript:this.src='{$image}'" alt="" /></a></div>
-                        <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
-                                class="AjaxTodo">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-aixin"></use>
-                                </svg>
-                            </a> <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-gouwu1"></use>
-                                </svg>
-                            </a>
-                        </div>
                         <div class="list-content">
                             <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <div class="name">{:$prod['prodname']}</div>
                                 <!-- <h4>{:$prod['prod_features']}</h4> -->
-                                <div class="price">{:price_label($prod)}</div>
+                                <div class="price">{:price_label($prod)}
+                                    <div class="list-icon"><a
+                                            href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
+                                            class="AjaxTodo">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="#icon-aixin"></use>
+                                            </svg>
+                                        </a> <a href="#">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="#icon-gouwu1"></use>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </div>
