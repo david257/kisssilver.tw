@@ -262,7 +262,8 @@
                             <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <div class="name">{:$prod['prodname']}</div>
                                 <!-- <h4>{:$prod['prod_features']}</h4> -->
-                                <div class="price">{:price_label($prod)}
+                                <div class="price">
+                                    <span class="current-price">{:price_label($prod)}</span>
                                     <div class="list-icon"><a
                                             href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
                                             class="AjaxTodo">
