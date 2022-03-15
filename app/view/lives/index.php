@@ -30,13 +30,19 @@
                     <div class="item">
                         <div class="list-list">
                             <div class="ps-wrap">
-                                <div class="ps-pic"><a target="_blank" href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                                <div class="ps-pic"><a target="_blank"
+                                        href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                         <?php
                                         if(!empty($video)) {
                                             ?>
-                                            <video controls onmouseover="this.play()" onmouseout="this.pause()"><source src="{:showfile($video)}" type="video/mp4"></video>
+                                        <video class="lazy" controls onmouseover="this.play()"
+                                            onmouseout="this.pause()">
+                                            <source data-src="{:showfile($video)}" type="video/mp4">
+                                        </video>
                                         <?php } else { ?>
-                                            <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'" onMouseOutw="javascript:this.src='{$image}'"   alt=""/>
+                                        <img class="img lazy" data-src="{$image}"
+                                            onMouseOvers="javascript:this.src='{$image2}'"
+                                            onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                         <?php } ?>
                                     </a></div>
                                 <div class="ps-tag">New</div>
@@ -45,7 +51,9 @@
 
                             <div class="ps-content">
                                 <div class="ps-title-small">{:$prod['prodname']}</div>
-                                <div class="ps-title-lg"><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">{:$prod['prod_features']}</a></div>
+                                <div class="ps-title-lg"><a
+                                        href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">{:$prod['prod_features']}</a>
+                                </div>
                                 <div class="ps-price">{:price_label($prod)}</div>
                             </div>
                         </div>
@@ -57,7 +65,7 @@
     </section>
     <?php if($live['jiangpin_qty']>0) { ?>
     <section class="detail-tj">
-        <div class="cj-fix-icon"><a href="#"><img src="images/cjicon.png" alt=""/></a></div>
+        <div class="cj-fix-icon"><a href="#"><img src="images/cjicon.png" alt="" /></a></div>
 
         <div class="live-pro">
             <div class="container-small">
@@ -70,7 +78,9 @@
                     </p>
                 </div>
                 <div class="chou-content">
-                    <h3 class="text-center">抽獎開始時間<span class="text-danger">{:date('Y/m/d H:i', $live['start_date'])}</span>，抽獎截止時間<span class="text-danger">{:date('Y/m/d H:i', $live['end_date'])}</span> ,距離抽獎結束還有</h3>
+                    <h3 class="text-center">抽獎開始時間<span class="text-danger">{:date('Y/m/d H:i',
+                            $live['start_date'])}</span>，抽獎截止時間<span class="text-danger">{:date('Y/m/d H:i',
+                            $live['end_date'])}</span> ,距離抽獎結束還有</h3>
                 </div>
                 <div class="chou-content">
                     <div class=" text-center margins">
@@ -89,11 +99,12 @@
                 </div>
                 <div class="chou-btn text-center">
                     <?php if($live['end_date']<time()) { ?>
-                        <button class="btn btn-lg" style="background: gay">抽獎已結束</button>
+                    <button class="btn btn-lg" style="background: gay">抽獎已結束</button>
                     <?php } elseif($live['start_date']>time()) { ?>
-                        <button class="btn btn-lg" style="background: gay">抽獎還未開始</button>
+                    <button class="btn btn-lg" style="background: gay">抽獎還未開始</button>
                     <?php } else { ?>
-                    <button class="AjaxTodo btn btn-lg btn-yellow1" data-tip="確定要參與抽獎嗎" href="{:front_link('lottery', ['liveid' => $live['liveid']])}">我要抽獎</button>
+                    <button class="AjaxTodo btn btn-lg btn-yellow1" data-tip="確定要參與抽獎嗎"
+                        href="{:front_link('lottery', ['liveid' => $live['liveid']])}">我要抽獎</button>
                     <?php } ?>
                 </div>
 
@@ -102,28 +113,28 @@
                 <div class="chou-table">
                     <table width="100%" border="0">
                         <tbody>
-                        <tr>
-                            <th colspan="3" scope="col" height="60">中獎名單</th>
-                        </tr>
-                        <tr>
-                            <th width="50" height="50" align="center" scope="col">#</th>
-                            <th height="50" align="center" scope="col">會員編號</th>
-                            <th height="50" align="center" scope="col">會員等級</th>
-                        </tr>
-                        <?php
+                            <tr>
+                                <th colspan="3" scope="col" height="60">中獎名單</th>
+                            </tr>
+                            <tr>
+                                <th width="50" height="50" align="center" scope="col">#</th>
+                                <th height="50" align="center" scope="col">會員編號</th>
+                                <th height="50" align="center" scope="col">會員等級</th>
+                            </tr>
+                            <?php
                         if(!empty($lucylist)) {
                             foreach($lucylist as $v) {
                         ?>
-                        <tr>
-                            <td width="50" height="50" align="center">1</td>
-                            <td height="50" align="center">{:$v['vipcode']}</td>
-                            <td height="50" align="center">{:$v['title']}</td>
-                        </tr>
-                        <?php } } else { ?>
+                            <tr>
+                                <td width="50" height="50" align="center">1</td>
+                                <td height="50" align="center">{:$v['vipcode']}</td>
+                                <td height="50" align="center">{:$v['title']}</td>
+                            </tr>
+                            <?php } } else { ?>
                             <tr>
                                 <td colspan="3" scope="col" height="60">等待開獎</td>
                             </tr>
-                        <?php } ?>
+                            <?php } ?>
                         </tbody>
                     </table>
 
@@ -136,39 +147,40 @@
 </div>
 </div>
 <script>
-    var starttime = new Date("{:date('Y/m/d H:i', $live['end_date'])}");
-    setInterval(function () {
-        var nowtime = new Date();
-        var time = starttime - nowtime;
-        if(time<=0) {
-            day = '00';
-            hour = '00';
-            minute = '00';
-            seconds = '00';
-        } else {
-            var day = parseInt(time / 1000 / 60 / 60 / 24);
-            if(day<10) {
-                day = '0'+day;
-            }
-            var hour = parseInt(time / 1000 / 60 / 60 % 24);
-            if(hour<10) {
-                hour = '0'+hour;
-            }
-            var minute = parseInt(time / 1000 / 60 % 60);
-            if(minute<10) {
-                minute = '0'+minute;
-            }
-            var seconds = parseInt(time / 1000 % 60);
-            if(seconds<10) {
-                seconds = '0'+seconds;
-            }
+var starttime = new Date("{:date('Y/m/d H:i', $live['end_date'])}");
+setInterval(function() {
+    var nowtime = new Date();
+    var time = starttime - nowtime;
+    if (time <= 0) {
+        day = '00';
+        hour = '00';
+        minute = '00';
+        seconds = '00';
+    } else {
+        var day = parseInt(time / 1000 / 60 / 60 / 24);
+        if (day < 10) {
+            day = '0' + day;
         }
-        $("#countd").html(day);
-        $("#counth").html(hour);
-        $("#countm").html(minute);
-        $("#counts").html(seconds);
-    }, 1000);
+        var hour = parseInt(time / 1000 / 60 / 60 % 24);
+        if (hour < 10) {
+            hour = '0' + hour;
+        }
+        var minute = parseInt(time / 1000 / 60 % 60);
+        if (minute < 10) {
+            minute = '0' + minute;
+        }
+        var seconds = parseInt(time / 1000 % 60);
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
+    }
+    $("#countd").html(day);
+    $("#counth").html(hour);
+    $("#countm").html(minute);
+    $("#counts").html(seconds);
+}, 1000);
 </script>
 
 </body>
+
 </html>
