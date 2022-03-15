@@ -599,7 +599,6 @@ function checkedAndLeftOptions(ids) {
 
         attris = '|' + slv.attrs + '|';
 
-        //if(attris.indexOf(selectedActive) !== -1) {
         if (isContained(_attris, checkedOp)) {
             $.each(ids, function(i, k) {
                 if (attris.indexOf('|' + k + '|') !== -1 && slv.stock > 0) {
@@ -639,7 +638,6 @@ function checkStock(voptions) {
 }
 
 $("#AddtoCart").click(function() {
-    debugger;
     var totalAttris = $(".goods_attr").length;
     var checkedAttris = $(".goods_attr li.active").length;
     if (checkedAttris < totalAttris) {
