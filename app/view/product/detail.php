@@ -41,9 +41,9 @@
                             if(isset($product["video"]) && !empty($product["video"])) {
                             ?>
                             <div class="sp-slide">
-                                <video class="lazy" controls onmouseover="this.play()"
-                                    poster="{:showfile($product['video_image'])}" onmouseout="this.pause()">
-                                    <source data-src="{:showfile($product['video'])}" type="video/mp4">
+                                <video controls onmouseover="this.play()" poster="{:showfile($product['video_image'])}"
+                                    onmouseout="this.pause()">
+                                    <source src="{:showfile($product['video'])}" type="video/mp4">
                                 </video>
                             </div>
                             <?php } ?>
@@ -306,57 +306,6 @@ $('#myTab a').click(function(e) {
 </script>
 <script>
 $(function() {
-    $("#AddtoCart").on("click", function() {
-        var totalAttris = $(".goods_attr").length;
-        var checkedAttris = $(".goods_attr li.active").length;
-        if (checkedAttris < totalAttris) {
-            layer.msg("請選擇規格");
-            return false;
-        }
-
-        var selectedAttrs = [];
-        if (totalAttris > 0) {
-            $.each($(".goods_attr li.active"), function() {
-                selectedAttrs.push($(this).attr("val"))
-            })
-        }
-
-        var cartData = {
-            prodid: {
-                : $product['prodid']
-            },
-            qty: $("#BuyQty").val(),
-            voption: selectedAttrs.join(",")
-        };
-
-        if (cartData.qty <= 0) {
-            layer.msg("請選擇購買數量");
-            return false;
-        }
-
-        $.ajax({
-            url: '{:front_link("Cart/save")}',
-            data: cartData,
-            type: "POST",
-            dataType: "JSON",
-            success: function(json) {
-                if (json.code > 0) {
-                    layer.alert(json.msg, {
-                        icon: 2,
-                        btn: ['確定']
-                    });
-                } else {
-                    layer.alert(json.msg, {
-                        icon: 1,
-                        btn: ['確定'],
-                        end: function() {
-                            location.reload();
-                        }
-                    })
-                }
-            }
-        })
-    })
     $('.owl-carousel').owlCarousel({
         stagePadding: 0,
         loop: true,
@@ -691,57 +640,57 @@ function checkStock(voptions) {
     })
 }
 
-// $("#AddtoCart").click(function() {
-//     var totalAttris = $(".goods_attr").length;
-//     var checkedAttris = $(".goods_attr li.active").length;
-//     if (checkedAttris < totalAttris) {
-//         layer.msg("請選擇規格");
-//         return false;
-//     }
+$("#AddtoCart").click(function() {
+    var totalAttris = $(".goods_attr").length;
+    var checkedAttris = $(".goods_attr li.active").length;
+    if (checkedAttris < totalAttris) {
+        layer.msg("請選擇規格");
+        return false;
+    }
 
-//     var selectedAttrs = [];
-//     if (totalAttris > 0) {
-//         $.each($(".goods_attr li.active"), function() {
-//             selectedAttrs.push($(this).attr("val"))
-//         })
-//     }
+    var selectedAttrs = [];
+    if (totalAttris > 0) {
+        $.each($(".goods_attr li.active"), function() {
+            selectedAttrs.push($(this).attr("val"))
+        })
+    }
 
-//     var cartData = {
-//         prodid: {
-//             : $product['prodid']
-//         },
-//         qty: $("#BuyQty").val(),
-//         voption: selectedAttrs.join(",")
-//     };
+    var cartData = {
+        prodid: {
+            : $product['prodid']
+        },
+        qty: $("#BuyQty").val(),
+        voption: selectedAttrs.join(",")
+    };
 
-//     if (cartData.qty <= 0) {
-//         layer.msg("請選擇購買數量");
-//         return false;
-//     }
+    if (cartData.qty <= 0) {
+        layer.msg("請選擇購買數量");
+        return false;
+    }
 
-//     $.ajax({
-//         url: '{:front_link("Cart/save")}',
-//         data: cartData,
-//         type: "POST",
-//         dataType: "JSON",
-//         success: function(json) {
-//             if (json.code > 0) {
-//                 layer.alert(json.msg, {
-//                     icon: 2,
-//                     btn: ['確定']
-//                 });
-//             } else {
-//                 layer.alert(json.msg, {
-//                     icon: 1,
-//                     btn: ['確定'],
-//                     end: function() {
-//                         location.reload();
-//                     }
-//                 })
-//             }
-//         }
-//     })
-// })
+    $.ajax({
+        url: '{:front_link("Cart/save")}',
+        data: cartData,
+        type: "POST",
+        dataType: "JSON",
+        success: function(json) {
+            if (json.code > 0) {
+                layer.alert(json.msg, {
+                    icon: 2,
+                    btn: ['確定']
+                });
+            } else {
+                layer.alert(json.msg, {
+                    icon: 1,
+                    btn: ['確定'],
+                    end: function() {
+                        location.reload();
+                    }
+                })
+            }
+        }
+    })
+})
 </script>
 </body>
 
