@@ -641,61 +641,47 @@ function checkStock(voptions) {
 }
 
 $("#AddtoCart").click(function() {
-    console.log(1)
-    var totalAttris = $(".goods_attr").length;
-    var checkedAttris = $(".goods_attr li.active").length;
-    if (checkedAttris < totalAttris) {
-        layer.msg("請選擇規格");
-        return false;
-    }
-    console.log(2)
-    var selectedAttrs = [];
-    if (totalAttris > 0) {
-        $.each($(".goods_attr li.active"), function() {
-            selectedAttrs.push($(this).attr("val"))
-        })
-    }
-    console.log(3)
-    var cartData = {
-        prodid: {
-            : $product['prodid']
-        },
-        qty: $("#BuyQty").val(),
-        voption: selectedAttrs.join(",")
-    };
-    console.log(4)
-    if (cartData.qty <= 0) {
-        layer.msg("請選擇購買數量");
-        return false;
-    }
-    console.log(5)
-    $.ajax({
-        url: '{:front_link("Cart/save")}',
-        data: cartData,
-        type: "POST",
-        dataType: "JSON",
-        success: function(json) {
-            if (json.code > 0) {
-                console.log(6)
-                layer.alert(json.msg, {
-                    icon: 2,
-                    btn: ['確定']
-                });
-                console.log(7)
-            } else {
-                layer.alert(json.msg, {
-                    icon: 1,
-                    btn: ['確定'],
-                    end: function() {
-                        console.log(8)
-                        location.reload();
-                    }
-                })
-                console.log(9)
-            }
+        var totalAttris = $(".goods_attr").length;
+        var checkedAttris = $(".goods_attr li.active").length;
+        if(checkedAttris<totalAttris) {
+            layer.msg("請選擇規格");
+            return false;
         }
+
+        var selectedAttrs = [];
+        if(totalAttris>0) {
+            $.each($(".goods_attr li.active"), function () {
+                selectedAttrs.push($(this).attr("val"))
+            })
+        }
+
+        var cartData = {
+            prodid: {:$product['prodid']},
+            qty: $("#BuyQty").val(),
+            voption:selectedAttrs.join(",")
+        };
+
+        if(cartData.qty<=0) {
+            layer.msg("請選擇購買數量");
+            return false;
+        }
+
+        $.ajax({
+            url: '{:front_link("Cart/save")}',
+            data: cartData,
+            type: "POST",
+            dataType: "JSON",
+            success: function(json) {
+                if(json.code>0) {
+                    layer.alert(json.msg, {icon: 2});
+                } else {
+                    layer.alert(json.msg, {icon: 1, end: function() {
+                        location.reload();
+                     } })
+                }
+            }
+        })
     })
-})
 </script>
 </body>
 
