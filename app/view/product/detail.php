@@ -99,8 +99,8 @@
                         </div>
                         <div class="ps-btn row col-xs-12 col-md-12 no-gutter">
                             <div class="col-xs-9 col-md-9">
-                                <div class="detail-cart"><button onClick="javascript:addToCart();" id="AddtoCart"
-                                        class="detail-cart-btn">加入購物車<svg class="icon" aria-hidden="true">
+                                <div class="detail-cart"><button id="AddtoCart" class="detail-cart-btn">加入購物車<svg
+                                            class="icon" aria-hidden="true">
                                             <use xlink:href="#icon-ziyuan"></use>
                                         </svg></button></div>
                             </div>
@@ -393,58 +393,6 @@ function sbslider() {
         }
     });
 }
-
-function addToCart() {
-    var totalAttris = $(".goods_attr").length;
-    var checkedAttris = $(".goods_attr li.active").length;
-    if (checkedAttris < totalAttris) {
-        layer.msg("請選擇規格");
-        return false;
-    }
-
-    var selectedAttrs = [];
-    if (totalAttris > 0) {
-        $.each($(".goods_attr li.active"), function() {
-            selectedAttrs.push($(this).attr("val"))
-        })
-    }
-
-    var cartData = {
-        prodid: {
-            : $product['prodid']
-        },
-        qty: $("#BuyQty").val(),
-        voption: selectedAttrs.join(",")
-    };
-
-    if (cartData.qty <= 0) {
-        layer.msg("請選擇購買數量");
-        return false;
-    }
-
-    $.ajax({
-        url: '{:front_link("Cart/save")}',
-        data: cartData,
-        type: "POST",
-        dataType: "JSON",
-        success: function(json) {
-            if (json.code > 0) {
-                layer.alert(json.msg, {
-                    icon: 2,
-                    btn: ['確定']
-                });
-            } else {
-                layer.alert(json.msg, {
-                    icon: 1,
-                    btn: ['確定'],
-                    end: function() {
-                        location.reload();
-                    }
-                })
-            }
-        }
-    })
-}
 </script>
 <script src="/static/front/js/viewer.min.js"></script>
 <script>
@@ -689,57 +637,57 @@ function checkStock(voptions) {
     })
 }
 
-// $("#AddtoCart").click(function() {
-//     var totalAttris = $(".goods_attr").length;
-//     var checkedAttris = $(".goods_attr li.active").length;
-//     if (checkedAttris < totalAttris) {
-//         layer.msg("請選擇規格");
-//         return false;
-//     }
+$("#AddtoCart").click(function() {
+    var totalAttris = $(".goods_attr").length;
+    var checkedAttris = $(".goods_attr li.active").length;
+    if (checkedAttris < totalAttris) {
+        layer.msg("請選擇規格");
+        return false;
+    }
 
-//     var selectedAttrs = [];
-//     if (totalAttris > 0) {
-//         $.each($(".goods_attr li.active"), function() {
-//             selectedAttrs.push($(this).attr("val"))
-//         })
-//     }
+    var selectedAttrs = [];
+    if (totalAttris > 0) {
+        $.each($(".goods_attr li.active"), function() {
+            selectedAttrs.push($(this).attr("val"))
+        })
+    }
 
-//     var cartData = {
-//         prodid: {
-//             : $product['prodid']
-//         },
-//         qty: $("#BuyQty").val(),
-//         voption: selectedAttrs.join(",")
-//     };
+    var cartData = {
+        prodid: {
+            : $product['prodid']
+        },
+        qty: $("#BuyQty").val(),
+        voption: selectedAttrs.join(",")
+    };
 
-//     if (cartData.qty <= 0) {
-//         layer.msg("請選擇購買數量");
-//         return false;
-//     }
+    if (cartData.qty <= 0) {
+        layer.msg("請選擇購買數量");
+        return false;
+    }
 
-//     $.ajax({
-//         url: '{:front_link("Cart/save")}',
-//         data: cartData,
-//         type: "POST",
-//         dataType: "JSON",
-//         success: function(json) {
-//             if (json.code > 0) {
-//                 layer.alert(json.msg, {
-//                     icon: 2,
-//                     btn: ['確定']
-//                 });
-//             } else {
-//                 layer.alert(json.msg, {
-//                     icon: 1,
-//                     btn: ['確定'],
-//                     end: function() {
-//                         location.reload();
-//                     }
-//                 })
-//             }
-//         }
-//     })
-// })
+    $.ajax({
+        url: '{:front_link("Cart/save")}',
+        data: cartData,
+        type: "POST",
+        dataType: "JSON",
+        success: function(json) {
+            if (json.code > 0) {
+                layer.alert(json.msg, {
+                    icon: 2,
+                    btn: ['確定']
+                });
+            } else {
+                layer.alert(json.msg, {
+                    icon: 1,
+                    btn: ['確定'],
+                    end: function() {
+                        location.reload();
+                    }
+                })
+            }
+        }
+    })
+})
 </script>
 </body>
 
