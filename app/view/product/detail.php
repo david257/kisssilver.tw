@@ -639,6 +639,7 @@ function checkStock(voptions) {
 }
 
 $("#AddtoCart").click(function() {
+    debugger;
     var totalAttris = $(".goods_attr").length;
     var checkedAttris = $(".goods_attr li.active").length;
     if (checkedAttris < totalAttris) {
