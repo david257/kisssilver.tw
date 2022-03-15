@@ -37,7 +37,7 @@
                     <div id="detail" class="slider-pro detail-p">
                         <div class="sp-slides" id="original">
                             <?php
-                            if(!empty($product["video"])) {
+                            if(isset($product["video"]) && !empty($product["video"])) {
                             ?>
                                 <div class="sp-slide">
                                     <video controls onmouseover="this.play()" poster="{:showfile($product['video_image'])}" onmouseout="this.pause()"><source src="{:showfile($product["video"])}" type="video/mp4"></video>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="sp-thumbnails">
                             <?php
-                            if(!empty($product["video"])) {
+                            if(isset($product["video"]) && !empty($product["video"])) {
                                 if(!empty($product["video_image"])) {
                             ?>
                                     <div class="sp-thumbnail"><img src="{:showfile($product['video_image'])}" /></div>
