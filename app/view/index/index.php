@@ -216,7 +216,7 @@
                                             ?>
                                 <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
                                     playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
-                                    poster="/static/front/images/videoph.png">
+                                    poster="{:showfile($prod['video_image'])}">
                                     <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
@@ -319,7 +319,7 @@
                                             ?>
                                 <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
                                     playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
-                                    poster="/static/front/images/videoph.png">
+                                    poster="{:showfile($prod['video_image'])}">
                                     <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
@@ -417,7 +417,7 @@
                                     ?>
                                 <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
                                     playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
-                                    poster="/static/front/images/videoph.png">
+                                    poster="{:showfile($prod['video_image'])}">
                                     <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
