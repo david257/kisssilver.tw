@@ -38,12 +38,12 @@
                     <div id="detail" class="slider-pro detail-p">
                         <div class="sp-slides" id="original">
                             <?php
-                            if(isset($product["video"]) && !empty($product["video"])) {
+                            if(!empty($product["video"])) {
                             ?>
                             <div class="sp-slide">
-                                <video class="lazy" controls onmouseover="this.play()"
-                                    poster="{:showfile($product['video_image'])}" onmouseout="this.pause()">
-                                    <source data-src="{:showfile($product['video'])}" type="video/mp4">
+                                <video controls onmouseover="this.play()" poster="{:showfile($product['video_image'])}"
+                                    onmouseout="this.pause()">
+                                    <source src="{:showfile($product['video'])}" type="video/mp4">
                                 </video>
                             </div>
                             <?php } ?>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="sp-thumbnails">
                             <?php
-                            if(isset($product["video"]) && !empty($product["video"])) {
+                            if(!empty($product["video"])) {
                                 if(!empty($product["video_image"])) {
                             ?>
                             <div class="sp-thumbnail"><img src="{:showfile($product['video_image'])}" /></div>
@@ -188,42 +188,37 @@
                         $video = isset($prod["video"])?$prod["video"]:'';
                         ?>
                 <div class="item">
-                    <div class="list-one detail">
+                    <div class="list-one">
                         <div class="list-pic"><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <?php
                                         if(!empty($video)) {
                                             ?>
-                                <video class="lazy" controls onmouseover="this.play()"
-                                    poster="{:showfile($prod['video_image'])}" onmouseout="this.pause()">
-                                    <source data-src="{:showfile($video)}" type="video/mp4">
+                                <video controls onmouseover="this.play()" poster="{:showfile($prod['video_image'])}"
+                                    onmouseout="this.pause()">
+                                    <source src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
-                                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                                <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                 <?php } ?>
                             </a></div>
+                        <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
+                                class="AjaxTodo">
+                                <svg class="icon " aria-hidden="true">
+                                    <use xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
+                                    </use>
+                                </svg>
+                            </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-gouwu1"></use>
+                                </svg>
+                            </a> </div>
                         <div class="list-content"> <a
                                 href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <div class="name">{:$prod['prodname']}</div>
                                 <!-- <h4>{:$prod['prod_features']}</h4> -->
-                                <div class="price">
-                                    <span class="current-price">{:price_label($prod)}</span>
-                                    <div class="list-icon"><a
-                                            href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
-                                            class="AjaxTodo">
-                                            <svg class="icon " aria-hidden="true">
-                                                <use
-                                                    xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
-                                                </use>
-                                            </svg>
-                                        </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                            <svg class="icon" aria-hidden="true">
-                                                <use xlink:href="#icon-gouwu1"></use>
-                                            </svg>
-                                        </a> </div>
-                                </div>
-                            </a>
-                        </div>
+                                <div class="price">{:price_label($prod)}</div>
+                            </a> </div>
                     </div>
                 </div>
                 <?php }  ?>
@@ -245,42 +240,37 @@
                     $video = isset($prod["video"])?$prod["video"]:'';
                 ?>
                 <div class="item">
-                    <div class="list-one detail">
+                    <div class="list-one">
                         <div class="list-pic"><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                <video class="lazy" poster="{:showfile($prod['video_image'])}" controls
-                                    onmouseover="this.play()" onmouseout="this.pause()">
-                                    <source data-src="{:showfile($video)}" type="video/mp4">
+                                <video poster="{:showfile($prod['video_image'])}" controls onmouseover="this.play()"
+                                    onmouseout="this.pause()">
+                                    <source src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
-                                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                                <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                 <?php } ?>
                             </a></div>
-                        <div class="list-content">
-                            <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                        <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
+                                class="AjaxTodo">
+                                <svg class="icon " aria-hidden="true">
+                                    <use xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
+                                    </use>
+                                </svg>
+                            </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-gouwu1"></use>
+                                </svg>
+                            </a> </div>
+                        <div class="list-content"> <a
+                                href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <div class="name">{:$prod['prodname']}</div>
                                 <!-- <h4>{:$prod['prod_features']}</h4> -->
-                                <div class="price">
-                                    <span class="current-price">{:price_label($prod)}</span>
-                                    <div class="list-icon"><a
-                                            href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
-                                            class="AjaxTodo">
-                                            <svg class="icon " aria-hidden="true">
-                                                <use
-                                                    xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
-                                                </use>
-                                            </svg>
-                                        </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                            <svg class="icon" aria-hidden="true">
-                                                <use xlink:href="#icon-gouwu1"></use>
-                                            </svg>
-                                        </a> </div>
-                                </div>
-                            </a>
-                        </div>
+                                <div class="price">{:price_label($prod)}</div>
+                            </a> </div>
                     </div>
                 </div>
                 <?php } ?>
@@ -599,6 +589,7 @@ function checkedAndLeftOptions(ids) {
 
         attris = '|' + slv.attrs + '|';
 
+        //if(attris.indexOf(selectedActive) !== -1) {
         if (isContained(_attris, checkedOp)) {
             $.each(ids, function(i, k) {
                 if (attris.indexOf('|' + k + '|') !== -1 && slv.stock > 0) {
