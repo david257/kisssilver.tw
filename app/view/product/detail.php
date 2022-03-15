@@ -640,6 +640,10 @@ function checkStock(voptions) {
     })
 }
 
+$("#AddtoCart").click(function() {
+    console.log(123)
+})
+
 // $("#AddtoCart").click(function() {
 //     var totalAttris = $(".goods_attr").length;
 //     var checkedAttris = $(".goods_attr li.active").length;

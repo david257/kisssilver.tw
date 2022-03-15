@@ -38,10 +38,6 @@ $(".DialogForm").on("click", function() {
     return false;
 })
 
-$("#AddtoCart").click(function() {
-    console.log(123)
-})
-
 $(".AjaxTodo").on("click", function() {
     var url = $(this).attr("href");
     var tip_text = $(this).attr("data-tip");
