@@ -38,12 +38,12 @@
                     <div id="detail" class="slider-pro detail-p">
                         <div class="sp-slides" id="original">
                             <?php
-                            if(!empty($product["video"])) {
+                            if(isset($product["video"]) && !empty($product["video"])) {
                             ?>
                             <div class="sp-slide">
-                                <video controls onmouseover="this.play()" poster="{:showfile($product['video_image'])}"
-                                    onmouseout="this.pause()">
-                                    <source src="{:showfile($product['video'])}" type="video/mp4">
+                                <video class="lazy" controls onmouseover="this.play()"
+                                    poster="{:showfile($product['video_image'])}" onmouseout="this.pause()">
+                                    <source data-src="{:showfile($product['video'])}" type="video/mp4">
                                 </video>
                             </div>
                             <?php } ?>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="sp-thumbnails">
                             <?php
-                            if(!empty($product["video"])) {
+                            if(isset($product["video"]) && !empty($product["video"])) {
                                 if(!empty($product["video_image"])) {
                             ?>
                             <div class="sp-thumbnail"><img src="{:showfile($product['video_image'])}" /></div>
@@ -99,10 +99,13 @@
                         </div>
                         <div class="ps-btn row col-xs-12 col-md-12 no-gutter">
                             <div class="col-xs-9 col-md-9">
-                                <div class="detail-cart"><button id="AddtoCart" class="detail-cart-btn">加入購物車<svg
-                                            class="icon" aria-hidden="true">
+                                <div class="detail-cart">
+                                    <button id="AddtoCart" class="detail-cart-btn">加入購物車
+                                        <svg class="icon" aria-hidden="true">
                                             <use xlink:href="#icon-ziyuan"></use>
-                                        </svg></button></div>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                             <div class="col-xs-3 col-md-3">
                                 <div href="{:front_link('Wishlist/add', ['prodid' => $product['prodid']])}"
@@ -188,37 +191,42 @@
                         $video = isset($prod["video"])?$prod["video"]:'';
                         ?>
                 <div class="item">
-                    <div class="list-one">
+                    <div class="list-one detail">
                         <div class="list-pic"><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <?php
                                         if(!empty($video)) {
                                             ?>
-                                <video controls onmouseover="this.play()" poster="{:showfile($prod['video_image'])}"
-                                    onmouseout="this.pause()">
-                                    <source src="{:showfile($video)}" type="video/mp4">
+                                <video class="lazy" controls onmouseover="this.play()"
+                                    poster="{:showfile($prod['video_image'])}" onmouseout="this.pause()">
+                                    <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
-                                <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                 <?php } ?>
                             </a></div>
-                        <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
-                                class="AjaxTodo">
-                                <svg class="icon " aria-hidden="true">
-                                    <use xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
-                                    </use>
-                                </svg>
-                            </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-gouwu1"></use>
-                                </svg>
-                            </a> </div>
                         <div class="list-content"> <a
                                 href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <div class="name">{:$prod['prodname']}</div>
                                 <!-- <h4>{:$prod['prod_features']}</h4> -->
-                                <div class="price">{:price_label($prod)}</div>
-                            </a> </div>
+                                <div class="price">
+                                    <span class="current-price">{:price_label($prod)}</span>
+                                    <div class="list-icon"><a
+                                            href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
+                                            class="AjaxTodo">
+                                            <svg class="icon " aria-hidden="true">
+                                                <use
+                                                    xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
+                                                </use>
+                                            </svg>
+                                        </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="#icon-gouwu1"></use>
+                                            </svg>
+                                        </a> </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <?php }  ?>
@@ -240,37 +248,42 @@
                     $video = isset($prod["video"])?$prod["video"]:'';
                 ?>
                 <div class="item">
-                    <div class="list-one">
+                    <div class="list-one detail">
                         <div class="list-pic"><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                <video poster="{:showfile($prod['video_image'])}" controls onmouseover="this.play()"
-                                    onmouseout="this.pause()">
-                                    <source src="{:showfile($video)}" type="video/mp4">
+                                <video class="lazy" poster="{:showfile($prod['video_image'])}" controls
+                                    onmouseover="this.play()" onmouseout="this.pause()">
+                                    <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
-                                <img src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                 <?php } ?>
                             </a></div>
-                        <div class="list-icon"><a href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
-                                class="AjaxTodo">
-                                <svg class="icon " aria-hidden="true">
-                                    <use xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
-                                    </use>
-                                </svg>
-                            </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-gouwu1"></use>
-                                </svg>
-                            </a> </div>
-                        <div class="list-content"> <a
-                                href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                        <div class="list-content">
+                            <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <div class="name">{:$prod['prodname']}</div>
                                 <!-- <h4>{:$prod['prod_features']}</h4> -->
-                                <div class="price">{:price_label($prod)}</div>
-                            </a> </div>
+                                <div class="price">
+                                    <span class="current-price">{:price_label($prod)}</span>
+                                    <div class="list-icon"><a
+                                            href="{:front_link('Wishlist/add', ['prodid' => $prod['prodid']])}"
+                                            class="AjaxTodo">
+                                            <svg class="icon " aria-hidden="true">
+                                                <use
+                                                    xlink:href="#icon-aixin{:in_array($prod['prodid'], $wishlists)?'-active':''}">
+                                                </use>
+                                            </svg>
+                                        </a> <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="#icon-gouwu1"></use>
+                                            </svg>
+                                        </a> </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <?php } ?>
@@ -293,6 +306,57 @@ $('#myTab a').click(function(e) {
 </script>
 <script>
 $(function() {
+    $("#AddtoCart").on("click", function() {
+        var totalAttris = $(".goods_attr").length;
+        var checkedAttris = $(".goods_attr li.active").length;
+        if (checkedAttris < totalAttris) {
+            layer.msg("請選擇規格");
+            return false;
+        }
+
+        var selectedAttrs = [];
+        if (totalAttris > 0) {
+            $.each($(".goods_attr li.active"), function() {
+                selectedAttrs.push($(this).attr("val"))
+            })
+        }
+
+        var cartData = {
+            prodid: {
+                : $product['prodid']
+            },
+            qty: $("#BuyQty").val(),
+            voption: selectedAttrs.join(",")
+        };
+
+        if (cartData.qty <= 0) {
+            layer.msg("請選擇購買數量");
+            return false;
+        }
+
+        $.ajax({
+            url: '{:front_link("Cart/save")}',
+            data: cartData,
+            type: "POST",
+            dataType: "JSON",
+            success: function(json) {
+                if (json.code > 0) {
+                    layer.alert(json.msg, {
+                        icon: 2,
+                        btn: ['確定']
+                    });
+                } else {
+                    layer.alert(json.msg, {
+                        icon: 1,
+                        btn: ['確定'],
+                        end: function() {
+                            location.reload();
+                        }
+                    })
+                }
+            }
+        })
+    })
     $('.owl-carousel').owlCarousel({
         stagePadding: 0,
         loop: true,
@@ -589,7 +653,6 @@ function checkedAndLeftOptions(ids) {
 
         attris = '|' + slv.attrs + '|';
 
-        //if(attris.indexOf(selectedActive) !== -1) {
         if (isContained(_attris, checkedOp)) {
             $.each(ids, function(i, k) {
                 if (attris.indexOf('|' + k + '|') !== -1 && slv.stock > 0) {
@@ -628,57 +691,57 @@ function checkStock(voptions) {
     })
 }
 
-$("#AddtoCart").click(function() {
-    var totalAttris = $(".goods_attr").length;
-    var checkedAttris = $(".goods_attr li.active").length;
-    if (checkedAttris < totalAttris) {
-        layer.msg("請選擇規格");
-        return false;
-    }
+// $("#AddtoCart").click(function() {
+//     var totalAttris = $(".goods_attr").length;
+//     var checkedAttris = $(".goods_attr li.active").length;
+//     if (checkedAttris < totalAttris) {
+//         layer.msg("請選擇規格");
+//         return false;
+//     }
 
-    var selectedAttrs = [];
-    if (totalAttris > 0) {
-        $.each($(".goods_attr li.active"), function() {
-            selectedAttrs.push($(this).attr("val"))
-        })
-    }
+//     var selectedAttrs = [];
+//     if (totalAttris > 0) {
+//         $.each($(".goods_attr li.active"), function() {
+//             selectedAttrs.push($(this).attr("val"))
+//         })
+//     }
 
-    var cartData = {
-        prodid: {
-            : $product['prodid']
-        },
-        qty: $("#BuyQty").val(),
-        voption: selectedAttrs.join(",")
-    };
+//     var cartData = {
+//         prodid: {
+//             : $product['prodid']
+//         },
+//         qty: $("#BuyQty").val(),
+//         voption: selectedAttrs.join(",")
+//     };
 
-    if (cartData.qty <= 0) {
-        layer.msg("請選擇購買數量");
-        return false;
-    }
+//     if (cartData.qty <= 0) {
+//         layer.msg("請選擇購買數量");
+//         return false;
+//     }
 
-    $.ajax({
-        url: '{:front_link("Cart/save")}',
-        data: cartData,
-        type: "POST",
-        dataType: "JSON",
-        success: function(json) {
-            if (json.code > 0) {
-                layer.alert(json.msg, {
-                    icon: 2,
-                    btn: ['確定']
-                });
-            } else {
-                layer.alert(json.msg, {
-                    icon: 1,
-                    btn: ['確定'],
-                    end: function() {
-                        location.reload();
-                    }
-                })
-            }
-        }
-    })
-})
+//     $.ajax({
+//         url: '{:front_link("Cart/save")}',
+//         data: cartData,
+//         type: "POST",
+//         dataType: "JSON",
+//         success: function(json) {
+//             if (json.code > 0) {
+//                 layer.alert(json.msg, {
+//                     icon: 2,
+//                     btn: ['確定']
+//                 });
+//             } else {
+//                 layer.alert(json.msg, {
+//                     icon: 1,
+//                     btn: ['確定'],
+//                     end: function() {
+//                         location.reload();
+//                     }
+//                 })
+//             }
+//         }
+//     })
+// })
 </script>
 </body>
 
