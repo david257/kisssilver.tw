@@ -27,6 +27,7 @@ $setting = $config_setting["setting"];
                                     </svg>
                                     直 播</a></li>
                         </ul>
+                        <?php } ?>
                         <form class="navbar-form navbar-right search" action="{:front_link('Category/search')}">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="keyword"
@@ -38,6 +39,7 @@ $setting = $config_setting["setting"];
                                 </svg>
                             </button>
                         </form>
+                        <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
                         <ul class="nav navbar-nav  navbar-right">
                             <li><a href="{:front_link('Customer/profile')}">
                                     <svg class="icon" aria-hidden="true">
@@ -55,7 +57,8 @@ $setting = $config_setting["setting"];
                                     </svg>
                                     <span class=" ">cart（{:cart_qtys()}）</span></a></li>
                         </ul>
-                        <?php } else { ?>
+                        <?php } ?>
+                        <?php if (is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
