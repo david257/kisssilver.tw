@@ -43,7 +43,7 @@
                             <div class="sp-slide">
                                 <video class="lazy" controls onmouseover="this.play()"
                                     poster="{:showfile($product['video_image'])}" onmouseout="this.pause()">
-                                    <source data-src="{:showfile($product[" video"])}" type="video/mp4">
+                                    <source data-src="{:showfile($product['video'])}" type="video/mp4">
                                 </video>
                             </div>
                             <?php } ?>
