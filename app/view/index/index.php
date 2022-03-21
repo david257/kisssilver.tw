@@ -174,23 +174,23 @@
         <?php } ?>
     </section>
     <?php } else { ?>
-    <?php foreach ($header_four_banners as $banner) { ?>
     <section>
-        <div class="item">
-            <?php
-                        if(strpos($banner['imagefile'], '.mp4') !== false) {
-                            ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <video class="lazy" controls>
-                        <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
-                    </video>
-                </a> </div>
-            <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
-                    <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}"
-                        alt="{:$banner['title']}" /></a> </div>
-            <?php } ?>
-        </div>
+        <?php foreach ($header_four_banners as $banner) { ?>
+            <div class="item">
+                <?php
+                            if(strpos($banner['imagefile'], '.mp4') !== false) {
+                                ?>
+                <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                        <video class="lazy" controls>
+                            <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
+                        </video>
+                    </a> </div>
+                <?php } else { ?>
+                <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                        <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}"
+                            alt="{:$banner['title']}" /></a> </div>
+                <?php } ?>
+            </div>
         <?php } ?>
     </section>
     <?php } ?>
