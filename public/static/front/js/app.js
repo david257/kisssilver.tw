@@ -2,17 +2,17 @@ $(function () {
   // $(".list-pic video")[0].play();
   var bodyw = $("body").width();
   var bwidth = $("body").width();
-  var newsproducw = $(".news-product .list-one").width();
-  $(".news-product .list-one .list-pic img").css({ width: newsproducw });
-  $(".news-product .list-one .list-pic video").css({ width: newsproducw });
+  // var newsproducw = $(".news-product .list-one").width();
+  // $(".news-product .list-one .list-pic img").css({ width: newsproducw });
+  // $(".news-product .list-one .list-pic video").css({ width: newsproducw });
 
-  var hotproductw = $(".hot-product .list-one").width();
-  $(".hot-product .list-one .list-pic img").css({ width: hotproductw });
-  $(".hot-product .list-one .list-pic video").css({ width: hotproductw });
+  // var hotproductw = $(".hot-product .list-one").width();
+  // $(".hot-product .list-one .list-pic img").css({ width: hotproductw });
+  // $(".hot-product .list-one .list-pic video").css({ width: hotproductw });
 
-  var saleproductw = $(".sale-product .list-one").width();
-  $(".sale-product .list-one .list-pic img").css({ width: saleproductw });
-  $(".sale-product .list-one .list-pic video").css({ width: saleproductw });
+  // var saleproductw = $(".sale-product .list-one").width();
+  // $(".sale-product .list-one .list-pic img").css({ width: saleproductw });
+  // $(".sale-product .list-one .list-pic video").css({ width: saleproductw });
   if (bodyw > 768) {
     var locationbg = ($(".hide-xs .location-bg").width() * 600) / 1920;
     $(".hide-xs .location-bg").css({ height: locationbg });

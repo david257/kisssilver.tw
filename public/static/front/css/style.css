@@ -864,7 +864,7 @@ font-size:14px;
 
 
 @media(max-width:768px) {
-.list-one{ width:190px; background:#fff; box-shadow: 0 0 5px #fff; margin:0px; padding:5px; position:relative;}
+.list-one{ width:100%; background:#fff; box-shadow: 0 0 5px #fff; margin:0px; padding:5px; position:relative;}
 .list-one .list-content{ padding:5px; }
 /*.hot-product  .list-one ,*/ .sale-product  .list-one{  margin:0px; padding:5px; box-shadow: 0 0 5px #fff; }
 	.sale-product   [class*='col-']:nth-child(9){ display:block;}
