@@ -837,6 +837,8 @@ font-size:14px;
 .list-one .list-li{height:3px; width:45px; display:block; clear:both; margin:10px auto; background:#cbb100}
 /*.hot-product .list-one .list-content { color:#333; text-align:left; padding-bottom:15px;}*/
 @media(max-width:768px) {
+	.banner{ display:block; margin-bottom:5px; min-height:auto; max-height:auto; }
+	.item{ padding:5px 10px; }
 	.i-title{padding:5px 0; text-align:center;}
 	.i-title h3{ font-weight:normal; font-size:18px; line-height:50px;}
 	.i-title i{height:2px; width:80%; margin:8px auto; display:block; background:#000;}
