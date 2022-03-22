@@ -850,7 +850,7 @@ font-size:14px;
 	.list-one .list-content h5{ font-weight:normal; font-size:12px; color:#666;}
 	.list-one .list-content .price{ font-weight:normal; font-size:14px; color:#333; font-weight:bold;}
 	.list-one .list-content .price .price-tag { display:flex; flex-direction: column;}
-	.list-one .list-pic{ height:235px; }
+	.list-one .list-pic{ height:245px; }
 }
 .owl-nav i{ font-size:36px;}
 .news-product .owl-prev, .hot-product .owl-prev{ position:absolute; left:-40px; top:250px;}
