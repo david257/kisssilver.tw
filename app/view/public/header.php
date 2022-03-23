@@ -130,8 +130,8 @@ $setting = $config_setting["setting"];
                                     <use xlink:href="{:$cate['icon']}"></use>
                                 </svg>
                                 <?php } ?>
-                                {:$cate['catname']}
                             </span>
+                            {:$cate['catname']}
                         </a>
                         <?php
                         if(isset($headerCates[$cate["catid"]]) && !empty($headerCates[$cate["catid"]])) {
