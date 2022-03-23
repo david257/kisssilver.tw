@@ -124,9 +124,11 @@ $setting = $config_setting["setting"];
                             href="{:front_link('Category/index', ['catid' => $cate['catid']])}" data-toggle="dropdown"
                             role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="show-xs">
+                                <?php if(isset($cate['icon'])) ?>
                                 <svg class="icon" aria-hidden="true">
                                     <use xlink:href="{:$cate['icon']}"></use>
                                 </svg>
+                                <?php } ?>
                             </span>{:$cate['catname']}
                         </a>
                         <?php
