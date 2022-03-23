@@ -460,9 +460,7 @@ text-align:center;
 	header{margin-top:40px; height:60px;}
 	.navbar{width: 100% ;}
 	.navbar-header{ position:relative; height:60px; padding:5px;}
-	.navbar-default .navbar-nav > li > a {
-    color: #333;
-}
+	.navbar-default .navbar-nav > li > a { color: #333; padding:6px 12px; display:block; font-size:14px; line-height:20px; }
 .navbar-toggle {
    position:relative;
    z-index:2;
@@ -1560,7 +1558,7 @@ background-color: rgba(255,255,255,0.8);
 }
 
 .navbar-default .navbar-collapse {
- 
+	overflow: hidden;
     padding: 0;
 }
 
