@@ -113,6 +113,7 @@ $setting = $config_setting["setting"];
                             alt="" /></a>
                 </div>
                 <?php } ?>
+                <div class="caption">分類</div>
                 <ul class="top-nav text-center center-block" id="navss">
                     <?php
                     $headerCates = get_all_categories();
@@ -129,7 +130,8 @@ $setting = $config_setting["setting"];
                                     <use xlink:href="{:$cate['icon']}"></use>
                                 </svg>
                                 <?php } ?>
-                            </span>{:$cate['catname']}
+                                {:$cate['catname']}
+                            </span>
                         </a>
                         <?php
                         if(isset($headerCates[$cate["catid"]]) && !empty($headerCates[$cate["catid"]])) {
