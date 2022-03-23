@@ -112,8 +112,8 @@ $setting = $config_setting["setting"];
                     <a class="navbar-brand" href="#"><img src="/static/front/images/logo.png" width="180" height="140"
                             alt="" /></a>
                 </div>
-                <?php } ?>
                 <div class="caption">分類</div>
+                <?php } ?>
                 <ul class="top-nav text-center center-block" id="navss">
                     <?php
                     $headerCates = get_all_categories();
@@ -167,6 +167,7 @@ $setting = $config_setting["setting"];
                     <?php } } ?>
                 </ul>
                 <?php if (is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
+                <div class="caption">其他資訊</div>
                 <ul class="nav navbar-nav">
                     <li><a href="{:front_link('StoreNetwork/index')}">
                             <svg class="icon" aria-hidden="true">
