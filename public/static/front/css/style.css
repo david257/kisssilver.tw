@@ -942,7 +942,7 @@ font-size:14px;
 	margin-top: 3%;
 	text-align:center
 }
-.input-f{border:0; border-bottom:1px solid rgb(102, 102, 102); height:40px; width:100%; background:transparent;}
+.input-f{border: 1px solid rgba(216,216,216,0.45); border-radius: 5px; height:40px; width:100%; background:transparent;}
 
 .location-bg{height:480px; background:no-repeat  left;  background-size:100% 100%  !important;}
 .location-txt{padding:10px 20px; color:#666;}
