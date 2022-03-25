@@ -925,12 +925,13 @@ font-size:14px;
 	color: rgb(74, 78, 92);
 }
 .page-footer dl dd {
-	padding: 5px 0 5px 0;font-size:13px;
+	padding: 5px 0 5px 0;
+	font-size:13px;
+	color: rgb(102, 102, 102)
 }
 .page-footer dl dd a{
     line-height: 2.2;
     font-weight: normal;
-    color: rgb(102, 102, 102);
 }
 .footer-copyright {
 	margin-top: 3%;
