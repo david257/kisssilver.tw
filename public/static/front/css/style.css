@@ -893,6 +893,14 @@ font-size:14px;
 	width: 1200px;
 }
 
+.page-footer>.container-fluid>.footer-container {
+	display: flex;
+	justify-content: space-between;
+}
+.page-footer>.container-fluid>.footer-container>.page-link {
+	display: flex;
+}
+
 .page-footer .fb-container{
 	text-align:center;
 }
