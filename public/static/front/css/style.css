@@ -919,14 +919,18 @@ font-size:14px;
 }
 
 .page-footer dl dt {
-	margin-bottom: 20px;
-	font-size:16px;
+	line-height: 2.2;
+	font-size: 1em;
+	font-weight: 500;
+	color: rgb(74, 78, 92);
 }
 .page-footer dl dd {
 	padding: 5px 0 5px 0;font-size:13px;
 }
 .page-footer dl dd a{
-	color:#333;
+    line-height: 2.2;
+    font-weight: normal;
+    color: rgb(102, 102, 102);
 }
 .footer-copyright {
 	margin-top: 3%;
