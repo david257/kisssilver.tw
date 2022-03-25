@@ -6,7 +6,7 @@
                  <div style="clear:both"></div>
             </div>
             <div class="page-link">
-                <div>
+                <div class="page-container">
                     <?php
                     $pages = get_pages();
                     if(isset($pages[0]) && !empty($pages[0])) {
@@ -24,7 +24,7 @@
                     <?php } } ?>
                     <div style="clear:both"></div>
                 </div>
-                <div class="">
+                <div class="subscribe-container">
                     <form id="footer_subscribe" class="AjaxForm" action="{:front_link('Subscribe/send')}" method="post">
                         <dl class="pull-left">
                             <dt style="margin-bottom:5px;">Kiss-Silver最新消息</dt>

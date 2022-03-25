@@ -901,6 +901,16 @@ font-size:14px;
 	display: flex;
 	flex-direction: column;
 	width: calc(100% - 342px);
+	justify-content: space-between;
+	padding: 0 60px;
+}
+
+.page-footer>.container-fluid>.footer-container>.page-link>.page-container {
+	display:flex;
+}
+
+.page-footer>.container-fluid>.footer-container>.page-link>.subscribe-container {
+	padding-left: 15px;
 }
 
 .page-footer .fb-container{
