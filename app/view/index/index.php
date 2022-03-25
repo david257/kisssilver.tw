@@ -9,13 +9,13 @@
     <section class="banner">
         <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
         <?php foreach ($header_banners as $banner) { ?>
-        <a target="_blank" href="{:$banner['url']}">
+        <a href="{:$banner['url']}">
             <img alt="{:$banner['title']}" src="{:showfile($banner['imagefile'])}" />
         </a>
         <?php } ?>
         <?php } else { ?>
         <?php foreach ($header_banners as $banner) { ?>
-        <a target="_blank" href="{:$banner['url']}">
+        <a href="{:$banner['url']}">
             <img alt="{:$banner['title']}" src="{:showfile($banner['min_imagefile'])}" />
         </a>
         <?php } ?>
@@ -30,14 +30,14 @@
             <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <video class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
 
                 </a> </div>
             <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)"
+            <div class="four-ggpic"> <a href="{:$banner['url']}"><img onload="fadeIn(this)"
                         style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}" />
                 </a> </div>
             <?php } ?>
@@ -51,13 +51,13 @@
             <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <video class="lazy" controls>
                         <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}"
                         alt="{:$banner['title']}" /></a> </div>
             <?php } ?>
@@ -74,13 +74,13 @@
             <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <video class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)"
+            <div class="four-ggpic"> <a href="{:$banner['url']}"><img onload="fadeIn(this)"
                         style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}" />
                 </a> </div>
             <?php } ?>
@@ -94,13 +94,13 @@
             <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <video class="lazy" controls>
                         <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}"
                         alt="{:$banner['title']}" /></a> </div>
             <?php } ?>
@@ -117,13 +117,13 @@
             <?php
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <video class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)"
+            <div class="four-ggpic"> <a href="{:$banner['url']}"><img onload="fadeIn(this)"
                         style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}" />
                 </a> </div>
             <?php } ?>
@@ -137,13 +137,13 @@
             <?php
                     if(strpos($banner['imagefile'], '.mp4') !== false) {
                         ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <video class="lazy" controls>
                         <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
             <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+            <div class="four-ggpic"> <a href="{:$banner['url']}">
                     <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}"
                         alt="{:$banner['title']}" /></a> </div>
             <?php } ?>
@@ -159,14 +159,14 @@
         <div class="item">
             <?php if(strpos($banner['imagefile'], '.mp4') !== false) {?>
             <div class="four-ggpic">
-                <a target="_blank" href="{:$banner['url']}">
+                <a href="{:$banner['url']}">
                     <video class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a>
             </div>
             <?php } else { ?>
-            <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}"><img onload="fadeIn(this)"
+            <div class="four-ggpic"> <a href="{:$banner['url']}"><img onload="fadeIn(this)"
                         style="display:none;" src="{:showfile($banner['imagefile'])}" alt="{:$banner['title']}" /></a>
             </div>
             <?php } ?>
@@ -180,13 +180,13 @@
                 <?php
                             if(strpos($banner['imagefile'], '.mp4') !== false) {
                                 ?>
-                <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                <div class="four-ggpic"> <a href="{:$banner['url']}">
                         <video class="lazy" controls>
                             <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                         </video>
                     </a> </div>
                 <?php } else { ?>
-                <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                <div class="four-ggpic"> <a href="{:$banner['url']}">
                         <img onload="fadeIn(this)" style="display:none;" src="{:showfile($banner['min_imagefile'])}"
                             alt="{:$banner['title']}" /></a> </div>
                 <?php } ?>
@@ -268,11 +268,11 @@
     <section class="index-gg">
         <div class="index-ggp">
             <div class="index-ggp-p">
-                <a target="_blank" href="{$middle_one_banner[0]['url']}">
+                <a href="{$middle_one_banner[0]['url']}">
                     <?php
                     if(strpos($middle_one_banner[0]['imagefile'], '.mp4') !== false) {
                         ?>
-                    <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                    <div class="four-ggpic"> <a href="{:$banner['url']}">
                             <video class="hidden-xs lazy" controls>
                                 <source data-src="{:showfile($middle_one_banner[0]['imagefile'])}" type="video/mp4">
                             </video>
@@ -369,11 +369,11 @@
     <section class="index-gg">
         <div class="index-ggp">
             <div class="index-ggp-p">
-                <a target="_blank" href="{$middle_two_banner[0]['url']}">
+                <a href="{$middle_two_banner[0]['url']}">
                     <?php
                         if(strpos($middle_two_banner[0]['imagefile'], '.mp4') !== false) {
                             ?>
-                    <div class="four-ggpic"> <a target="_blank" href="{:$banner['url']}">
+                    <div class="four-ggpic"> <a href="{:$banner['url']}">
                             <video class="hidden-xs lazy" controls>
                                 <source data-src="{:showfile($middle_two_banner[0]['imagefile'])}" type="video/mp4">
                             </video>
