@@ -899,9 +899,12 @@ font-size:14px;
 }
 .page-footer>.container-fluid>.footer-container>.page-link {
 	display: flex;
+	flex-direction: column;
+	width: calc(100% - 342px);
 }
 
 .page-footer .fb-container{
+	width: 342px;
 	text-align:center;
 }
 
