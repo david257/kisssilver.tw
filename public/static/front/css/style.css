@@ -936,6 +936,7 @@ font-size:14px;
 .page-footer dl dd a{
     line-height: 2.2;
     font-weight: normal;
+	color: rgb(102, 102, 102);
 }
 .footer-copyright {
 	margin-top: 3%;
