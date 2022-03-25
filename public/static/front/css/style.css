@@ -278,7 +278,7 @@ a{ text-decoration:none;}
 	color: #fff;
 }
 .btn-grey{ background:#999; color:#fff;}
-.btn-white{ background:#fff; color:#333; border:1px solid #000;}
+.btn-white{ background:#fff; color:#333; border:1px solid rgb(102, 102, 102);}
 .no-padding{padding:0 !important;}
 
 .container-fluid {
@@ -913,6 +913,10 @@ font-size:14px;
 	padding-left: 15px;
 }
 
+.page-footer>.container-fluid>.footer-container>.page-link>.subscribe-container .subscribe-button {
+	width: 100%;
+}
+
 .page-footer .fb-container{
 	width: 342px;
 	text-align:center;
@@ -927,7 +931,7 @@ font-size:14px;
 .page-footer dl dd {
 	padding: 5px 0 5px 0;
 	font-size:13px;
-	color: rgb(102, 102, 102)
+	color: rgb(102, 102, 102);
 }
 .page-footer dl dd a{
     line-height: 2.2;
@@ -937,7 +941,7 @@ font-size:14px;
 	margin-top: 3%;
 	text-align:center
 }
-.input-f{border:0; border-bottom:1px solid #000; height:40px; width:100%; background:transparent;}
+.input-f{border:0; border-bottom:1px solid rgb(102, 102, 102); height:40px; width:100%; background:transparent;}
 
 .location-bg{height:480px; background:no-repeat  left;  background-size:100% 100%  !important;}
 .location-txt{padding:10px 20px; color:#666;}

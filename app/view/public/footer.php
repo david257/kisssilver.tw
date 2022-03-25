@@ -36,7 +36,7 @@
                                 <input type="text" name="email" placeholder="電子郵件地址" class="input-f">
                             </dd>
                             <dd>
-                                <button onclick="$('#footer_subscribe').submit()" type="button" class="btn btn-white">訂 閱</button>
+                                <button onclick="$('#footer_subscribe').submit()" type="button" class="subscribe-button btn btn-white">訂 閱</button>
                             </dd>
                         </dl>
                     </form>
