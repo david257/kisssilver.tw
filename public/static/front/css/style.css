@@ -943,6 +943,10 @@ font-size:14px;
 	text-align:center
 }
 @media(max-width:768px) { 
+	.page-footer {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
 	.page-footer>.container-fluid {
 		width: auto;
 		flex-direction: column;
