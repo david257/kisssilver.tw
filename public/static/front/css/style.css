@@ -961,6 +961,9 @@ font-size:14px;
 	.page-footer>.container-fluid>.page-link>.page-container>dl { 
 		width: 50%;
 	}
+	.page-footer .fb-container { 
+		width: 356px;
+	}
 }
 .input-f{border: 1px solid rgba(216,216,216); padding-left: 10px; height:40px; width:100%; background:transparent;}
 
