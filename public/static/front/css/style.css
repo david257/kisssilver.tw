@@ -893,6 +893,7 @@ font-size:14px;
 	min-height: 500px;
 	display: flex;
 	justify-content: space-between;
+	padding: 0 5px;
 }
 
 
@@ -908,8 +909,8 @@ font-size:14px;
 	display:flex;
 }
 
-.page-footer>.container-fluid>.page-link>.subscribe-container {
-	padding-left: 15px;
+.page-footer>.container-fluid>.page-link>.page-container>dl {
+	padding: 0;
 }
 
 .page-footer>.container-fluid>.page-link>.subscribe-container .subscribe-button {
