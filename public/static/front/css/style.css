@@ -901,7 +901,7 @@ font-size:14px;
 	flex-direction: column;
 	width: calc(100% - 342px);
 	justify-content: space-between;
-	padding: 0 60px;
+	padding-right: 60px;
 }
 
 .page-footer>.container-fluid>.page-link>.page-container {
@@ -940,6 +940,22 @@ font-size:14px;
 .footer-copyright {
 	margin-top: 3%;
 	text-align:center
+}
+@media(max-width:768px) { 
+	.page-footer>.container-fluid {
+		width: auto;
+		flex-direction: column;
+	}
+	.page-footer>.container-fluid>.page-link { 
+		width: 100%;
+		padding: 0;
+	}
+	.page-footer>.container-fluid>.page-link>.page-container { 
+		flex-wrap: wrap;
+	}
+	.page-footer>.container-fluid>.page-link>.page-container>dl { 
+		width: 50%;
+	}
 }
 .input-f{border: 1px solid rgba(216,216,216); padding-left: 10px; height:40px; width:100%; background:transparent;}
 
