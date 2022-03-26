@@ -1,27 +1,6 @@
 <footer class="page-footer center-on-small-only mt-0">
     <div class="container-fluid">
-        <div class="fb-container">
-            {:isset($setting['common']['fbfans'])?$setting['common']['fbfans']:''}
-             <div style="clear:both"></div>
-        </div>
         <div class="page-link">
-            <div class="subscribe-container">
-                <form id="footer_subscribe" class="AjaxForm" action="{:front_link('Subscribe/send')}" method="post">
-                    <dl class="pull-left">
-                        <dt style="margin-bottom:5px;">Kiss-Silver最新消息</dt>
-                        <dd>搶先了解激動人心的新設計、特別活動、新店開張等更多消息。 </dd>
-                        <dt style="margin-bottom:5px; margin-top:10px;">客服時間</dt>
-                        <dd>周一至周日:15:00~23:00</dd>                            
-                        <dd>
-                            <input type="text" name="email" placeholder="電子郵件地址" class="input-f">
-                        </dd>
-                        <dd>
-                            <button onclick="$('#footer_subscribe').submit()" type="button" class="subscribe-button btn btn-white">訂 閱</button>
-                        </dd>
-                    </dl>
-                </form>
-                <div style="clear:both"></div>
-            </div>
             <div class="page-container">
                 <?php
                 $pages = get_pages();
@@ -40,6 +19,27 @@
                 <?php } } ?>
                 <div style="clear:both"></div>
             </div>
+            <div class="subscribe-container">
+                <form id="footer_subscribe" class="AjaxForm" action="{:front_link('Subscribe/send')}" method="post">
+                    <dl class="pull-left">
+                        <dt style="margin-bottom:5px;">Kiss-Silver最新消息</dt>
+                        <dd>搶先了解激動人心的新設計、特別活動、新店開張等更多消息。 </dd>
+                        <dt style="margin-bottom:5px; margin-top:10px;">客服時間</dt>
+                        <dd>周一至周日:15:00~23:00</dd>                            
+                        <dd>
+                            <input type="text" name="email" placeholder="電子郵件地址" class="input-f">
+                        </dd>
+                        <dd>
+                            <button onclick="$('#footer_subscribe').submit()" type="button" class="subscribe-button btn btn-white">訂 閱</button>
+                        </dd>
+                    </dl>
+                </form>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        <div class="fb-container">
+            {:isset($setting['common']['fbfans'])?$setting['common']['fbfans']:''}
+             <div style="clear:both"></div>
         </div>
     </div>
     <div class="footer-copyright">
