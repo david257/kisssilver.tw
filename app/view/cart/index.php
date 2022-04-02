@@ -259,14 +259,14 @@
 
     <section class="detail-tj">
         <div class="container-fluid">
+            <?php if(!empty($viewed_items)) { ?>
+            <h3>你可能喜歡</h3>
+            <div class="owl-carousel">
                 <?php
-                if(!empty($viewed_items)) {
                     foreach($viewed_items as $prod) {
                         $image = isset($prod['image'])?$prod['image']:'';
                         $image2 = isset($prod['image2'])?$prod['image2']:$image;
                         ?>
-            <h3>你可能喜歡</h3>
-            <div class="owl-carousel">
                 <div class="item">
                     <div class="list-one detail">
                         <div class="list-pic"><a
@@ -296,8 +296,9 @@
                         </div>
                     </div>
                 </div>
-                <?php } } ?>
+                <?php } ?>
             </div>
+            <?php } ?>
         </div>
     </section>
     {include file="public/footer" /}
