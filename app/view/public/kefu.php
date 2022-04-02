@@ -26,7 +26,7 @@
             <use xlink:href="#icon-ins"></use>
         </svg>
     </a>
-    <a href="javascript:void(0)" id="toTop">
+    <a href="javascript:void(0)" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" id="toTop">
         <i class="fa-solid fa-arrow-up"></i>
     </a>
     

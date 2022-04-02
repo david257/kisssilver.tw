@@ -248,6 +248,21 @@ input[type="radio"]:checked:before {
 img{max-width:100%;}
 .kefu{ position:fixed; z-index:999; right:0; bottom:10%;}
 .kefu a{ display:block; font-size:48px;}
+#toTop {
+	display: flex;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.5em;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+	box-shadow: 0.03em 0.05em 0.1em 0 rgb(0 0 0 / 25%);
+	margin-top: 10px;
+}
+#toTop i {
+	font-size: 28px;
+	color: #666;
+}
 .line-b{ position:relative;}
 .line-s{ position:absolute; display:none;width:100px !important; height:100px; right:55px; bottom:-30px; background:#fff; box-shadow: 0 0 5px #666;}
 .line-s:after{content:" "; clear:both; display:block; height:1px; border:8px solid transparents; border-left-color:#fff; z-index:8;  position:absolute; right:-15px; bottom:50px;}
