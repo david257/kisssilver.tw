@@ -46,7 +46,8 @@
 }
 .user-key h1 {
 	font-size: 1.5em;
-	font-weight: bold
+	font-weight: bold;
+	color: #777;
 }
 .user-key a, .emptycart a {
 	color: #428bca;
