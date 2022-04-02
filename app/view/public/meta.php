@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="/static/front/font/iconfont.css">
     <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.4.11">
     <link rel="stylesheet" type="text/css" href="/static/front/dist/assets/owl.carousel.css">
+    <script src="https://kit.fontawesome.com/3df8baf8c9.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/static/front/js/jquery-3.2.1.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180296843-1"></script>
