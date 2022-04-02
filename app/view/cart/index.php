@@ -82,7 +82,9 @@
                                 </div>
                             </div>
                             <hr />
-                            <?php } } ?>
+                            <?php } } else { ?>
+                            <div>購物車目前是空的</div>    
+                            <?php } ?>
                             <div class="cart-send">
                                 <a href="javascript:void(0)" id="CheckoutBtn"
                                     class="btn btn-default no-margin pull-right col-xs-12 col-md-3" title="下一步">下一步<i
