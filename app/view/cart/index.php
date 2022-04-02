@@ -21,7 +21,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 cart-container">
 
                     <div class="user-key">
-                        <h1 class="pull-left">您的購物車<i>共 {:$totalItems} 件</i></h1><a href="#" onclick="history.back(-1)"
+                        <h1 class="pull-left">您的購物車<i>共 {:$totalItems} 件</i></h1><a href="javascript:history.go(-1)"
                             class="pull-right">繼續購物</a>
                         <div class="clearfix"></div>
                     </div>
@@ -87,7 +87,7 @@
                                 <img src="/static/front/images/emptycart.png" />
                                 <div class="message">
                                     <span>您的購物車還未有商品</span>
-                                    <a href="#" onclick="history.back(-1)">繼續購物</a>
+                                    <a href="javascript:history.go(-1)">繼續購物</a>
                                 </div>
                             </div>    
                             <?php } ?>

@@ -260,6 +260,8 @@
 }
 .user-key a {
 	font-size: 1.1em;
+	margin-top: 20px;
+    margin-bottom: 10px;
 }
 .member-form input[type="text"], .member-form input[type="email"], .member-form input[type="tel"] {
 	border: 1px solid #ccc;
