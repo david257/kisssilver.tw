@@ -246,7 +246,7 @@ input[type="radio"]:checked:before {
 	background: #000
 }
 img{max-width:100%;}
-.kefu{ position:fixed; z-index:999; right:0; bottom:10%;}
+.kefu{ position:fixed; z-index:999; right: 10px; bottom:10%;}
 .kefu a{ display:block; font-size:48px;}
 #toTop {
 	display: flex;
