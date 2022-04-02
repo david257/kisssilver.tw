@@ -378,7 +378,13 @@ width:100%;
 	color: #b5b5b5;
     margin: 0 auto;
     font-size: 15px;
+}
+.emptycart .message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	line-height: 1.8;
+	padding-top: 19px;
 }
 .cart-send {
 	padding-top: 5px
