@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="/static/front/css/list.css">
 <link rel="stylesheet" href="/static/front/css/viewer.min.css">
-<link rel="stylesheet" type="text/css" href="/static/front/css/user.css?v=1.5.0">
+<link rel="stylesheet" type="text/css" href="/static/front/css/user.css?v=1.5.1">
 
 {include file="public/kefu" /}
 <div class="index-box">
@@ -85,8 +85,10 @@
                             <?php } } else { ?>
                             <div class="emptycart">
                                 <img src="/static/front/images/emptycart.png" />
-                                <span>您的購物車還未有商品</span>
-                                <a href="#" onclick="history.back(-1)">繼續購物</a>
+                                <div class="message">
+                                    <span>您的購物車還未有商品</span>
+                                    <a href="#" onclick="history.back(-1)">繼續購物</a>
+                                </div>
                             </div>    
                             <?php } ?>
                             <div class="cart-send">

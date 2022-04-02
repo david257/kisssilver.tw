@@ -51,7 +51,6 @@
 .user-key a, .emptycart a {
 	color: #428bca;
     cursor: pointer;
-	text-decoration: none;
 }
 .user-key a:hover, .emptycart a:hover {
 	color: #7ebae3;
@@ -260,7 +259,6 @@
 }
 .user-key a {
 	font-size: 1.1em;
-	text-decoration: underline
 }
 .member-form input[type="text"], .member-form input[type="email"], .member-form input[type="tel"] {
 	border: 1px solid #ccc;
@@ -373,12 +371,14 @@ width:100%;
 }
 .emptycart {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 200px;
 	color: #b5b5b5;
     margin: 0 auto;
     font-size: 15px;
+	line-height: 1.8;
 }
 .cart-send {
 	padding-top: 5px
