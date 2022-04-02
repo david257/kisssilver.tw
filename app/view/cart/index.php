@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="/static/front/css/list.css">
 <link rel="stylesheet" href="/static/front/css/viewer.min.css">
-<link rel="stylesheet" type="text/css" href="/static/front/css/user.css">
+<link rel="stylesheet" type="text/css" href="/static/front/css/user.css?v=1.5.0">
 
 {include file="public/kefu" /}
 <div class="index-box">

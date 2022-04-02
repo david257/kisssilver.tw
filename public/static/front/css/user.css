@@ -48,6 +48,14 @@
 	font-size: 1.5em;
 	font-weight: bold
 }
+.user-key a, .emptycart a {
+	color: #428bca;
+    cursor: pointer;
+	text-decoration: none;
+}
+.user-key a:hover, .emptycart a:hover {
+	color: #7ebae3;
+}
 .location-table {
 	border-top: 1px solid #ccc;
 	border-left: 1px solid #ccc;
@@ -368,6 +376,9 @@ width:100%;
 	justify-content: center;
 	align-items: center;
 	height: 200px;
+	color: #b5b5b5;
+    margin: 0 auto;
+    font-size: 15px;
 }
 .cart-send {
 	padding-top: 5px
