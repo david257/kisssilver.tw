@@ -26,8 +26,8 @@
             <use xlink:href="#icon-ins"></use>
         </svg>
     </a>
-    <!-- <a href="javascript:void(0)" id="toTop"> -->
-        <i class="fa-solid fa-arrow-up-from-line"></i>
-    <!-- </a> -->
+    <a href="javascript:void(0)" id="toTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
     
     </div>
