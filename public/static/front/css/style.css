@@ -272,6 +272,7 @@ img{max-width:100%;}
 .line-b:hover .line-s{ display:block; }
 @media(max-width:768px) {
 .kefu a{ display:block; font-size:40px;}
+#toTop{ font-size: 40px; }
 .line-b{ position:relative;}
 .line-s{ position:absolute; display:none;width:100px !important; height:100px; right:55px; bottom:-30px; background:#fff; box-shadow: 0 0 5px #666;}
 .line-s:after{content:" "; clear:both; display:block; height:1px; border:8px solid transparents; border-left-color:#fff; z-index:8;  position:absolute; right:-15px; bottom:50px;}
