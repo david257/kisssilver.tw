@@ -29,5 +29,13 @@
     <a href="javascript:void(0)" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" id="toTop">
         <i class="fa-solid fa-arrow-up"></i>
     </a>
-    
-    </div>
+</div>
+<script>
+window.onscroll = function () {
+    if (pageYOffset >= 200) {
+        document.getElementById('toTop').style.visibility = "visible";
+    } else {
+ document.getElementById('toTop').style.visibility = "hidden";
+    }
+};
+</script>

@@ -264,6 +264,7 @@ img{max-width:100%;}
 #toTop i {
 	font-size: 20px;
 	color: #666;
+	visibility: hidden;
 }
 .line-b{ position:relative;}
 .line-s{ position:absolute; display:none;width:100px !important; height:100px; right:55px; bottom:-30px; background:#fff; box-shadow: 0 0 5px #666;}
