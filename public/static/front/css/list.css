@@ -1041,7 +1041,7 @@ body {
 .detail-tabs .care ul li {
 	padding: 5px 0
 }
-.detail-tj{padding: 10px 15px}
+.detail-tj{padding: 10px 15px; color:#777}
 .detail-tj>.container-fluid{
 	max-width:1200px;
 }
@@ -1093,12 +1093,7 @@ body {
 	width: 98%!important
 }
 	}
-.detail-tj .owl-item {
-	border-bottom: 2px solid transparent
-}
-.detail-tj .owl-item:hover {
-	border-bottom: 2px solid #000
-}
+
 .container-small {
 	max-width: 1200px;
 	margin: auto

@@ -1,9 +1,9 @@
 {include file="public/meta" /}
 <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="/static/front/css/list.css">
+<link rel="stylesheet" type="text/css" href="/static/front/css/list.css?v=1.5.3">
 <link rel="stylesheet" href="/static/front/css/viewer.min.css">
-<link rel="stylesheet" type="text/css" href="/static/front/css/user.css?v=1.5.2">
+<link rel="stylesheet" type="text/css" href="/static/front/css/user.css?v=1.5.3">
 
 {include file="public/kefu" /}
 <div class="index-box">
@@ -91,11 +91,15 @@
                                 </div>
                             </div>    
                             <?php } ?>
+                            <?php
+                            if(!empty($carts)) {
+                            ?>
                             <div class="cart-send">
                                 <a href="javascript:void(0)" id="CheckoutBtn"
                                     class="btn btn-default no-margin pull-right col-xs-12 col-md-3" title="下一步">下一步<i
                                         class="fa fa-long-arrow-right"></i></a>
                             </div>
+                            <?php } ?>
                             <div class="modal fade" id="delete-shop" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
