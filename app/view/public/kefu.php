@@ -26,9 +26,8 @@
             <use xlink:href="#icon-ins"></use>
         </svg>
     </a>
-    <i class="fa-thin fa-user"></i>
-    <!-- <a href="javascript:void(0)" id="CheckoutBtn" class="btn btn-default no-margin pull-right col-xs-12 col-md-3">
+    <a href="javascript:void(0)" id="toTop">
         <i class="fa-solid fa-arrow-up-from-line"></i>
-    </a> -->
+    </a>
     
     </div>
