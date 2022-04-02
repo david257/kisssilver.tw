@@ -83,7 +83,11 @@
                             </div>
                             <hr />
                             <?php } } else { ?>
-                            <div>購物車目前是空的</div>    
+                            <div class="emptycart">
+                                <img src="/static/front/images/emptycart.png" />
+                                <span>您的購物車還未有商品</span>
+                                <a href="#" onclick="history.back(-1)">繼續購物</a>
+                            </div>    
                             <?php } ?>
                             <div class="cart-send">
                                 <a href="javascript:void(0)" id="CheckoutBtn"

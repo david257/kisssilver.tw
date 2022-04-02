@@ -363,6 +363,12 @@ width:100%;
 .cart-tjbox li {
 	list-style: none
 }
+.emptycart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+}
 .cart-send {
 	padding-top: 5px
 }
