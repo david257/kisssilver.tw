@@ -249,6 +249,8 @@ img{max-width:100%;}
 .kefu{ position:fixed; z-index:999; right: 10px; bottom:10%;}
 .kefu a{ display:block; font-size:48px;}
 #toTop {
+	margin: 0 auto;
+	font-size: 42px;
 	display: flex;
     width: 1em;
     height: 1em;
@@ -268,7 +270,6 @@ img{max-width:100%;}
 .line-s:after{content:" "; clear:both; display:block; height:1px; border:8px solid transparents; border-left-color:#fff; z-index:8;  position:absolute; right:-15px; bottom:50px;}
 .line-b:hover .line-s{ display:block; }
 @media(max-width:768px) {
-	.kefu{ position:fixed; z-index:999; right:0; bottom:0%;}
 .kefu a{ display:block; font-size:40px;}
 .line-b{ position:relative;}
 .line-s{ position:absolute; display:none;width:100px !important; height:100px; right:55px; bottom:-30px; background:#fff; box-shadow: 0 0 5px #666;}
@@ -1611,7 +1612,7 @@ width: 300px;
 padding: 3%;
 z-index: 9993;
 border-color: transparent;
-background-color: rgba(255,255,255,0.8);
+background-color: rgba(255,255,255, .95);
 	display: none;
 	box-shadow: 0 0 0 #000
 }
