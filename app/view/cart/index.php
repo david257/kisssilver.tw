@@ -21,8 +21,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 cart-container">
 
                     <div class="user-key">
-                        <h1 class="pull-left">您的購物車<i>共 {:$totalItems} 件</i></h1><a href="javascript:history.go(-1)"
-                            class="pull-right">繼續購物</a>
+                        <h1 class="pull-left">您的購物車<i>共 {:$totalItems} 件</i></h1>
+                        <?php if(!empty($carts)) { ?>
+                        <a href="javascript:history.go(-1)" class="pull-right">繼續購物</a>
+                        <?php } ?>
                         <div class="clearfix"></div>
                     </div>
                     <div class="cart-tab">
