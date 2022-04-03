@@ -1,11 +1,4 @@
-{include file="public/meta" /}
-<link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/>
-<link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/>
-<link rel="stylesheet" type="text/css" href="/static/front/css/list.css" media="screen"/>
-<link rel="stylesheet" href="/static/front/css/viewer.min.css">
-<style type="text/css">
 
-</style>
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">編輯商品</h4>
@@ -35,7 +28,6 @@
 <div class="modal-footer">
     <button id="AddtoCart" type="button" class="btn btn-primary">儲存更改</button>
 </div>
-{include file="public/js" /}
 <script type="text/javascript" src="/static/front/js/jquery.spinner1.js"></script>
 <script type="text/javascript">
     $('#BuyQty.spinnerExample').spinner({});
