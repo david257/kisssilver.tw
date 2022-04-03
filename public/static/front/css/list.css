@@ -611,7 +611,7 @@ body {
 }
 .spinner {
 	font-size: 1.2em;
-	height: 58px;
+	height: 35px;
 	overflow: hidden;
 *zoom:1;
 	border: 1px solid rgba(21, 21, 21, 0.5);
@@ -630,7 +630,7 @@ body {
 	border: 0;
 	width: 25%;
 	color: #fff;
-	line-height: 56px;
+	line-height: 35px;
 	padding: 0;
 	outline: 0;
 	position: absolute;
