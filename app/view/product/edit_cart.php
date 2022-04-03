@@ -28,14 +28,8 @@
 <div class="modal-footer">
     <button id="AddtoCart" type="button" class="btn btn-primary">儲存更改</button>
 </div>
-<script type="text/javascript" src="/static/front/js/jquery.spinner1.js"></script>
 <script type="text/javascript">
     $('#BuyQty.spinnerExample').spinner({});
-    $('#myTab a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-    })
-
 </script>
 <script>
     var keys = <?php echo isset($voptions['attrvalues'])?toJSON($voptions['attrvalues'], true):'{}';?>;
