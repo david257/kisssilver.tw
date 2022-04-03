@@ -343,6 +343,7 @@ function get_prod_data(cartId, prodid) {
         if (json.code > 0) {
             layer.msg(json.msg);
         } else {
+            console.log('json', json)
             $("#editProd").html(json.html);
         }
     })
