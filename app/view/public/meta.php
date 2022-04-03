@@ -21,7 +21,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" type="text/css" href="/static/front/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/front/font/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.5.1">
+    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.5.3">
     <link rel="stylesheet" type="text/css" href="/static/front/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="/static/front/css/all.min.css">
     <script src="https://kit.fontawesome.com/3df8baf8c9.js" crossorigin="anonymous"></script>

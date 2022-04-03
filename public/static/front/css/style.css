@@ -1608,13 +1608,14 @@ overflow-y: auto;
 }
 .navbar .dropdown-menu {
 	position: absolute;
-top: 50px;
-left: 0;
-width: 300px;
-padding: 3%;
-z-index: 9993;
-border-color: transparent;
-background-color: rgba(247,244,244, .95);
+	top: 50px;
+	left: 0;
+	width: 300px;
+	padding: 3%;
+	z-index: 9993;
+	border-color: transparent;
+	background-color: #fff;
+	box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 	display: none;
 	box-shadow: 0 0 0 #000
 }

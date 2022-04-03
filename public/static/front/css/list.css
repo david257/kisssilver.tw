@@ -671,7 +671,7 @@ body {
 .cart-pic img{ padding-right:5px;}
 .cart-number .spinner {
 	font-size: 1.2em;
-	height: 45px;
+	height: 30px;
 	width: calc(100% - 2px);
 	overflow: hidden;
 *zoom:1;
@@ -700,9 +700,9 @@ body {
 .cart-number .spinner div {
 	border: 0;
 	width: 25%;
-	height: 45px;
+	height: 30px;
 	color: #fff;
-	line-height: 45px;
+	line-height: 30px;
 	padding: 0;
 	outline: 0;
 	position: absolute;
