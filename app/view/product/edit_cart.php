@@ -38,7 +38,7 @@
 {include file="public/js" /}
 <script type="text/javascript" src="/static/front/js/jquery.spinner1.js"></script>
 <script type="text/javascript">
-    $('.spinnerExample').spinner({});
+    $('#BuyQty.spinnerExample').spinner({});
     $('#myTab a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
