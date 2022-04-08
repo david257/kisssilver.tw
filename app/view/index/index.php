@@ -7,7 +7,7 @@
     {include file="public/header" /}
     <?php if(sizeof($header_banners) > 0) { ?>
     <section class="banner">
-        <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?
+        <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
         <?php foreach ($header_banners as $banner) { ?>
         <a href="{:$banner['url']}">
             <img alt="{:$banner['title']}" src="{:showfile($banner['imagefile'])}" />
