@@ -831,6 +831,8 @@ font-size:14px;
 .list-one .list-icon{ display:flex; font-size:24px; color:#333;}
 .list-one .list-icon a{text-decoration:none; padding:5px;}
 .list-one .list-icon a:hover , .list-one .list-icon a.active , .list-one .list-icon a svg.active , .list-one .list-icon a svg.active:last-of-type {  }
+.list-one .list-icon a .icon {transition: all .2s ease;}
+.list-one .list-icon a .icon:hover{transform:scale(1.2)}
 .list-one .list-content { padding:10px;}
 .list-one .list-content .name{ font-size:13px; line-height:20px; height:60px; margin-bottom:5px; overflow:hidden; text-overflow: ellipsis; white-space:normal; text-align:left;}
 .list-one .list-content h4{ font-weight:normal; font-size:14px;}
