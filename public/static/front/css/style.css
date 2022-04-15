@@ -145,6 +145,7 @@ a {
 }
 a:focus, a:hover {
 	text-decoration: none;
+	color: #000;
 }
 .row.no-gutter {
 	margin-left: 0;
@@ -829,7 +830,7 @@ font-size:14px;
 .list-one .list-pic img, .list-one .list-pic video{max-width:100%; height:100%; object-fit:cover;}
 .list-one .list-icon{ display:flex; font-size:24px; color:#333;}
 .list-one .list-icon a{text-decoration:none; padding:5px;}
-.list-one .list-icon a:hover , .list-one .list-icon a.active , .list-one .list-icon a svg.active , .list-one .list-icon a svg.active:last-of-type { fill: #777; color: #777; }
+.list-one .list-icon a:hover , .list-one .list-icon a.active , .list-one .list-icon a svg.active , .list-one .list-icon a svg.active:last-of-type {  }
 .list-one .list-content { padding:10px;}
 .list-one .list-content .name{ font-size:13px; line-height:20px; height:60px; margin-bottom:5px; overflow:hidden; text-overflow: ellipsis; white-space:normal; text-align:left;}
 .list-one .list-content h4{ font-weight:normal; font-size:14px;}
@@ -863,8 +864,8 @@ font-size:14px;
 .owl-nav i{ font-size:36px;}
 .news-product .owl-prev, .hot-product .owl-prev{ position:absolute; left:-40px; top:250px;}
 .news-product .owl-next, .hot-product .owl-next{ position:absolute; right:-40px; top:250px;}
-
-.index-ggp{ position:relative;}
+.index-gg{ display:flex; justify-content: center;}
+.index-ggp{ max-width:1200px; padding:0 5px;}
 .index-ggp-p img{width:100%;}
 .index-gg-c{ position:absolute; right:5%; top:20%;}
 .index-gg-c h1{ font-weight:normal; font-size:24px;}
