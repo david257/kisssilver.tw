@@ -828,10 +828,9 @@ font-size:14px;
 .list-one .list-pic{ width:100%; height:355px; }
 .list-one .list-pic img, .list-one .list-pic video{max-width:100%; height:100%; object-fit:cover;}
 .list-one .list-icon{ display:flex; font-size:24px; color:#333;}
-.list-one .list-icon a{color:#999; text-decoration:none; padding:5px;}
-.list-one .list-icon a:hover , .list-one .list-icon a.active , .list-one .list-icon a svg.active , .list-one .list-icon a svg.active:last-of-type { fill: red; color: #c80a28; }
+.list-one .list-icon a{text-decoration:none; padding:5px;}
+.list-one .list-icon a:hover , .list-one .list-icon a.active , .list-one .list-icon a svg.active , .list-one .list-icon a svg.active:last-of-type { fill: #777; color: #777; }
 .list-one .list-content { padding:10px;}
-.list-one .list-content a{ color:#777; }
 .list-one .list-content .name{ font-size:13px; line-height:20px; height:60px; margin-bottom:5px; overflow:hidden; text-overflow: ellipsis; white-space:normal; text-align:left;}
 .list-one .list-content h4{ font-weight:normal; font-size:14px;}
 .list-one .list-content h5{ font-weight:normal; font-size:12px; color:#666;}
