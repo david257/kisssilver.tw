@@ -56,7 +56,7 @@
                                         </a>
                                         <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                             <svg class="icon" aria-hidden="true">
-                                                <use xlink:href="#icon-gouwu1"></use>
+                                                <use xlink:href="#icon-gongzuoquyu-5"></use>
                                             </svg>
                                         </a>
                                     </div>
