@@ -1,9 +1,6 @@
 {include file="public/meta" /}
 <!-- <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/> -->
 <!-- <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/> -->
-<canvas id="world" style="position:absolute;left:0;top:0;z-index:-1;"></canvas>
-<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-<script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-6c0149c0-6ba3-75c1-34c9-7af48489ecbb" crossorigin=""></script>
 {include file="public/kefu" /}
 <div class="index-box">
     {include file="public/header" /}
