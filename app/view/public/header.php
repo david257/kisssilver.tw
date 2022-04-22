@@ -5,7 +5,7 @@ $setting = $config_setting["setting"];
 ?>
 <header>
     <nav class="navbar navbar-default">
-    <canvas id="world" style="position:fixed;left:0;top:40px;z-index:-1;width:100%;height:137.63px;"></canvas>
+    <!-- <canvas id="world" style="position:fixed;left:0;top:40px;z-index:-1;width:100%;height:137.63px;"></canvas>
     <script>
     (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
@@ -26,7 +26,7 @@ $setting = $config_setting["setting"];
 
   resizeWindow = function() {
     window.w = canvas.width = window.innerWidth;
-    return window.h = canvas.height = '100%';
+    return window.h = canvas.height = window.innerHeight;
   };
 
   window.addEventListener('resize', resizeWindow, false);
@@ -124,7 +124,7 @@ $setting = $config_setting["setting"];
   step();
 
 }).call(this);
-</script>
+</script> -->
         <div class="nav-container">
             <div class="container-fluid">
                 <div class="nav-top">
