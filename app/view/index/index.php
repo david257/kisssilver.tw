@@ -1,7 +1,6 @@
 {include file="public/meta" /}
 <!-- <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/> -->
 <!-- <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/> -->
-<canvas id="world"></canvas>
 <script>
     (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;

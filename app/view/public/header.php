@@ -4,6 +4,7 @@ $config_setting = get_setting();
 $setting = $config_setting["setting"];
 ?>
 <header>
+    <canvas id="world" style="position:absolute;left:0;top:0;z-index:-1;"></canvas>
     <nav class="navbar navbar-default">
         <div class="nav-container">
             <div class="container-fluid">
