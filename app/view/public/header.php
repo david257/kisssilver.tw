@@ -25,8 +25,8 @@ $setting = $config_setting["setting"];
   window.h = 0;
 
   resizeWindow = function() {
-    window.w =  window.innerWidth;
-    return window.h =  window.innerHeight;
+    window.w = canvas.width = window.innerWidth;
+    return window.h = canvas.height = '100%';
   };
 
   window.addEventListener('resize', resizeWindow, false);
