@@ -5,6 +5,7 @@ $setting = $config_setting["setting"];
 ?>
 <header>
     <nav class="navbar navbar-default">
+    <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
     <canvas id="world" style="position:fixed;left:0;top:40px;z-index:-1;width:100%;"></canvas>
     <script>
     (function() {
@@ -125,6 +126,7 @@ $setting = $config_setting["setting"];
 
 }).call(this);
 </script>
+<?php } ?>
         <div class="nav-container">
             <div class="container-fluid">
                 <div class="nav-top">
