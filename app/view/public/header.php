@@ -6,7 +6,7 @@ $setting = $config_setting["setting"];
 <header>
     <nav class="navbar navbar-default">
     <?php if (!is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"))) { ?>
-    <canvas id="world" style="position:fixed;left:0;top:40px;z-index:-1;width:100%;"></canvas>
+    <!-- <canvas id="world" style="position:fixed;left:0;top:40px;z-index:-1;width:100%;"></canvas>
     <script>
     (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
@@ -125,7 +125,7 @@ $setting = $config_setting["setting"];
   step();
 
 }).call(this);
-</script>
+</script> -->
 <?php } ?>
         <div class="nav-container">
             <div class="container-fluid">
