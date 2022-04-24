@@ -1,17 +1,18 @@
 {include file="public/meta" /}
 <!-- <link rel="stylesheet" type="text/css" href="/static/front/css/slider-pro.min.css" media="screen"/> -->
 <!-- <link rel="stylesheet" type="text/css" href="/static/front/css/examples.css" media="screen"/> -->
-<script>
+<canvas id="confetti" style="position:absolute;left:0;top:0;z-index:-1;"></canvas>
+    <script>
     (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
 
-  NUM_CONFETTI = 350;
+  NUM_CONFETTI = 50;
 
   COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
 
   PI_2 = 2 * Math.PI;
 
-  canvas = document.getElementById("world");
+  canvas = document.getElementById("confetti");
 
   context = canvas.getContext("2d");
 
