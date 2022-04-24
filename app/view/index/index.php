@@ -6,7 +6,7 @@
     (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
 
-  NUM_CONFETTI = 50;
+  NUM_CONFETTI = 200;
 
   COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
 
@@ -22,7 +22,7 @@
 
   resizeWindow = function() {
     window.w = canvas.width = window.innerWidth;
-    return window.h = canvas.height = window.innerHeight;
+    return window.h = canvas.height = document.body.scrollHeight;
   };
 
   window.addEventListener('resize', resizeWindow, false);
