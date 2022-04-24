@@ -21,8 +21,13 @@
   window.h = 0;
 
   resizeWindow = function() {
+    var body = document.body,
+    html = document.documentElement;
+
+    var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
     window.w = canvas.width = window.innerWidth;
-    return window.h = canvas.height = document.body.scrollHeight;
+    return window.h = canvas.height = height;
   };
 
   window.addEventListener('resize', resizeWindow, false);
