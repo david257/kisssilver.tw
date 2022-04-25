@@ -42,9 +42,9 @@ class StockChangeNotify extends Command
                 $productlist = Db::name("view_product_stocks")->where("prodcode|scode", "in", $prodCodes)->select();
                 if (!empty($productlist)) {
                     foreach ($productlist as $prod) {
-                        if (isset($products[$prod["prodcode"]])) {
+                        if (isset($products[$prod["prodcode"]]["name"])) {
                             $products[$prod["prodcode"]]["name"] = $prod["prodname"];
-                        } elseif (isset($products[$prod["scode"]])) {
+                        } elseif (isset($products[$prod["scode"]]["name"])) {
                             $products[$prod["scode"]]["name"] = $prod["prodname"];
                         }
                     }
