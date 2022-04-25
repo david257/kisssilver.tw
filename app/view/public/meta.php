@@ -21,7 +21,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" type="text/css" href="/static/front/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/front/font/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.5.8">
+    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css?v=1.5.9">
     <link rel="stylesheet" type="text/css" href="/static/front/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="/static/front/css/all.min.css">
     <script src="https://kit.fontawesome.com/3df8baf8c9.js" crossorigin="anonymous"></script>
@@ -47,7 +47,7 @@
 </head>
 
 <body>
-<canvas id="confetti" style="position:absolute;left:0;top:0;z-index:-2;"></canvas>
+<canvas id="world" style="position:absolute;left:0;top:0;z-index:-2;"></canvas>
 <script>
     (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
@@ -58,7 +58,7 @@
 
   PI_2 = 2 * Math.PI;
 
-  canvas = document.getElementById("confetti");
+  canvas = document.getElementById("world");
 
   context = canvas.getContext("2d");
 
