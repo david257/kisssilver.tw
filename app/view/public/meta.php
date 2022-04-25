@@ -47,7 +47,7 @@
 </head>
 
 <body>
-<canvas id="world" style="position:absolute;left:0;top:0;z-index:-2;"></canvas>
+<canvas id="world" style="position:absolute;left:0;top:0;z-index:-1;"></canvas>
 <script>
     (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
