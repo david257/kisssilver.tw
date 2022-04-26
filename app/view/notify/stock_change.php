@@ -8,13 +8,14 @@
 	</tr>
 	<?php
 	if(!empty($products)) {
-		foreach($products as $v) {
+		foreach($products as $sku => $v) {
+			if(isset($v['name'])) {
 	?>
 	<tr>
-		<td>{$v['sku']}</td>
+		<td>{$sku}</td>
 		<td>{$v['name']}</td>
         <td style="text-align: center">{$v['sync_before_qty']}</td>
         <td style="text-align: center">{$v['sync_after_qty']}</td>
 	</tr>
-	<?php } } ?>
+	<?php } } } ?>
 </table>
