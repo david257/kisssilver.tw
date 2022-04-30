@@ -572,6 +572,9 @@ z-index: 1;
 	padding-left:5px;
 	display: block;
 }
+.top-nav li a:nth-child(2) {
+	color: #ba474f;
+}
 .top-nav li a i{ font-style:normal; display:none}
 .top-nav li a:hover>i{ font-style:normal; display:inline}
 .top-nav li a:hover ,.top-nav li:hover>a {
