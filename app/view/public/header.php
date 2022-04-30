@@ -148,6 +148,10 @@ $setting = $config_setting["setting"];
                                         <use xlink:href="#icon-tubiaozhizuomoban-"></use>
                                     </svg>
                                     直 播</a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/KissSilver/posts/2274314802721364">
+                                    <svg class="icon" aria-hidden="true">
+                                    </svg>
+                                    工作機會</a></li>
                         </ul>
                         <?php } ?>
                         <form class="navbar-form navbar-right search" action="{:front_link('Category/search')}">
