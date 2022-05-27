@@ -829,7 +829,7 @@ font-size:14px;
 .list-one:hover{ transform: translateY(-2px); box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.35);}
 /*.hot-product  .list-one , */.sale-product  .list-one{ background:#fff; position:relative; text-align:center; margin: 5px 0;}
 .sale-product  [class*='col-']:nth-child(9){ /*display:none;*/}
-.list-one .list-pic{ width:100%; height:310px; border-radius:4px; overflow:hidden }
+.list-one .list-pic{ width:100%; height:317px; border-radius:4px; overflow:hidden }
 .list-one .list-pic img, .list-one .list-pic video{max-width:100%; height:100%; object-fit:cover;}
 .list-one .list-icon{ display:flex; font-size:24px; color:#333;}
 .list-one .list-icon a{text-decoration:none; padding:5px;}
