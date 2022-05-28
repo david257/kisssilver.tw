@@ -47,6 +47,7 @@
 </head>
 <script>
   window.getAverageRGB = function(imgEl) {
+    console.log('imgEl', imgEl)
     var blockSize = 5, // only visit every 5 pixels
         defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
         canvas = document.createElement('canvas'),
