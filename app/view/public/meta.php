@@ -47,7 +47,6 @@
 </head>
 <script>
   window.getAverageRGB = function(imgEl) {
-    console.log('imgEl', imgEl)
     var blockSize = 5, // only visit every 5 pixels
         defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
         canvas = document.createElement('canvas'),
@@ -87,7 +86,7 @@
     rgb.r = ~~(rgb.r/count);
     rgb.g = ~~(rgb.g/count);
     rgb.b = ~~(rgb.b/count);
-    imgEl.closest('list-pic').style.backgroundColor = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
+    imgEl.closest('.list-pic').style.backgroundColor = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
     // return rgb;
     
 }
