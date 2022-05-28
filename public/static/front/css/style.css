@@ -376,8 +376,9 @@ header{margin-top:40px; height:140px;}
     z-index: 999;}
 
 .navbar-default {
+	backdrop-filter: blur(40px);
 	border-color: transparent;
-	background-color: rgba(255,255,255,0.9);
+	background-color: rgba(255,255,255,0.6);
 }
 .nav-top {
 	position: relative;
@@ -871,6 +872,7 @@ font-size:14px;
 .news-product .owl-next, .hot-product .owl-next{ position:absolute; right:-40px; top:250px;}
 .index-gg{ display:flex; justify-content: center;}
 .index-ggp{ max-width:1200px; padding:0 5px;}
+.index-ggp-p{ border-radius: 8px; overflow: hidden;}
 .index-ggp-p img{width:100%;}
 .index-gg-c{ position:absolute; right:5%; top:20%;}
 .index-gg-c h1{ font-weight:normal; font-size:24px;}
@@ -1619,7 +1621,7 @@ overflow-y: auto;
 	padding: 3%;
 	z-index: 9993;
 	border-color: transparent;
-	background-color: rgba(255,255,255,.9);
+	background-color: rgba(255,255,255,.95);
 	box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 	display: none;
 }

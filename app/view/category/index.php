@@ -181,10 +181,10 @@
                             <?php
                                 if(!empty($video)) {
                                 ?>
-                            <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
+                            <a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}"><video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
                                 playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()">
                                 <source data-src="{:showfile($video)}" type="video/mp4">
-                            </video>
+                            </video></a>
                             <?php } else { ?><a href="{:front_link('Product/detail', ['prodid' => $prod['prodid']])}">
                                 <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" /></a>
