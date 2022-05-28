@@ -322,7 +322,7 @@
                                     <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
                                 <?php } else { ?>
-                                <img class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
+                                <img onload="getAverageRGB(this)" class="img lazy" data-src="{$image}" onMouseOvers="javascript:this.src='{$image2}'"
                                     onMouseOutw="javascript:this.src='{$image}'" alt="" />
                                 <?php } ?>
                             </a></div>
