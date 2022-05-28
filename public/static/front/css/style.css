@@ -1819,6 +1819,16 @@ font-weight: bold;
 	justify-content: center;
 }
 
+.index-one-gg .item:first-child, .index-two-gg .item:first-child, .index-three-gg .item:first-child, index-four-gg .item:first-child {
+	border-radius: 8px 0 0 8px;
+	overflow: hidden;
+}
+
+.index-one-gg .item:last-child, .index-two-gg .item:last-child, .index-three-gg .item:last-child, index-four-gg .item:last-child {
+	border-radius: 0 8px 8px 0;
+	overflow: hidden;
+}
+
 .index-three-gg img {
 	min-width:400px;
 	width:400px;
