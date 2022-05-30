@@ -30,7 +30,11 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a href="{:$banner['url']}">
-                    <video class="lazy" controls>
+                    <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
 
@@ -51,7 +55,11 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a href="{:$banner['url']}">
-                    <video class="lazy" controls>
+                    <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                         <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
@@ -74,7 +82,11 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a href="{:$banner['url']}">
-                    <video class="lazy" controls>
+                    <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
@@ -94,7 +106,11 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a href="{:$banner['url']}">
-                    <video class="lazy" controls>
+                    <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                         <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
@@ -117,7 +133,11 @@
                         if(strpos($banner['imagefile'], '.mp4') !== false) {
                             ?>
             <div class="four-ggpic"> <a href="{:$banner['url']}">
-                    <video class="lazy" controls>
+                    <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
@@ -137,7 +157,11 @@
                     if(strpos($banner['imagefile'], '.mp4') !== false) {
                         ?>
             <div class="four-ggpic"> <a href="{:$banner['url']}">
-                    <video class="lazy" controls>
+                    <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                         <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                     </video>
                 </a> </div>
@@ -159,7 +183,11 @@
             <?php if(strpos($banner['imagefile'], '.mp4') !== false) {?>
             <div class="four-ggpic">
                 <a href="{:$banner['url']}">
-                    <video class="lazy" controls>
+                    <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                         <source data-src="{:showfile($banner['imagefile'])}" type="video/mp4">
                     </video>
                 </a>
@@ -180,7 +208,11 @@
                             if(strpos($banner['imagefile'], '.mp4') !== false) {
                                 ?>
                 <div class="four-ggpic"> <a href="{:$banner['url']}">
-                        <video class="lazy" controls>
+                        <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" controls>
                             <source data-src="{:showfile($banner['min_imagefile'])}" type="video/mp4">
                         </video>
                     </a> </div>
@@ -213,8 +245,11 @@
                                 <?php
                                         if(!empty($video)) {
                                             ?>
-                                <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
-                                    playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
+                                <video class="lazy"  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()"
                                     poster="{:showfile($prod['video_image'])}">
                                     <source data-src="{:showfile($video)}" type="video/mp4">
                                 </video>
@@ -272,10 +307,18 @@
                     if(strpos($middle_one_banner[0]['imagefile'], '.mp4') !== false) {
                         ?>
                     <div class="four-ggpic"> <a href="{:$banner['url']}">
-                            <video class="hidden-xs lazy" controls>
+                            <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="hidden-xs lazy" controls>
                                 <source data-src="{:showfile($middle_one_banner[0]['imagefile'])}" type="video/mp4">
                             </video>
-                            <video class="hidden show-xs lazy" controls>
+                            <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="hidden show-xs lazy" controls>
                                 <source data-src="{:showfile($middle_one_banner[0]['min_imagefile'])}" type="video/mp4">
                             </video>
                         </a> </div>
@@ -316,7 +359,11 @@
                                 <?php
                                         if(!empty($video)) {
                                             ?>
-                                <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
+                                <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
                                     playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
                                     poster="{:showfile($prod['video_image'])}">
                                     <source data-src="{:showfile($video)}" type="video/mp4">
@@ -373,10 +420,18 @@
                         if(strpos($middle_two_banner[0]['imagefile'], '.mp4') !== false) {
                             ?>
                     <div class="four-ggpic"> <a href="{:$banner['url']}">
-                            <video class="hidden-xs lazy" controls>
+                            <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="hidden-xs lazy" controls>
                                 <source data-src="{:showfile($middle_two_banner[0]['imagefile'])}" type="video/mp4">
                             </video>
-                            <video class="hidden show-xs lazy" controls>
+                            <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="hidden show-xs lazy" controls>
                                 <source data-src="{:showfile($middle_two_banner[0]['min_imagefile'])}" type="video/mp4">
                             </video>
                         </a> </div>
@@ -414,7 +469,11 @@
                                 <?php
                                 if(!empty($video)) {
                                     ?>
-                                <video class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
+                                <video  autoplay muted loop 
+x5-video-player-fullscreen="true"
+x5-playsinline
+playsinline
+webkit-playsinline onmouseover="this.play()"  onmouseout="this.pause()" class="lazy" autoplay muted loop x5-video-player-fullscreen="true" x5-playsinline
                                     playsinline webkit-playsinline onmouseover="this.play()" onmouseout="this.pause()"
                                     poster="{:showfile($prod['video_image'])}">
                                     <source data-src="{:showfile($video)}" type="video/mp4">
