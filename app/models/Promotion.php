@@ -179,7 +179,6 @@ class Promotion
 
                     $max_price = current($carts);
 					//get the max price as the fist product
-					print_r($carts);
 					foreach($carts as $cart) {
 						//if(
 					}
