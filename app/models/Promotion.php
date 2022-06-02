@@ -175,9 +175,15 @@ class Promotion
                 if($cart_total_qty>=$overrule["total"]) {
 
                     $cartprodprice = array_sort_columns($carts, "prodprice");
-                    array_multisort($cartprodprice,SORT_ASC, $carts);
+                    array_multisort($cartprodprice,SORT_DESC, $carts);
 
-                    $lower_price = current($carts);
+                    $max_price = current($carts);
+					//get the max price as the fist product
+					print_r($carts);
+					foreach($carts as $cart) {
+						//if(
+					}
+
 
                     $product_price = isset($lower_price["prodprice"])?$lower_price["prodprice"]:0;
                     $sub_total = round($product_price*((100-$overrule["sub_total"])/100))*($cart_total_qty-$overrule["total"]+1);
