@@ -180,8 +180,7 @@ class Promotion
                     $lower_price = current($carts);
 
                     $product_price = isset($lower_price["prodprice"])?$lower_price["prodprice"]:0;
-                    $sub_total = round($product_price*((100-$overrule["sub_total"])/100));
-					$sub_total *= $cart_total_qty-$overrule["total"];
+                    $sub_total = round($product_price*((100-$overrule["sub_total"])/100))*($cart_total_qty-$overrule["total"]);
                     $promotion_rules[] = [
                         "title" => $overrule["title"],
                         "amount" => $sub_total,
@@ -280,8 +279,7 @@ class Promotion
                             $lower_price = current($bindCarts[$ptId]);
 
                             $product_price = isset($lower_price["prodprice"]) ? $lower_price["prodprice"] : 0;
-                            $sub_total = round($product_price * ((100 - $overrule["sub_total"]) / 100));
-							$sub_total *= bind_cart_total_qty[$ptId] - $overrule["total"];
+                            $sub_total = round($product_price * ((100 - $overrule["sub_total"]) / 100))*($bind_cart_total_qty[$ptId] - $overrule["total"]);
                             $promotion_rules[] = [
                                 "title" => $overrule["title"],
                                 "amount" => $sub_total,
