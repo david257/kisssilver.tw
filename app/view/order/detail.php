@@ -564,10 +564,10 @@
                             </dl>
                         </div>
                     </div>
-                    <?php } } else { ?>
+                    <?php } } ?>
+					<?php if(!$k) { ?>			
 					訂單處理中
 					<?php } ?>
-						sss
                 </div>
 
             </div>
