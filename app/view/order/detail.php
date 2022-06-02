@@ -120,7 +120,7 @@
                                     ?>
                                     {:isset($LogisticsHomeSubTypes[$order['LogisticsSubType']])?$LogisticsHomeSubTypes[$order['LogisticsSubType']]:''}
                                     {:isset($express_types[$order['LogisticsType']])?$express_types[$order['LogisticsType']]:''}
-                                    <?php if($order['LogisticsType'] != "SE") { ?>
+                                    <?php if($order['LogisticsType'] != "SE" && !empty($order['AllPayLogisticsID'])) { ?>
                                     <a href="#logistics" class="btn btn-default btn-sm waves-effect waves-light">物流追蹤</a>
                                     <?php } ?>
                                 </dd>
