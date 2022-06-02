@@ -565,6 +565,7 @@
                         </div>
                     </div>
                     <?php } } ?>
+					<?php echo $k;?>
 					<?php if(!$k) { ?>			
 					訂單處理中
 					<?php } ?>
