@@ -537,6 +537,7 @@
                     $express_types_sub = [];
                     $express_types_sub = array_merge($express_types_sub, LogisticsCVSSubTypes());
                     $express_types_sub = array_merge($express_types_sub, LogisticsHomeSubTypes());
+					$total = 0;
                     foreach ($list as $k => $row) {
                     ?>
                     <div class="location-table row text-center no-gutter">
@@ -564,9 +565,12 @@
                             </dl>
                         </div>
                     </div>
-                    <?php } } ?>
+                    <?php 
+						$total++;
+						} } 
+					?>
 
-					<?php if(empty($list)) { ?>			
+					<?php if(!$total) { ?>			
 					訂單處理中
 					<?php } ?>
                 </div>
