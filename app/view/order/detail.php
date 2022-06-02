@@ -570,7 +570,7 @@
 						} } 
 					?>
 
-					<?php if(!$total) { ?>			
+					<?php if(!$total && $order['order_status']>=0) { ?>			
 					訂單處理中
 					<?php } ?>
                 </div>
