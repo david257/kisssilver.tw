@@ -564,9 +564,9 @@
                             </dl>
                         </div>
                     </div>
-                    <?php } } ?>
-
-
+                    <?php } } else { ?>
+					訂單處理中
+					<?php } ?>
                 </div>
 
             </div>
