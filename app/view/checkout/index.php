@@ -576,7 +576,8 @@
                     layer.msg(json.msg);
                     return false;
                 } else {
-                    document.location.href = json.url;
+                    layer.msg("等待跳轉中...");
+                    window.location.href = json.url;
                 }
 
             },
