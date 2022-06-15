@@ -28,7 +28,7 @@ return [
     // 錯誤顯示信息,非調試模式有效
     'error_message'    => '頁面錯誤！請稍後再試～',
     // 顯示錯誤信息
-    'show_error_msg'   => false,
+    'show_error_msg'   => true,
     //'exception_tmpl'   => \think\facade\App::getAppPath() . 'view/public/404.php',
     'http_exception_template' => [
         404 =>  "/public/static/error/404.html",
