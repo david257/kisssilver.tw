@@ -120,7 +120,7 @@
                                     ?>
                                     {:isset($LogisticsHomeSubTypes[$order['LogisticsSubType']])?$LogisticsHomeSubTypes[$order['LogisticsSubType']]:''}
                                     {:isset($express_types[$order['LogisticsType']])?$express_types[$order['LogisticsType']]:''}
-                                    <?php if($order['LogisticsType'] != "SE" && !empty($order['AllPayLogisticsID'])) { ?>
+                                    <?php if($order['LogisticsType'] != "SE") { ?>
                                     <a href="#logistics" class="btn btn-default btn-sm waves-effect waves-light">物流追蹤</a>
                                     <?php } ?>
                                 </dd>
@@ -537,7 +537,6 @@
                     $express_types_sub = [];
                     $express_types_sub = array_merge($express_types_sub, LogisticsCVSSubTypes());
                     $express_types_sub = array_merge($express_types_sub, LogisticsHomeSubTypes());
-					$total = 0;
                     foreach ($list as $k => $row) {
                     ?>
                     <div class="location-table row text-center no-gutter">
@@ -565,14 +564,9 @@
                             </dl>
                         </div>
                     </div>
-                    <?php 
-						$total++;
-						} } 
-					?>
+                    <?php } } ?>
 
-					<?php if(!$total && $order['order_status']>=0) { ?>			
-					訂單處理中
-					<?php } ?>
+
                 </div>
 
             </div>
