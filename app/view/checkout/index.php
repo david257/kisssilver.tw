@@ -565,6 +565,8 @@
             type: "post",
             dataType: "json",
             data: jsonParams,
+            async: true,
+            timeout: 120000,
             beforeSend: function() {
                 coverbox = layer.load(0, {
                     shade: [0.1,'#fff'] //0.1透明度的白色背景
