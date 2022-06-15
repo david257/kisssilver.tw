@@ -565,6 +565,8 @@
             url: "<?php echo front_link('Checkout/makeOrder');?>",
             type: "post",
             dataType: "json",
+            async: true,
+            timeout: 120000,
             data: jsonParams,
             beforeSend: function() {
                 coverbox = layer.load(0, {
