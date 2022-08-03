@@ -1644,7 +1644,7 @@ overflow-y: auto;
 	left: 0;
 	width: 100%;
 	padding: 3%;
-	height:100%;
+	height:100vh;
 	overflow-y:auto;
 	z-index: 9;
 	background: #fff;
