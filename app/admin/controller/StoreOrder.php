@@ -123,6 +123,14 @@ class StoreOrder extends Base
                         throw new Exception("消費金額輸入錯誤");
                     }
 
+					$qtys = [];
+                    $prodSold = [];
+
+                    $qtys = input("post.qty/a");
+                    if(empty($qtys)) {
+                        throw new Exception("商品未選擇");
+                    }
+
                     $coupon_code = input("coupon_code");
                     $credits = (int) input("credits", 0);
                     $coupon_amount = 0;
@@ -258,13 +266,7 @@ class StoreOrder extends Base
                     }
 
                     //入庫產品
-                    $qtys = [];
-                    $prodSold = [];
-
-                    $qtys = input("post.qty/a");
-                    if(empty($qtys)) {
-                        throw new Exception("商品未選擇");
-                    }
+                    
                     $order_products = [];
                     foreach($qtys as $prodid => $qty) {
                         $optionStr = "";
