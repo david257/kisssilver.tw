@@ -176,7 +176,7 @@ class StoreOrder extends Base
                     }
 
 					if($paid_amount>0 && $creditMoney>$paid_amount) {
-						throw new Exception("您輸入抵扣的紅利點數太多了")
+						throw new Exception("您輸入抵扣的紅利點數太多了");
 					}
 
                     $paid_amount -= $creditMoney;
@@ -432,7 +432,7 @@ class StoreOrder extends Base
                 }
 				
 				if($total_amount>0 && $money>$total_amount) {
-					throw new Exception("您輸入抵扣的紅利點數太多了")
+					throw new Exception("您輸入抵扣的紅利點數太多了");
 				}
 
                 $total_amount -= $money;
