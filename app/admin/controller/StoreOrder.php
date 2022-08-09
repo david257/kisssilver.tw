@@ -169,7 +169,7 @@ class StoreOrder extends Base
 
                        $creditMoney = CreditLog::creditsToMoney($credits);
                        if($creditMoney<=0) {
-                           throw new Exception("紅利點數100點起用");
+                           throw new Exception("紅利點數1點起用");
                        }
 
                        Customer::changeCredits($customerid, -$credits, $ordno, "門店消費抵扣");
@@ -412,9 +412,9 @@ class StoreOrder extends Base
                 $total_amount -= $coupon["amount"];
             }
 
-			if($credits<0) {
-					throw new Exception("紅利點數必須100點起");
-			}
+			//if($credits<0) {
+			//		throw new Exception("紅利點數必須100點起");
+			//}
 
             if($credits>0) {
 
@@ -428,7 +428,7 @@ class StoreOrder extends Base
 
                 $money = CreditLog::creditsToMoney($credits);
                 if($money<1) {
-                    throw new Exception("紅利點數必須100點起");
+                    throw new Exception("紅利點數必須1點起");
                 }
 				
 				if($total_amount>0 && $money>$total_amount) {
