@@ -161,6 +161,12 @@ class StoreOrder extends Base
                     $paid_amount = bcsub($total_amount, $coupon_amount);
                     $creditMoney = 0;
                     if($credits>0) {
+
+					   $customer = Db::name(Customer::$tablename)->where("customerid", $customerid)->find();
+						if($customer['credits']<$credits) {
+							throw new Exception("您的紅利點數不足");
+						}
+
                        $creditMoney = CreditLog::creditsToMoney($credits);
                        if($creditMoney<=0) {
                            throw new Exception("紅利點數100點起用");
@@ -168,6 +174,10 @@ class StoreOrder extends Base
 
                        Customer::changeCredits($customerid, -$credits, $ordno, "門店消費抵扣");
                     }
+
+					if($paid_amount>0 && $creditMoney>$paid_amount) {
+						throw new Exception("您輸入抵扣的紅利點數太多了")
+					}
 
                     $paid_amount -= $creditMoney;
 
@@ -402,11 +412,29 @@ class StoreOrder extends Base
                 $total_amount -= $coupon["amount"];
             }
 
+			if($credits<0) {
+					throw new Exception("紅利點數必須100點起");
+			}
+
             if($credits>0) {
+
+				//check if input credits more than left
+				$customer = Db::name(Customer::$tablename)->where("customerid", $customerid)->find();
+				if($customer['credits']<$credits) {
+					throw new Exception("您的紅利點數不足");
+				}
+
+
+
                 $money = CreditLog::creditsToMoney($credits);
                 if($money<1) {
                     throw new Exception("紅利點數必須100點起");
                 }
+				
+				if($total_amount>0 && $money>$total_amount) {
+					throw new Exception("您輸入抵扣的紅利點數太多了")
+				}
+
                 $total_amount -= $money;
             }
 

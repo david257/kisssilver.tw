@@ -26,7 +26,7 @@
         <div class="card">
 
 	<div class="searchBar">
-        <input type="hidden" name="customerid" value="{:$customer["customerid"]}" />
+        <input type="hidden" id="customerid" name="customerid" value="{:$customer["customerid"]}" />
 		<table id="checkoutform" class="table table-bordered table-striped table-sm table-responsive-sm">
             <tr>
 				<td style="text-align: right; width: 120px;">
@@ -48,7 +48,7 @@
                 <td style="text-align: right">
                     紅利點數餘額：
                 </td>
-                <td>
+                <td id="leftcredits">
                     {:$customer["credits"]}
                 </td>
             </tr>
@@ -134,7 +134,7 @@
 {include file="common/footer" /}
 <script>
     $("#checkoutform input").blur(function() {
-        $.getJSON('{:url("calc")}', {coupon_code: $("#coupon_code").val(), credits:$("#credits").val(), total_amount: $("#total_amount").val()}, function(json) {
+        $.getJSON('{:url("calc")}', {coupon_code: $("#coupon_code").val(), credits:$("#credits").val(), customerid:$("#customerid").val(), total_amount: $("#total_amount").val()}, function(json) {
             if(json.code>0) {
                 layer.msg(json.msg);
                 return false;
@@ -143,6 +143,12 @@
             $("#return_credits").text(json.return_credits);
         })
     })
+
+	$('#credits').keyup(function() {
+		if($(this).val()>$('#leftcredits').text()) {
+			layer.msg("輸入的點數無效");
+		}
+	})
 
     $('#findnow').click(function() {
         $.get('{:url("get_product")}', {prodcode:$('#sku').val()}, function(data) {
