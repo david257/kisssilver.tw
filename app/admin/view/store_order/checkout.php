@@ -74,7 +74,7 @@
                     使用紅利點數：
                 </td>
                 <td>
-                    <input type="number" min="0" step="100" size="50" class="form-control" id="credits" name="credits" value="0" />
+                    <input type="number" min="0" step="1" size="50" class="form-control" id="credits" name="credits" value="0" />
                 </td>
             </tr>
             <tr>
