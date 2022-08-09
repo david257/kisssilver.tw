@@ -145,7 +145,8 @@
     })
 
 	$('#credits').keyup(function() {
-		if($(this).val()>$('#leftcredits').text()) {
+		var leftcredits = parseInt($('#leftcredits').text());
+		if($(this).val()>leftcredits) {
 			layer.msg("輸入的點數無效");
 		}
 	})
