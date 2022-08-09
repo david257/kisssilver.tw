@@ -383,6 +383,7 @@ class StoreOrder extends Base
             $coupon_code = input("coupon_code");
             $credits = (int)input("credits");
             $total_amount = (int)input("total_amount");
+			$customerid = (int) input("customerid", 0);
             if (!empty($coupon_code)) {
                 $coupon = Db::name(Coupon::$tablename)->where("code", $coupon_code)->find();
                 if(empty($coupon)) {
