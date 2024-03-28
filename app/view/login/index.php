@@ -89,11 +89,11 @@
                             </div>
                         </div>
                         <hr />
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <div class="col-sm-12">
                                 <a href="{:url('Oauth/login',['type'=>'facebook'])}" class="btn btn-blue btn-lg col-xs-12 col-md-12 no-margin"><i class="fa fa-facebook-official"></i> 使用facebook帳號登入</a>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <a href="{:url('Oauth/login',['type'=>'google'])}" class="btn abcRioButtonLightBlue"></a>
