@@ -1628,9 +1628,36 @@ function sendSms($phone, $content)
 {
     $config = get_setting();
     $setting = $config["setting"];
-    $url = "https://api.kotsms.com.tw/kotsmsapi-1.php?username=".$setting['sms']['username']."&password=".$setting['sms']['passwd']."&dstaddr=".$phone."&smbody=".urlencode(iconv("utf-8", "big5", $content));
+    /*
+    $url = "https://smsb2c.mitake.com.tw/b2c/mtk/SmSend?username=".$setting['sms']['username']."&password=".$setting['sms']['passwd']."&dstaddr=".$phone."&smbody=".urlencode(iconv("utf-8", "big5", $content));
     \think\facade\Log::write($url);
     $content = file_get_contents($url);
+    \think\facade\Log::write($content);
+    if(stripos($content, "kmsgid") !== false) {
+        $ret = explode('=', $content);
+        return isset($ret[1]) ? trim($ret[1]) : -1;
+    }
+    return -1;
+    */
+    $curl = curl_init();
+    $url = 'https://smsb2c.mitake.com.tw/b2c/mtk/SmSend?';
+    $url .= 'CharsetURL=UTF-8';
+    $data = 'username='.$setting['sms']['username'];
+    $data .= '&password='.$setting['sms']['passwd'];
+    $data .= '&dstaddr='.$phone;
+    $data .= '&smbody='.$content;
+    // 設定curl網址
+    curl_setopt($curl, CURLOPT_URL, $url);
+    // 設定Header
+    curl_setopt($curl, CURLOPT_HTTPHEADER,
+    array("Content-type: application/x-www-form-urlencoded")
+    );
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($curl, CURLOPT_HEADER,0);
+    // 執行
+    $content = curl_exec($curl);
+    curl_close($curl);
     \think\facade\Log::write($content);
     if(stripos($content, "kmsgid") !== false) {
         $ret = explode('=', $content);
