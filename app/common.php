@@ -1646,6 +1646,8 @@ function sendSms($phone, $content)
     $data .= '&password='.$setting['sms']['passwd'];
     $data .= '&dstaddr='.$phone;
     $data .= '&smbody='.$content;
+    \think\facade\Log::write("SMS Request Url: ".$url);
+    \think\facade\Log::write("SMS Request: ".$data);
     // 設定curl網址
     curl_setopt($curl, CURLOPT_URL, $url);
     // 設定Header
@@ -1658,7 +1660,7 @@ function sendSms($phone, $content)
     // 執行
     $content = curl_exec($curl);
     curl_close($curl);
-    \think\facade\Log::write($content);
+    \think\facade\Log::write("SMS Response: ".$content);
     if(stripos($content, "kmsgid") !== false) {
         $ret = explode('=', $content);
         return isset($ret[1]) ? trim($ret[1]) : -1;
