@@ -1639,31 +1639,31 @@ function sendSms($phone, $content)
     }
     return -1;
     */
-    $curl = curl_init();
-    $url = 'https://smsb2c.mitake.com.tw/b2c/mtk/SmSend?';
-    $url .= 'CharsetURL=UTF-8';
-    $data = 'username='.$setting['sms']['username'];
-    $data .= '&password='.$setting['sms']['passwd'];
-    $data .= '&dstaddr='.$phone;
-    $data .= '&smbody='.$content;
-    \think\facade\Log::write("SMS Request Url: ".$url);
-    \think\facade\Log::write("SMS Request: ".$data);
+    $ch = curl_init();
+    $url = 'https://smsb2c.mitake.com.tw/b2c/mtk/SmSend';
+    $data = [
+        "CharsetURL" => "UTF-8",
+        "username" => trim($setting['sms']['username']),
+        "password" => trim($setting['sms']['passwd']),
+        "dstaddr" => trim($phone),
+        "smbody" => $content
+    ];
     // 設定curl網址
-    curl_setopt($curl, CURLOPT_URL, $url);
-    // 設定Header
-    curl_setopt($curl, CURLOPT_HTTPHEADER,
-    array("Content-type: application/x-www-form-urlencoded")
-    );
-    curl_setopt($curl, CURLOPT_POST, 1);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($curl, CURLOPT_HEADER,0);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/x-www-form-urlencoded; charset=utf-8',
+    ));
     // 執行
-    $content = curl_exec($curl);
-    curl_close($curl);
+    $content = curl_exec($ch);
+    curl_close($ch);
     \think\facade\Log::write("SMS Response: ".$content);
-    if(stripos($content, "kmsgid") !== false) {
-        $ret = explode('=', $content);
-        return isset($ret[1]) ? trim($ret[1]) : -1;
+    if(stripos($content, "statuscode=1") !== false) {
+        return 1;
     }
     return -1;
 }
