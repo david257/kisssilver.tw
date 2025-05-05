@@ -1013,7 +1013,7 @@ function send_email($subject, $body, $atta="", $rev=[], $cc=[])
         $mail->CharSet = $mail::CHARSET_UTF8;
         $mail->SMTPDebug = SMTP::DEBUG_OFF;                                 // Enable verbose debug output                           // Set mailer to use SMTP
         $mail->Host = trim($config["host"]);  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = $is_auth?true:false;                               // Enable SMTP authentication
+        $mail->SMTPAuth = PHPMailer::ENCRYPTION_SMTPS;  //$is_auth?true:false;                               // Enable SMTP authentication
         $mail->Username = trim($config["username"]);                 // SMTP username
         $mail->Password = trim($config["password"]);                           // SMTP password
         if(!empty($secure)) {
